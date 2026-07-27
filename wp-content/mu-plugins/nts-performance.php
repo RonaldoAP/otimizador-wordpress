@@ -43,16 +43,60 @@ function nts_tracking_hosts() {
 	);
 }
 
+/**
+ * Analytics de COMPORTAMENTO (gravacao de sessao, mapa de calor).
+ * Nao medem conversao: se algo aqui carregar 2s depois, nenhum relatorio
+ * de campanha muda — so as gravacoes ficam um pouco menos completas.
+ *
+ * Custam caro no TBT: fbevents.js sozinho sao 108 KiB, Clarity 25 KiB.
+ * Desligado por padrao. Para adiar ate a primeira interacao, defina:
+ *   define( 'NTS_DELAY_BEHAVIOR_ANALYTICS', true );
+ */
+function nts_behavior_analytics_hosts() {
+	return apply_filters(
+		'nts_behavior_analytics_hosts',
+		array(
+			'static.hotjar.com',
+			'script.hotjar.com',
+			'clarity.ms',
+			'static.cloudflareinsights.com',
+		)
+	);
+}
+
+function nts_delays_behavior_analytics() {
+	return defined( 'NTS_DELAY_BEHAVIOR_ANALYTICS' ) && NTS_DELAY_BEHAVIOR_ANALYTICS;
+}
+
 function nts_is_tracking_url( $url ) {
 	if ( ! $url ) {
 		return false;
 	}
+
+	// Se o site optou por adiar analytics de comportamento, eles saem
+	// da protecao — mas conversao (GTM, GA4, Ads, Pixel) nunca sai.
+	if ( nts_delays_behavior_analytics() ) {
+		foreach ( nts_behavior_analytics_hosts() as $host ) {
+			if ( false !== stripos( $url, $host ) ) {
+				return false;
+			}
+		}
+	}
+
 	foreach ( nts_tracking_hosts() as $host ) {
 		if ( false !== stripos( $url, $host ) ) {
 			return true;
 		}
 	}
 	return false;
+}
+
+/**
+ * WP Rocket presente? Se sim, ele cuida de defer/delay/minify e o plugin
+ * recua para nao duplicar o trabalho (duas camadas de delay se atrapalham).
+ */
+function nts_has_rocket() {
+	return defined( 'WP_ROCKET_VERSION' ) || function_exists( 'rocket_clean_domain' );
 }
 
 function nts_is_optimizable_request() {
@@ -223,6 +267,11 @@ add_filter(
 			return $tag;
 		}
 
+		// WP Rocket ja aplica defer; nao empilhar duas camadas.
+		if ( nts_has_rocket() ) {
+			return $tag;
+		}
+
 		$never_defer = apply_filters(
 			'nts_never_defer_handles',
 			array( 'jquery-core', 'jquery', 'jquery-migrate' )
@@ -275,6 +324,20 @@ function nts_delayed_patterns() {
 	);
 }
 
+/**
+ * Quando NTS_DELAY_BEHAVIOR_ANALYTICS esta ligado, os hosts de comportamento
+ * entram na lista de adiados.
+ */
+add_filter(
+	'nts_delayed_patterns',
+	function ( $patterns ) {
+		if ( nts_delays_behavior_analytics() ) {
+			$patterns = array_merge( $patterns, nts_behavior_analytics_hosts() );
+		}
+		return $patterns;
+	}
+);
+
 /* -------------------------------------------------------------------------
  * 4. Imagens e iframes
  * ---------------------------------------------------------------------- */
@@ -301,6 +364,76 @@ add_filter(
 		return $attr;
 	},
 	20
+);
+
+/* -------------------------------------------------------------------------
+ * 4b. LCP: preload da imagem do heroi e das fontes
+ *
+ * O PageSpeed acusou dois problemas no LCP desta pagina:
+ *   - "fetchpriority=high precisa ser aplicada"
+ *   - "A solicitacao nao e detectavel no documento inicial"
+ * A imagem do heroi e um background CSS com lazy-load do WP Rocket
+ * (data-rocket-lazy-bg), entao o navegador so a descobre depois do CSS.
+ * O preload abaixo antecipa o download e resolve os dois itens.
+ * ---------------------------------------------------------------------- */
+
+/**
+ * URL absoluta da imagem de fundo do heroi.
+ * Defina em wp-config.php ou via filtro:
+ *   define( 'NTS_LCP_IMAGE', 'https://.../hero.webp' );
+ */
+function nts_lcp_image() {
+	$url = defined( 'NTS_LCP_IMAGE' ) ? NTS_LCP_IMAGE : '';
+	return apply_filters( 'nts_lcp_image', $url );
+}
+
+/**
+ * Fontes que devem ser baixadas em paralelo com o CSS, e nao depois dele.
+ * A cadeia critica mostrava Geist-Regular.woff2 chegando so aos 1.759 ms
+ * porque dependia de post-2070.css.
+ */
+function nts_preload_fonts() {
+	return array_filter( (array) apply_filters( 'nts_preload_fonts', array() ) );
+}
+
+add_action(
+	'wp_head',
+	function () {
+		if ( ! nts_is_optimizable_request() ) {
+			return;
+		}
+
+		$lcp = nts_lcp_image();
+		if ( $lcp ) {
+			printf(
+				'<link rel="preload" as="image" href="%s" fetchpriority="high">' . "\n",
+				esc_url( $lcp )
+			);
+		}
+
+		foreach ( nts_preload_fonts() as $font ) {
+			printf(
+				'<link rel="preload" as="font" type="font/woff2" href="%s" crossorigin>' . "\n",
+				esc_url( $font )
+			);
+		}
+	},
+	1
+);
+
+/**
+ * "Exibicao de fontes": garante font-display:swap para todas as @font-face,
+ * inclusive as que o tema declara sem a propriedade.
+ */
+add_action(
+	'wp_head',
+	function () {
+		if ( ! nts_is_optimizable_request() || ! apply_filters( 'nts_force_font_swap', true ) ) {
+			return;
+		}
+		echo '<style id="nts-font-display">@font-face{font-display:swap!important;}</style>' . "\n";
+	},
+	2
 );
 
 /* -------------------------------------------------------------------------
