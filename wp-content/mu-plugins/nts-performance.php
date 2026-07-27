@@ -378,8 +378,11 @@ add_filter(
  * ---------------------------------------------------------------------- */
 
 /**
- * URL absoluta da imagem de fundo do heroi.
- * Defina em wp-config.php ou via filtro:
+ * URL absoluta da imagem do heroi.
+ *
+ * Nao precisa configurar nada: por padrao o plugin detecta sozinho a
+ * primeira imagem da pagina (background CSS ou <img>) analisando o HTML.
+ * Para forcar uma URL especifica:
  *   define( 'NTS_LCP_IMAGE', 'https://.../hero.webp' );
  */
 function nts_lcp_image() {
@@ -388,38 +391,148 @@ function nts_lcp_image() {
 }
 
 /**
+ * Detecta a primeira imagem "acima da dobra" no HTML ja renderizado.
+ *
+ * Cobre o caso desta pagina: o heroi e um background CSS com lazy-load do
+ * WP Rocket, invisivel para o preload scanner do navegador. Procuramos
+ * tanto em style="" / <style> quanto nos atributos que o Rocket usa para
+ * guardar o valor original enquanto o lazy-load nao dispara.
+ */
+function nts_detect_lcp_image( $html ) {
+	// Analisar so o inicio do documento: o heroi esta sempre ali.
+	$head = substr( $html, 0, 60000 );
+
+	$candidates = array();
+
+	// background-image:url(...) em <style> ou style inline.
+	if ( preg_match_all( '#url\(\s*[\'"]?(https?://[^\'")\s]+\.(?:webp|avif|jpe?g|png))#i', $head, $m ) ) {
+		$candidates = array_merge( $candidates, $m[1] );
+	}
+
+	// Atributos onde o WP Rocket guarda o background original.
+	if ( preg_match_all( '#data-(?:lazy-)?bg(?:-image)?=["\'](?:url\()?[\'"]?(https?://[^\'")\s]+\.(?:webp|avif|jpe?g|png))#i', $head, $m ) ) {
+		$candidates = array_merge( $candidates, $m[1] );
+	}
+
+	// Primeiro <img> real (src ou data-lazy-src do Rocket).
+	if ( preg_match( '#<img\b[^>]*?\b(?:data-lazy-src|src)=["\'](https?://[^"\']+\.(?:webp|avif|jpe?g|png))#i', $head, $m ) ) {
+		$candidates[] = $m[1];
+	}
+
+	foreach ( $candidates as $url ) {
+		// Ignorar tracking pixels, sprites e placeholders.
+		if ( preg_match( '#(1x1|pixel|spacer|placeholder|blank|logo|favicon|data:)#i', $url ) ) {
+			continue;
+		}
+		return $url;
+	}
+
+	return '';
+}
+
+/**
+ * Detecta as fontes woff2 do tema para preload.
+ *
+ * A cadeia critica mostrava Geist-Regular.woff2 so aos 1.759 ms porque
+ * dependia do CSS. Preload quebra essa dependencia.
+ */
+function nts_detect_fonts( $html ) {
+	$found = array();
+
+	if ( preg_match_all( '#url\(\s*[\'"]?(https?://[^\'")\s]+\.woff2)#i', $html, $m ) ) {
+		$found = array_unique( $m[1] );
+	}
+
+	// Preload demais fontes atrasa o resto; duas cobrem regular + bold.
+	return array_slice( array_values( $found ), 0, (int) apply_filters( 'nts_max_preload_fonts', 2 ) );
+}
+
+/**
  * Fontes que devem ser baixadas em paralelo com o CSS, e nao depois dele.
  * A cadeia critica mostrava Geist-Regular.woff2 chegando so aos 1.759 ms
  * porque dependia de post-2070.css.
  */
 function nts_preload_fonts() {
-	return array_filter( (array) apply_filters( 'nts_preload_fonts', array() ) );
+	$fonts = array();
+
+	// Aceita uma lista separada por virgula em wp-config.php:
+	//   define( 'NTS_PRELOAD_FONTS', 'https://.../a.woff2, https://.../b.woff2' );
+	if ( defined( 'NTS_PRELOAD_FONTS' ) && NTS_PRELOAD_FONTS ) {
+		$fonts = array_map( 'trim', explode( ',', NTS_PRELOAD_FONTS ) );
+	}
+
+	return array_filter( (array) apply_filters( 'nts_preload_fonts', $fonts ) );
 }
 
-add_action(
-	'wp_head',
-	function () {
-		if ( ! nts_is_optimizable_request() ) {
-			return;
-		}
+/**
+ * Injeta os preloads logo apos <head>, para que sejam a primeira coisa que
+ * o navegador enxerga. Roda sobre o HTML final, entao ja tem acesso ao CSS
+ * inline e aos atributos de lazy-load que o Rocket produziu.
+ */
+function nts_inject_preloads( $html ) {
+	$links = '';
 
-		$lcp = nts_lcp_image();
-		if ( $lcp ) {
-			printf(
-				'<link rel="preload" as="image" href="%s" fetchpriority="high">' . "\n",
-				esc_url( $lcp )
-			);
-		}
+	$lcp = nts_lcp_image();
+	if ( ! $lcp ) {
+		$lcp = nts_detect_lcp_image( $html );
+	}
+	if ( $lcp ) {
+		$links .= sprintf(
+			'<link rel="preload" as="image" href="%s" fetchpriority="high">',
+			esc_url( $lcp )
+		);
+	}
 
-		foreach ( nts_preload_fonts() as $font ) {
-			printf(
-				'<link rel="preload" as="font" type="font/woff2" href="%s" crossorigin>' . "\n",
-				esc_url( $font )
-			);
-		}
-	},
-	1
-);
+	$fonts = nts_preload_fonts();
+	if ( empty( $fonts ) ) {
+		$fonts = nts_detect_fonts( $html );
+	}
+	foreach ( $fonts as $font ) {
+		$links .= sprintf(
+			'<link rel="preload" as="font" type="font/woff2" href="%s" crossorigin>',
+			esc_url( $font )
+		);
+	}
+
+	if ( '' === $links ) {
+		return $html;
+	}
+
+	return preg_replace( '#(<head[^>]*>)#i', '$1' . $links, $html, 1 );
+}
+
+/**
+ * Tira a imagem do heroi do lazy-load: um recurso LCP com loading=lazy
+ * ou com background adiado nunca sai do vermelho.
+ */
+function nts_unlazy_hero( $html ) {
+	$lcp = nts_lcp_image();
+	if ( ! $lcp ) {
+		$lcp = nts_detect_lcp_image( $html );
+	}
+	if ( ! $lcp ) {
+		return $html;
+	}
+
+	$quoted = preg_quote( $lcp, '#' );
+
+	// <img> do heroi: eager + alta prioridade.
+	$html = preg_replace_callback(
+		'#<img\b[^>]*' . $quoted . '[^>]*>#i',
+		function ( $m ) {
+			$tag = preg_replace( '#\s*loading=["\'][^"\']*["\']#i', '', $m[0] );
+			$tag = preg_replace( '#\s*decoding=["\'][^"\']*["\']#i', '', $tag );
+			if ( false === stripos( $tag, 'fetchpriority' ) ) {
+				$tag = str_replace( '<img', '<img fetchpriority="high" loading="eager"', $tag );
+			}
+			return $tag;
+		},
+		$html,
+		1
+	);
+
+	return $html;
+}
 
 /**
  * "Exibicao de fontes": garante font-display:swap para todas as @font-face,
@@ -593,6 +706,8 @@ add_action(
 					return $html;
 				}
 				$html = nts_strip_extra_tracking( $html );
+				$html = nts_unlazy_hero( $html );
+				$html = nts_inject_preloads( $html );
 				$html = nts_delay_third_party( $html );
 				return $html;
 			}
