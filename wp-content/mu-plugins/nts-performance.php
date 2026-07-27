@@ -408,8 +408,30 @@ function nts_lcp_image() {
  * guardar o valor original enquanto o lazy-load nao dispara.
  */
 function nts_detect_lcp_image( $html ) {
-	// Analisar so o inicio do documento: o heroi esta sempre ali.
-	$head = substr( $html, 0, 60000 );
+	// --- Caminho 1: background lazy do WP Rocket (o caso desta pagina) ---
+	//
+	// O Rocket nao escreve background-image:url() no CSS. Ele marca o
+	// elemento com data-rocket-lazy-bg-<hash> e guarda a URL real numa
+	// variavel CSS --wpr-bg-<hash>: url(...). Casamos pelo hash do
+	// PRIMEIRO elemento marcado, que e o heroi.
+	if ( preg_match( '#data-rocket-lazy-bg-([a-f0-9-]+)=#i', $html, $hash ) ) {
+		if ( preg_match(
+			'#--wpr-bg-' . preg_quote( $hash[1], '#' ) . '\s*:\s*url\(\s*[\'"]?(https?://[^\'")\s]+)#i',
+			$html,
+			$bg
+		) ) {
+			return $bg[1];
+		}
+	}
+
+	// --- Caminho 2: qualquer variavel de background do Rocket ---
+	if ( preg_match( '#--wpr-bg-[a-f0-9-]+\s*:\s*url\(\s*[\'"]?(https?://[^\'")\s]+)#i', $html, $bg ) ) {
+		return $bg[1];
+	}
+
+	// --- Caminho 3: CSS convencional e <img> ---
+	// Janela ampla: o CSS do Elementor empurra o conteudo para longe.
+	$head = substr( $html, 0, 200000 );
 
 	$candidates = array();
 
@@ -521,6 +543,22 @@ function nts_unlazy_hero( $html ) {
 	}
 	if ( ! $lcp ) {
 		return $html;
+	}
+
+	// Heroi com background lazy do Rocket: o preload adianta o download,
+	// mas a pintura ainda esperaria o JS do lazy-load rodar. Aplicamos a
+	// regra de CSS direto, sem depender de JS.
+	//
+	// Aditivo de proposito: nao removemos o atributo data-rocket-lazy-bg,
+	// porque a propria regra do Rocket depende dele — tirar apagaria o
+	// fundo. Nossa regra so antecipa a mesma imagem.
+	if ( preg_match( '#data-rocket-lazy-bg-([a-f0-9-]+)=#i', $html, $hash ) ) {
+		$style = sprintf(
+			'<style id="nts-lcp-bg">[data-rocket-lazy-bg-%1$s]{background-image:url(%2$s)!important}</style>',
+			esc_attr( $hash[1] ),
+			esc_url( $lcp )
+		);
+		$html = preg_replace( '#(</head>)#i', $style . '$1', $html, 1 );
 	}
 
 	$quoted = preg_quote( $lcp, '#' );
