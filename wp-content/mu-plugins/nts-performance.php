@@ -100,6 +100,11 @@ function nts_has_rocket() {
 }
 
 function nts_is_optimizable_request() {
+	// Interruptor geral: define( 'NTS_DISABLE', true ); em wp-config.php
+	// desliga tudo sem precisar desinstalar o plugin.
+	if ( defined( 'NTS_DISABLE' ) && NTS_DISABLE ) {
+		return false;
+	}
 	if ( is_admin() || is_feed() || is_embed() || is_customize_preview() ) {
 		return false;
 	}
@@ -236,7 +241,11 @@ add_action(
 add_action(
 	'wp_enqueue_scripts',
 	function () {
-		if ( ! nts_is_optimizable_request() || ! apply_filters( 'nts_remove_block_css', true ) ) {
+		// DESLIGADO por padrao: e o ajuste que mais quebra layout.
+		// Se o site nao usa blocos Gutenberg no front, ligue com:
+		//   define( 'NTS_REMOVE_BLOCK_CSS', true );
+		$on = defined( 'NTS_REMOVE_BLOCK_CSS' ) && NTS_REMOVE_BLOCK_CSS;
+		if ( ! nts_is_optimizable_request() || ! apply_filters( 'nts_remove_block_css', $on ) ) {
 			return;
 		}
 		wp_dequeue_style( 'wp-block-library' );
@@ -534,20 +543,13 @@ function nts_unlazy_hero( $html ) {
 	return $html;
 }
 
-/**
- * "Exibicao de fontes": garante font-display:swap para todas as @font-face,
- * inclusive as que o tema declara sem a propriedade.
+/*
+ * Nota sobre "Exibicao de fontes" (20 ms no relatorio):
+ * nao da para corrigir daqui. font-display so vale dentro da regra
+ * @font-face original, que pertence ao tema/Elementor — nao existe
+ * override global valido em CSS. Ajuste no CSS do tema ou na opcao de
+ * fontes do Elementor. Sao 20 ms: o menor item da lista.
  */
-add_action(
-	'wp_head',
-	function () {
-		if ( ! nts_is_optimizable_request() || ! apply_filters( 'nts_force_font_swap', true ) ) {
-			return;
-		}
-		echo '<style id="nts-font-display">@font-face{font-display:swap!important;}</style>' . "\n";
-	},
-	2
-);
 
 /* -------------------------------------------------------------------------
  * 5. Reducao de carga no servidor (TTFB)
@@ -604,8 +606,14 @@ function nts_strip_extra_tracking( $html ) {
 	);
 
 	// Snippet inline do GTM de outros containers.
+	//
+	// Deliberadamente restritivo: exige a assinatura do loader oficial
+	// ('gtm.start' + googletagmanager.com/gtm.js) antes de remover.
+	// Uma regex que apagasse qualquer <script> contendo "GTM-" destruiria
+	// bundles inline legitimos que apenas mencionam o ID (dataLayer
+	// customizado, config de consentimento, JS minificado do Rocket).
 	$html = preg_replace_callback(
-		'#<script\b[^>]*>(?:(?!</script>).)*?GTM-[A-Z0-9]+(?:(?!</script>).)*?</script>#is',
+		'#<script\b[^>]*>(?:(?!</script>).)*?gtm\.start(?:(?!</script>).)*?googletagmanager\.com/gtm\.js(?:(?!</script>).)*?</script>#is',
 		function ( $m ) use ( $allowed ) {
 			return ( false !== strpos( $m[0], $allowed ) ) ? $m[0] : '';
 		},
