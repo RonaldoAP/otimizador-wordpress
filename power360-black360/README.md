@@ -124,3 +124,10 @@ automaticamente.
 O layout é responsivo (breakpoints em 1180px, 960px e 720px): os cards
 empilham imagem sobre texto, o grid de pilares vira uma coluna e a barra
 superior vira bloco.
+
+---
+
+> **Nota:** a entrega principal do projeto passou a ser o template do Elementor
+> em [`../elementor/`](../elementor/README.md), montado com Containers e widgets
+> nativos. Este plugin (shortcode) fica mantido como alternativa para sites sem
+> Elementor.
