@@ -47,6 +47,12 @@ python3 build-template.py \
 **3. Importe.** Painel → **Modelos → Modelos salvos → Importar modelos** →
 envie o `.json`.
 
+> O import só existe na biblioteca **local**. Se a tela mostrar abas (Nuvem /
+> Site), selecione a local antes — na aba da nuvem o Elementor responde
+> *"This source does not support import"*. Algumas versões também só aceitam
+> `.zip` no upload; gere um com
+> `zip black360-apresentacao.zip black360-apresentacao.json`.
+
 > Os botões estão com o link provisório `#inscricao`. Troque pelos três botões
 > no editor do Elementor, ou por um find-and-replace no JSON antes de importar.
 
