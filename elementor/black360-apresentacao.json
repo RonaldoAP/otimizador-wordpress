@@ -1,7 +1,7 @@
 {
 	"content": [
 		{
-			"id": "0b9f2c2",
+			"id": "3b2d979",
 			"elType": "container",
 			"settings": {
 				"content_width": "full",
@@ -18,13 +18,13 @@
 				"background_background": "classic",
 				"background_color": "#0D0B11",
 				"background_image": {
-					"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/adriel-retrato.png",
+					"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/hero-bg.webp",
 					"id": "",
 					"source": "library"
 				},
-				"background_position": "bottom right",
+				"background_position": "center center",
 				"background_repeat": "no-repeat",
-				"background_size": "contain",
+				"background_size": "cover",
 				"border_radius": {
 					"unit": "px",
 					"top": "24",
@@ -41,7 +41,7 @@
 			},
 			"elements": [
 				{
-					"id": "3b2d979",
+					"id": "c381765",
 					"elType": "container",
 					"settings": {
 						"content_width": "boxed",
@@ -62,7 +62,7 @@
 					},
 					"elements": [
 						{
-							"id": "5e30d32",
+							"id": "9340aa9",
 							"elType": "container",
 							"settings": {
 								"content_width": "full",
@@ -97,7 +97,7 @@
 							},
 							"elements": [
 								{
-									"id": "cf848b9",
+									"id": "2723ae4",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -130,7 +130,7 @@
 											"elType": "widget",
 											"settings": {
 												"image": {
-													"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-avatar.png",
+													"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-black360.webp",
 													"id": "",
 													"alt": "Escola Black 360",
 													"source": "library"
@@ -139,42 +139,18 @@
 												"align": "left",
 												"width": {
 													"unit": "px",
-													"size": 58,
+													"size": 200,
 													"sizes": []
 												}
 											},
 											"elements": [],
 											"widgetType": "image"
-										},
-										{
-											"id": "2723ae4",
-											"elType": "widget",
-											"settings": {
-												"editor": "<p style=\"margin:0;letter-spacing:-0.05em;\">ESCOLA</p><p style=\"margin:0;font-size:22px;letter-spacing:-0.06em;\"><span style=\"font-weight:200;\">BLACK</span> <span style=\"font-weight:400;\">360</span></p>",
-												"text_color": "#F2EDEB",
-												"align": "left",
-												"typography_typography": "custom",
-												"typography_font_family": "Cutta",
-												"typography_font_size": {
-													"unit": "px",
-													"size": 16.3,
-													"sizes": []
-												},
-												"typography_font_weight": "700",
-												"typography_line_height": {
-													"unit": "em",
-													"size": 1.1,
-													"sizes": []
-												}
-											},
-											"elements": [],
-											"widgetType": "text-editor"
 										}
 									],
 									"isInner": true
 								},
 								{
-									"id": "9340aa9",
+									"id": "6ae26dd",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -221,7 +197,7 @@
 									},
 									"elements": [
 										{
-											"id": "6ae26dd",
+											"id": "cf848b9",
 											"elType": "widget",
 											"settings": {
 												"text": "QUERO ENTRAR NO GRUPO",
@@ -285,7 +261,7 @@
 							"isInner": true
 						},
 						{
-							"id": "c381765",
+							"id": "f89dc02",
 							"elType": "container",
 							"settings": {
 								"content_width": "full",
@@ -314,7 +290,7 @@
 							},
 							"elements": [
 								{
-									"id": "5b2a63c",
+									"id": "5e30d32",
 									"elType": "widget",
 									"settings": {
 										"title": "Apresentações, IA, comunicação, networking e posicionamento.",
@@ -344,7 +320,7 @@
 									"widgetType": "heading"
 								},
 								{
-									"id": "57e2f38",
+									"id": "5b2a63c",
 									"elType": "widget",
 									"settings": {
 										"title": "Tudo em uma única escola",
@@ -374,7 +350,7 @@
 									"widgetType": "heading"
 								},
 								{
-									"id": "0f8e762",
+									"id": "57e2f38",
 									"elType": "widget",
 									"settings": {
 										"editor": "<p>No dia 28 de setembro, o Adriel vai abrir a Escola Power 360 completa: 10 treinamentos, <strong style=\"color:#B0D0F0;\">acesso vitalício e uma condição especial só para alunos.</strong> Quem estiver no grupo vai receber a oferta primeiro.</p>",
@@ -398,7 +374,7 @@
 									"widgetType": "text-editor"
 								},
 								{
-									"id": "f89dc02",
+									"id": "900a64d",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -422,7 +398,7 @@
 									},
 									"elements": [
 										{
-											"id": "05348e4",
+											"id": "40d390b",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -469,7 +445,7 @@
 											},
 											"elements": [
 												{
-													"id": "40d390b",
+													"id": "0f8e762",
 													"elType": "widget",
 													"settings": {
 														"text": "QUERO ENTRAR NO GRUPO",
@@ -530,7 +506,7 @@
 											"isInner": true
 										},
 										{
-											"id": "900a64d",
+											"id": "05348e4",
 											"elType": "widget",
 											"settings": {
 												"title": "28 DE OUTUBRO - 20H - AO VIVO",
@@ -567,7 +543,7 @@
 			"isInner": false
 		},
 		{
-			"id": "8113e91",
+			"id": "be222cb",
 			"elType": "container",
 			"settings": {
 				"content_width": "full",
@@ -593,7 +569,7 @@
 			},
 			"elements": [
 				{
-					"id": "be222cb",
+					"id": "154aa8d",
 					"elType": "container",
 					"settings": {
 						"content_width": "boxed",
@@ -614,7 +590,7 @@
 					},
 					"elements": [
 						{
-							"id": "686e77f",
+							"id": "824885c",
 							"elType": "widget",
 							"settings": {
 								"title": "Apresentação é um dos pilares, mas para subir de nível",
@@ -644,7 +620,7 @@
 							"widgetType": "heading"
 						},
 						{
-							"id": "154aa8d",
+							"id": "686e77f",
 							"elType": "widget",
 							"settings": {
 								"title": "é preciso usar ela de forma 360 na sua carreira:",
@@ -674,7 +650,7 @@
 							"widgetType": "heading"
 						},
 						{
-							"id": "824885c",
+							"id": "ccf9d8e",
 							"elType": "container",
 							"settings": {
 								"content_width": "full",
@@ -698,7 +674,7 @@
 							},
 							"elements": [
 								{
-									"id": "8911649",
+									"id": "ba2c2e4",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -761,7 +737,7 @@
 									},
 									"elements": [
 										{
-											"id": "1261d74",
+											"id": "9558f00",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -804,11 +780,11 @@
 											},
 											"elements": [
 												{
-													"id": "9558f00",
+													"id": "0b9f2c2",
 													"elType": "widget",
 													"settings": {
 														"image": {
-															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/icon-sphere.svg",
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/icon-sphere.png",
 															"id": "",
 															"alt": "",
 															"source": "library"
@@ -828,7 +804,7 @@
 											"isInner": true
 										},
 										{
-											"id": "ba2c2e4",
+											"id": "1261d74",
 											"elType": "widget",
 											"settings": {
 												"editor": "<p>Fazer a apresentação é uma habilidade.</p>",
@@ -855,7 +831,7 @@
 									"isInner": true
 								},
 								{
-									"id": "32ed4d1",
+									"id": "4ff494d",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -918,7 +894,7 @@
 									},
 									"elements": [
 										{
-											"id": "1e822bf",
+											"id": "c5c8c9f",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -961,11 +937,11 @@
 											},
 											"elements": [
 												{
-													"id": "c5c8c9f",
+													"id": "8911649",
 													"elType": "widget",
 													"settings": {
 														"image": {
-															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/icon-sphere.svg",
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/icon-sphere.png",
 															"id": "",
 															"alt": "",
 															"source": "library"
@@ -985,7 +961,7 @@
 											"isInner": true
 										},
 										{
-											"id": "4ff494d",
+											"id": "1e822bf",
 											"elType": "widget",
 											"settings": {
 												"editor": "<p>Defender a sua ideia para seu chefe ou lider é outra.</p>",
@@ -1012,7 +988,7 @@
 									"isInner": true
 								},
 								{
-									"id": "5d0aa0c",
+									"id": "870bfd9",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -1075,7 +1051,7 @@
 									},
 									"elements": [
 										{
-											"id": "15722bd",
+											"id": "34e494e",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -1118,11 +1094,11 @@
 											},
 											"elements": [
 												{
-													"id": "34e494e",
+													"id": "32ed4d1",
 													"elType": "widget",
 													"settings": {
 														"image": {
-															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/icon-sphere.svg",
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/icon-sphere.png",
 															"id": "",
 															"alt": "",
 															"source": "library"
@@ -1142,7 +1118,7 @@
 											"isInner": true
 										},
 										{
-											"id": "870bfd9",
+											"id": "15722bd",
 											"elType": "widget",
 											"settings": {
 												"editor": "<p>Conhecer as pessoas certas sem parecer que você quer tirar proveito é outra.</p>",
@@ -1169,7 +1145,7 @@
 									"isInner": true
 								},
 								{
-									"id": "ccf9d8e",
+									"id": "c37b998",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -1232,7 +1208,7 @@
 									},
 									"elements": [
 										{
-											"id": "ce6b608",
+											"id": "8c6201c",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -1275,11 +1251,11 @@
 											},
 											"elements": [
 												{
-													"id": "8c6201c",
+													"id": "5d0aa0c",
 													"elType": "widget",
 													"settings": {
 														"image": {
-															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/icon-sphere.svg",
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/icon-sphere.png",
 															"id": "",
 															"alt": "",
 															"source": "library"
@@ -1299,7 +1275,7 @@
 											"isInner": true
 										},
 										{
-											"id": "c37b998",
+											"id": "ce6b608",
 											"elType": "widget",
 											"settings": {
 												"editor": "<p>E ser lembrado quando você não está na sala é outra.</p>",
@@ -1335,7 +1311,7 @@
 			"isInner": false
 		},
 		{
-			"id": "1c77085",
+			"id": "753ca0b",
 			"elType": "container",
 			"settings": {
 				"content_width": "full",
@@ -1361,7 +1337,7 @@
 			},
 			"elements": [
 				{
-					"id": "ac1c9bb",
+					"id": "5e3706c",
 					"elType": "container",
 					"settings": {
 						"content_width": "boxed",
@@ -1382,7 +1358,7 @@
 					},
 					"elements": [
 						{
-							"id": "9fc19c0",
+							"id": "8113e91",
 							"elType": "widget",
 							"settings": {
 								"title": "Você recebe:",
@@ -1412,7 +1388,7 @@
 							"widgetType": "heading"
 						},
 						{
-							"id": "ad3ed40",
+							"id": "9fc19c0",
 							"elType": "widget",
 							"settings": {
 								"editor": "<p><strong style=\"color:#B0D0F0;\">Dez treinamentos. Acesso vitalício. Paga uma vez e é seu.</strong> Sem mensalidade, sem renovação, sem data para acabar.</p>",
@@ -1436,7 +1412,7 @@
 							"widgetType": "text-editor"
 						},
 						{
-							"id": "bff1a93",
+							"id": "c57e19a",
 							"elType": "container",
 							"settings": {
 								"content_width": "full",
@@ -1464,7 +1440,7 @@
 							},
 							"elements": [
 								{
-									"id": "c57e19a",
+									"id": "ec2ee67",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -1525,7 +1501,7 @@
 									},
 									"elements": [
 										{
-											"id": "ec2ee67",
+											"id": "c09094b",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -1556,11 +1532,11 @@
 											},
 											"elements": [
 												{
-													"id": "c09094b",
+													"id": "40d5a17",
 													"elType": "widget",
 													"settings": {
 														"image": {
-															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/capa-metodo-power.png",
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/capa-metodo-power.webp",
 															"id": "",
 															"alt": "Método POWER",
 															"source": "library"
@@ -1580,7 +1556,7 @@
 											"isInner": true
 										},
 										{
-											"id": "40d5a17",
+											"id": "f45da95",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -1605,7 +1581,7 @@
 											},
 											"elements": [
 												{
-													"id": "e3c95f5",
+													"id": "ad3ed40",
 													"elType": "widget",
 													"settings": {
 														"title": "Método POWER",
@@ -1630,7 +1606,7 @@
 													"widgetType": "heading"
 												},
 												{
-													"id": "f45da95",
+													"id": "e3c95f5",
 													"elType": "widget",
 													"settings": {
 														"editor": "<p><strong>Formação completa em apresentações, desde o planejamento do conteúdo, narrativas de storytelling, ao design e à entrega.</strong></p><p>A metodologia principal da Power, aprovada pelo MEC e totalmente regravada este ano.</p>",
@@ -1663,7 +1639,7 @@
 							"isInner": true
 						},
 						{
-							"id": "4bae1a3",
+							"id": "acb7689",
 							"elType": "container",
 							"settings": {
 								"content_width": "full",
@@ -1691,7 +1667,7 @@
 							},
 							"elements": [
 								{
-									"id": "acb7689",
+									"id": "1e3df7f",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -1752,7 +1728,7 @@
 									},
 									"elements": [
 										{
-											"id": "1e3df7f",
+											"id": "44091ea",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -1783,11 +1759,11 @@
 											},
 											"elements": [
 												{
-													"id": "44091ea",
+													"id": "db8df20",
 													"elType": "widget",
 													"settings": {
 														"image": {
-															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/apresentacao-ia.png",
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/apresentacao-ia.webp",
 															"id": "",
 															"alt": "IA Apresentações 2.0",
 															"source": "library"
@@ -1807,7 +1783,7 @@
 											"isInner": true
 										},
 										{
-											"id": "db8df20",
+											"id": "720232d",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -1832,7 +1808,7 @@
 											},
 											"elements": [
 												{
-													"id": "9135eb7",
+													"id": "bff1a93",
 													"elType": "widget",
 													"settings": {
 														"title": "IA Apresentações 2.0",
@@ -1857,7 +1833,7 @@
 													"widgetType": "heading"
 												},
 												{
-													"id": "720232d",
+													"id": "9135eb7",
 													"elType": "widget",
 													"settings": {
 														"editor": "<p><strong>Aprenda a usar IA para criar apresentações mais rápido sem cair no resultado genérico.</strong></p><p>Como usar as melhores ferramentas de IA para criar estrutura do conteúdo com storytelling, insumos para apresentação, imagens para criação visual, e até mesmo apresentações inteiras, mas com método para manter qualidade, personalidade e controle do resultado final.</p>",
@@ -1890,7 +1866,7 @@
 							"isInner": true
 						},
 						{
-							"id": "35710eb",
+							"id": "8f79824",
 							"elType": "container",
 							"settings": {
 								"content_width": "full",
@@ -1918,7 +1894,7 @@
 							},
 							"elements": [
 								{
-									"id": "8f79824",
+									"id": "666f178",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -1979,7 +1955,7 @@
 									},
 									"elements": [
 										{
-											"id": "666f178",
+											"id": "aab7688",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -2010,11 +1986,11 @@
 											},
 											"elements": [
 												{
-													"id": "aab7688",
+													"id": "bde02e5",
 													"elType": "widget",
 													"settings": {
 														"image": {
-															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/apresentacoes-express.png",
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/apresentacoes-express.webp",
 															"id": "",
 															"alt": "Apresentações Express",
 															"source": "library"
@@ -2034,7 +2010,7 @@
 											"isInner": true
 										},
 										{
-											"id": "bde02e5",
+											"id": "aef2fec",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -2059,7 +2035,7 @@
 											},
 											"elements": [
 												{
-													"id": "ec718b5",
+													"id": "4bae1a3",
 													"elType": "widget",
 													"settings": {
 														"title": "Apresentações Express",
@@ -2084,7 +2060,7 @@
 													"widgetType": "heading"
 												},
 												{
-													"id": "aef2fec",
+													"id": "ec718b5",
 													"elType": "widget",
 													"settings": {
 														"editor": "<p><strong>Para quando você precisa criar uma boa apresentação em pouco tempo.</strong></p><p>Um processo para sair do zero e chegar a uma apresentação pronta em cerca de uma hora.</p>",
@@ -2117,7 +2093,7 @@
 							"isInner": true
 						},
 						{
-							"id": "c57cf51",
+							"id": "8a5f12f",
 							"elType": "container",
 							"settings": {
 								"content_width": "full",
@@ -2145,7 +2121,7 @@
 							},
 							"elements": [
 								{
-									"id": "8a5f12f",
+									"id": "a5ab3a9",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -2206,7 +2182,7 @@
 									},
 									"elements": [
 										{
-											"id": "a5ab3a9",
+											"id": "6e1be3b",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -2237,11 +2213,11 @@
 											},
 											"elements": [
 												{
-													"id": "6e1be3b",
+													"id": "4d30b01",
 													"elType": "widget",
 													"settings": {
 														"image": {
-															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/mecanismos.png",
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/mecanismos.webp",
 															"id": "",
 															"alt": "Mecanismos de uma Apresentação de Sucesso",
 															"source": "library"
@@ -2261,7 +2237,7 @@
 											"isInner": true
 										},
 										{
-											"id": "4d30b01",
+											"id": "ea665c6",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -2286,7 +2262,7 @@
 											},
 											"elements": [
 												{
-													"id": "b19e903",
+													"id": "35710eb",
 													"elType": "widget",
 													"settings": {
 														"title": "Mecanismos de uma Apresentação de Sucesso",
@@ -2311,7 +2287,7 @@
 													"widgetType": "heading"
 												},
 												{
-													"id": "ea665c6",
+													"id": "b19e903",
 													"elType": "widget",
 													"settings": {
 														"editor": "<p>A caixa-preta das Palestras aberta: por que alguns pitch’s do Shark Tank fecham parcerias, o que faz o Steve Jobs prender a atenção de uma plateia inteira por horas, como foram montadas as apresentações do Thiago Nigro e do Ícaro de Carvalho. Você enxerga o mecanismo que se repete, reconhece e começa a aplicar nas suas apresentações.</p>",
@@ -2344,7 +2320,7 @@
 							"isInner": true
 						},
 						{
-							"id": "3ca5c35",
+							"id": "4ac8735",
 							"elType": "container",
 							"settings": {
 								"content_width": "full",
@@ -2372,7 +2348,7 @@
 							},
 							"elements": [
 								{
-									"id": "4ac8735",
+									"id": "9e5c5f2",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -2433,7 +2409,7 @@
 									},
 									"elements": [
 										{
-											"id": "9e5c5f2",
+											"id": "c91958a",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -2464,11 +2440,11 @@
 											},
 											"elements": [
 												{
-													"id": "c91958a",
+													"id": "fbef3b6",
 													"elType": "widget",
 													"settings": {
 														"image": {
-															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/bussola.png",
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/bussola.webp",
 															"id": "",
 															"alt": "Bússola da Criatividade",
 															"source": "library"
@@ -2488,7 +2464,7 @@
 											"isInner": true
 										},
 										{
-											"id": "fbef3b6",
+											"id": "dfe45ea",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -2513,7 +2489,7 @@
 											},
 											"elements": [
 												{
-													"id": "b679b99",
+													"id": "c57cf51",
 													"elType": "widget",
 													"settings": {
 														"title": "Bússola da Criatividade",
@@ -2538,7 +2514,7 @@
 													"widgetType": "heading"
 												},
 												{
-													"id": "dfe45ea",
+													"id": "b679b99",
 													"elType": "widget",
 													"settings": {
 														"editor": "<p>Para a hora em que você encara a tela em branco e pensa \"eu não sou criativo\". Ao contrário do que muita gente pensa, a criatividade pode sim ser desenvolvida através de um método.</p>",
@@ -2571,7 +2547,7 @@
 							"isInner": true
 						},
 						{
-							"id": "a5b5385",
+							"id": "e1bf44c",
 							"elType": "container",
 							"settings": {
 								"content_width": "full",
@@ -2599,7 +2575,7 @@
 							},
 							"elements": [
 								{
-									"id": "e1bf44c",
+									"id": "71edd51",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -2660,7 +2636,7 @@
 									},
 									"elements": [
 										{
-											"id": "71edd51",
+											"id": "f9687d6",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -2691,11 +2667,11 @@
 											},
 											"elements": [
 												{
-													"id": "f9687d6",
+													"id": "7dd7683",
 													"elType": "widget",
 													"settings": {
 														"image": {
-															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/networking.png",
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/networking.webp",
 															"id": "",
 															"alt": "Networking",
 															"source": "library"
@@ -2715,7 +2691,7 @@
 											"isInner": true
 										},
 										{
-											"id": "7dd7683",
+											"id": "ce77e94",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -2740,7 +2716,7 @@
 											},
 											"elements": [
 												{
-													"id": "0a3f280",
+													"id": "3eb7167",
 													"elType": "container",
 													"settings": {
 														"content_width": "full",
@@ -2797,7 +2773,7 @@
 													},
 													"elements": [
 														{
-															"id": "3eb7167",
+															"id": "3ca5c35",
 															"elType": "widget",
 															"settings": {
 																"title": "NOVO",
@@ -2825,7 +2801,7 @@
 													"isInner": true
 												},
 												{
-													"id": "eff062d",
+													"id": "0a3f280",
 													"elType": "widget",
 													"settings": {
 														"title": "Networking",
@@ -2850,7 +2826,7 @@
 													"widgetType": "heading"
 												},
 												{
-													"id": "ce77e94",
+													"id": "eff062d",
 													"elType": "widget",
 													"settings": {
 														"editor": "<p><strong>Aprenda a construir relações profissionais que geram acesso e oportunidades.</strong></p><p>Como se aproximar das pessoas certas, manter contato e criar uma rede de forma natural, sem ser interesseiro.</p>",
@@ -2883,7 +2859,7 @@
 							"isInner": true
 						},
 						{
-							"id": "634db6a",
+							"id": "b33f403",
 							"elType": "container",
 							"settings": {
 								"content_width": "full",
@@ -2911,7 +2887,7 @@
 							},
 							"elements": [
 								{
-									"id": "b33f403",
+									"id": "fe429ee",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -2972,7 +2948,7 @@
 									},
 									"elements": [
 										{
-											"id": "fe429ee",
+											"id": "befef8c",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -3003,11 +2979,11 @@
 											},
 											"elements": [
 												{
-													"id": "befef8c",
+													"id": "a43d831",
 													"elType": "widget",
 													"settings": {
 														"image": {
-															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/posicionamento.png",
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/posicionamento.webp",
 															"id": "",
 															"alt": "Branding Pessoal e Posicionamento",
 															"source": "library"
@@ -3027,7 +3003,7 @@
 											"isInner": true
 										},
 										{
-											"id": "a43d831",
+											"id": "963500a",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -3052,7 +3028,7 @@
 											},
 											"elements": [
 												{
-													"id": "d4ac0ea",
+													"id": "fd129dd",
 													"elType": "container",
 													"settings": {
 														"content_width": "full",
@@ -3109,7 +3085,7 @@
 													},
 													"elements": [
 														{
-															"id": "fd129dd",
+															"id": "a5b5385",
 															"elType": "widget",
 															"settings": {
 																"title": "NOVO",
@@ -3137,7 +3113,7 @@
 													"isInner": true
 												},
 												{
-													"id": "e0c7eab",
+													"id": "d4ac0ea",
 													"elType": "widget",
 													"settings": {
 														"title": "Branding Pessoal e Posicionamento",
@@ -3162,7 +3138,7 @@
 													"widgetType": "heading"
 												},
 												{
-													"id": "963500a",
+													"id": "e0c7eab",
 													"elType": "widget",
 													"settings": {
 														"editor": "<p><strong>Saia de “mais um bom profissional” para alguém com uma posição clara no seu trabalho.</strong></p><p>Um treinamento para definir seu posicionamento, fortalecer sua reputação e aumentar o valor percebido do seu trabalho.</p>",
@@ -3195,7 +3171,7 @@
 							"isInner": true
 						},
 						{
-							"id": "4227b95",
+							"id": "e9355b1",
 							"elType": "container",
 							"settings": {
 								"content_width": "full",
@@ -3223,7 +3199,7 @@
 							},
 							"elements": [
 								{
-									"id": "e9355b1",
+									"id": "9832943",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -3284,7 +3260,7 @@
 									},
 									"elements": [
 										{
-											"id": "9832943",
+											"id": "3508115",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -3315,11 +3291,11 @@
 											},
 											"elements": [
 												{
-													"id": "3508115",
+													"id": "6a1ace5",
 													"elType": "widget",
 													"settings": {
 														"image": {
-															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/comunica.png",
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/comunica.webp",
 															"id": "",
 															"alt": "Comunicação de Poder",
 															"source": "library"
@@ -3339,7 +3315,7 @@
 											"isInner": true
 										},
 										{
-											"id": "6a1ace5",
+											"id": "17bfd64",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -3364,7 +3340,7 @@
 											},
 											"elements": [
 												{
-													"id": "58b6e01",
+													"id": "a5e81ba",
 													"elType": "container",
 													"settings": {
 														"content_width": "full",
@@ -3421,7 +3397,7 @@
 													},
 													"elements": [
 														{
-															"id": "a5e81ba",
+															"id": "634db6a",
 															"elType": "widget",
 															"settings": {
 																"title": "NOVO",
@@ -3449,7 +3425,7 @@
 													"isInner": true
 												},
 												{
-													"id": "9891d86",
+													"id": "58b6e01",
 													"elType": "widget",
 													"settings": {
 														"title": "Comunicação de Poder",
@@ -3474,7 +3450,7 @@
 													"widgetType": "heading"
 												},
 												{
-													"id": "17bfd64",
+													"id": "9891d86",
 													"elType": "widget",
 													"settings": {
 														"editor": "<p><strong>Não basta ter uma boa apresentação se você não consegue sustentar a mensagem ao falar.</strong></p><p>Oratória, comunicação verbal e não verbal para apresentar ideias com mais clareza e segurança, responder a perguntas difíceis, lidar com imprevistos e manter o controle da apresentação mesmo quando algo não sai como o planejado.</p>",
@@ -3507,7 +3483,7 @@
 							"isInner": true
 						},
 						{
-							"id": "b0d00db",
+							"id": "a4ca276",
 							"elType": "container",
 							"settings": {
 								"content_width": "full",
@@ -3535,7 +3511,7 @@
 							},
 							"elements": [
 								{
-									"id": "a4ca276",
+									"id": "0e90a76",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -3596,7 +3572,7 @@
 									},
 									"elements": [
 										{
-											"id": "0e90a76",
+											"id": "bfe6975",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -3627,11 +3603,11 @@
 											},
 											"elements": [
 												{
-													"id": "bfe6975",
+													"id": "669670d",
 													"elType": "widget",
 													"settings": {
 														"image": {
-															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/capa-metodo-power.png",
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/capa-metodo-power.webp",
 															"id": "",
 															"alt": "Novo treinamento",
 															"source": "library"
@@ -3651,7 +3627,7 @@
 											"isInner": true
 										},
 										{
-											"id": "669670d",
+											"id": "da79534",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -3676,7 +3652,7 @@
 											},
 											"elements": [
 												{
-													"id": "68b4b11",
+													"id": "82adcc7",
 													"elType": "container",
 													"settings": {
 														"content_width": "full",
@@ -3733,7 +3709,7 @@
 													},
 													"elements": [
 														{
-															"id": "82adcc7",
+															"id": "4227b95",
 															"elType": "widget",
 															"settings": {
 																"title": "NOVO",
@@ -3761,7 +3737,7 @@
 													"isInner": true
 												},
 												{
-													"id": "d5ead61",
+													"id": "68b4b11",
 													"elType": "widget",
 													"settings": {
 														"title": "Novo treinamento",
@@ -3786,7 +3762,7 @@
 													"widgetType": "heading"
 												},
 												{
-													"id": "da79534",
+													"id": "d5ead61",
 													"elType": "widget",
 													"settings": {
 														"editor": "<p><strong>Como transformar esse conhecimento em conteúdo para as redes sociais, que gera visibilidade e oportunidade profissional.</strong></p><p>Como eu faço hoje com a Power.</p>",
@@ -3819,7 +3795,7 @@
 							"isInner": true
 						},
 						{
-							"id": "44dbd92",
+							"id": "5528fae",
 							"elType": "container",
 							"settings": {
 								"content_width": "full",
@@ -3847,7 +3823,7 @@
 							},
 							"elements": [
 								{
-									"id": "753ca0b",
+									"id": "a004ac1",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -3910,68 +3886,7 @@
 									},
 									"elements": [
 										{
-											"id": "5e3706c",
-											"elType": "container",
-											"settings": {
-												"content_width": "full",
-												"width": {
-													"unit": "px",
-													"size": 248,
-													"sizes": []
-												},
-												"flex_shrink": "0",
-												"padding": {
-													"unit": "px",
-													"top": "0",
-													"right": "0",
-													"bottom": "0",
-													"left": "0",
-													"isLinked": false
-												},
-												"border_border": "solid",
-												"border_width": {
-													"unit": "px",
-													"top": "1",
-													"right": "1",
-													"bottom": "1",
-													"left": "1",
-													"isLinked": false
-												},
-												"border_color": "rgba(255,255,255,0.6)"
-											},
-											"elements": [
-												{
-													"id": "5528fae",
-													"elType": "widget",
-													"settings": {
-														"image": {
-															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/alavanca.png",
-															"id": "",
-															"alt": "+ Bônus surpresa",
-															"source": "library"
-														},
-														"image_size": "full",
-														"align": "center",
-														"width": {
-															"unit": "px",
-															"size": 248,
-															"sizes": []
-														},
-														"css_filters_css_filter": "custom",
-														"css_filters_blur": {
-															"unit": "px",
-															"size": 8,
-															"sizes": []
-														}
-													},
-													"elements": [],
-													"widgetType": "image"
-												}
-											],
-											"isInner": true
-										},
-										{
-											"id": "a004ac1",
+											"id": "fd76d17",
 											"elType": "container",
 											"settings": {
 												"content_width": "full",
@@ -3996,7 +3911,7 @@
 											},
 											"elements": [
 												{
-													"id": "d944bed",
+													"id": "b0d00db",
 													"elType": "widget",
 													"settings": {
 														"title": "+ Bônus surpresa",
@@ -4021,7 +3936,7 @@
 													"widgetType": "heading"
 												},
 												{
-													"id": "fd76d17",
+													"id": "d944bed",
 													"elType": "widget",
 													"settings": {
 														"editor": "<p><strong>Tem um bônus que não vai ser vendido depois, em lugar nenhum. Ele é sobre transformar tudo isso em dinheiro no seu bolso.</strong></p><p>O que é exatamente, eu vou contar ao vivo no dia 28.</p>",
@@ -4060,7 +3975,7 @@
 			"isInner": false
 		},
 		{
-			"id": "4e55ffa",
+			"id": "0558856",
 			"elType": "container",
 			"settings": {
 				"content_width": "full",
@@ -4086,7 +4001,7 @@
 			},
 			"elements": [
 				{
-					"id": "70d5997",
+					"id": "7d6caf9",
 					"elType": "container",
 					"settings": {
 						"content_width": "boxed",
@@ -4107,7 +4022,7 @@
 					},
 					"elements": [
 						{
-							"id": "0558856",
+							"id": "0400c44",
 							"elType": "container",
 							"settings": {
 								"content_width": "full",
@@ -4131,7 +4046,7 @@
 							},
 							"elements": [
 								{
-									"id": "f2ca6f0",
+									"id": "1c77085",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -4178,7 +4093,7 @@
 									},
 									"elements": [
 										{
-											"id": "0400c44",
+											"id": "ac1c9bb",
 											"elType": "widget",
 											"settings": {
 												"text": "QUERO ENTRAR NO GRUPO",
@@ -4239,7 +4154,7 @@
 									"isInner": true
 								},
 								{
-									"id": "7d6caf9",
+									"id": "3072c94",
 									"elType": "widget",
 									"settings": {
 										"title": "28 DE OUTUBRO - 20H - AO VIVO",
@@ -4267,7 +4182,7 @@
 							"isInner": true
 						},
 						{
-							"id": "d48600f",
+							"id": "f2ca6f0",
 							"elType": "widget",
 							"settings": {
 								"editor": "<p>A Black 360 é para ser <span style=\"color:#B0D0F0;\">a melhor forma de ter a habilidade</span> que as <span style=\"color:#B0D0F0;\">grandes marcas valorizam</span></p>",
@@ -4291,121 +4206,121 @@
 							"widgetType": "text-editor"
 						},
 						{
-							"id": "3072c94",
+							"id": "44dbd92",
 							"elType": "widget",
 							"settings": {
 								"carousel": [
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-hughes.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-hughes.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-sebrae.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-sebrae.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-globo.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-globo.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-cargill.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-cargill.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-eletrobras.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-eletrobras.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-saint-gobain.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-saint-gobain.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-novo-nordisk.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-novo-nordisk.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-tedx.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-tedx.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-sbm-offshore.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-sbm-offshore.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-fs.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-fs.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-rpc.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-rpc.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-pfizer.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-pfizer.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-suzano.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-suzano.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-banco-do-brasil.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-banco-do-brasil.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-senai.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-senai.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-rede-bahia.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-rede-bahia.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-equatorial.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-equatorial.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-bauducco.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-bauducco.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-banco-bv.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-banco-bv.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-vivo.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-vivo.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-bayer.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-bayer.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-taua.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-taua.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-cni.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-cni.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-copacol.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-copacol.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-accor.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-accor.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-sicoob.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-sicoob.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-envista.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-envista.png"
 									},
 									{
 										"id": "",
-										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-orica.svg"
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-orica.png"
 									}
 								],
 								"slides_to_show": "5",
@@ -4436,7 +4351,7 @@
 			"isInner": false
 		},
 		{
-			"id": "12b9795",
+			"id": "be42101",
 			"elType": "container",
 			"settings": {
 				"content_width": "full",
@@ -4453,7 +4368,7 @@
 				"background_background": "classic",
 				"background_color": "#111111",
 				"background_image": {
-					"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/adriel-bg.png",
+					"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/adriel-bg.webp",
 					"id": "",
 					"source": "library"
 				},
@@ -4481,7 +4396,7 @@
 			},
 			"elements": [
 				{
-					"id": "18bde6b",
+					"id": "84e6d74",
 					"elType": "container",
 					"settings": {
 						"content_width": "boxed",
@@ -4502,7 +4417,7 @@
 					},
 					"elements": [
 						{
-							"id": "27512ab",
+							"id": "128ea58",
 							"elType": "container",
 							"settings": {
 								"content_width": "full",
@@ -4534,7 +4449,7 @@
 							},
 							"elements": [
 								{
-									"id": "128ea58",
+									"id": "4e55ffa",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -4558,7 +4473,7 @@
 									},
 									"elements": [
 										{
-											"id": "5ddd30c",
+											"id": "d48600f",
 											"elType": "widget",
 											"settings": {
 												"title": "Quem é o Adriel?",
@@ -4588,7 +4503,7 @@
 											"widgetType": "heading"
 										},
 										{
-											"id": "d913401",
+											"id": "70d5997",
 											"elType": "widget",
 											"settings": {
 												"editor": "<p>Ele começou montando apresentação na empresa em que trabalhava como analista e hoje treina as maiores empresas do país. A minha missão é ajudar você a criar uma apresentação estratégica, inovadora, e muito acima da média, é fazer com que você impressione o seu público por onde passar, independente de qual seja sua área de atuação. Eu sou o fundador da PowerPPT, mas antes de chegar até aqui. Foram quase 12 anos de experiência profissional no mercado corporativo, atuei nas maiores empresas de comunicação do país (Editora Abril e TV Globo) e sempre me destaquei pelas habilidades de comunicação e apresentações inovadoras. Sou Formado em Marketing e Pós-graduado em Gestão de Projetos pela USP. Tenho experiências de estudo e trabalho nos Estados Unidos e Argentina.</p><p>Durante toda minha trajetória me aprofundei em Design, Storytelling e comunicação e coloquei todo esse conhecimento dentro de uma metodologia que já ajudou milhares de pessoas. E agora, eu quero compartilhar todo esse conhecimento com você.</p>",
@@ -4615,7 +4530,7 @@
 									"isInner": true
 								},
 								{
-									"id": "be42101",
+									"id": "d913401",
 									"elType": "container",
 									"settings": {
 										"content_width": "full",
@@ -4646,11 +4561,11 @@
 									},
 									"elements": [
 										{
-											"id": "84e6d74",
+											"id": "5ddd30c",
 											"elType": "widget",
 											"settings": {
 												"image": {
-													"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/adriel-retrato.png",
+													"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/adriel-retrato.webp",
 													"id": "",
 													"alt": "Adriel Araújo",
 													"source": "library"
@@ -4674,7 +4589,7 @@
 			"isInner": false
 		},
 		{
-			"id": "e5c0644",
+			"id": "a936208",
 			"elType": "container",
 			"settings": {
 				"content_width": "full",
@@ -4693,7 +4608,7 @@
 			},
 			"elements": [
 				{
-					"id": "41b6d78",
+					"id": "323cc90",
 					"elType": "container",
 					"settings": {
 						"content_width": "boxed",
@@ -4714,7 +4629,7 @@
 					},
 					"elements": [
 						{
-							"id": "0d3369e",
+							"id": "12b9795",
 							"elType": "container",
 							"settings": {
 								"content_width": "full",
@@ -4732,11 +4647,11 @@
 							},
 							"elements": [
 								{
-									"id": "323cc90",
+									"id": "27512ab",
 									"elType": "widget",
 									"settings": {
 										"image": {
-											"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-power-footer.svg",
+											"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-black360.webp",
 											"id": "",
 											"alt": "Power",
 											"source": "library"
@@ -4753,7 +4668,7 @@
 									"widgetType": "image"
 								},
 								{
-									"id": "a936208",
+									"id": "18bde6b",
 									"elType": "widget",
 									"settings": {
 										"editor": "<p>Todos direitos reservados</p>",

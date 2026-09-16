@@ -29,9 +29,23 @@ Seções: hero (topbar + headline + CTA), pilares (grid 2×2), "Você recebe"
 
 ## Como importar
 
-**1. Suba as imagens.** Exporte do Figma para a Biblioteca de mídia (ou para
-`wp-content/uploads/black360/`) usando os nomes listados em
-[`../power360-black360/assets/img/README.md`](../power360-black360/assets/img/README.md).
+**1. Suba as imagens.** Os 41 arquivos otimizados estão em
+[`assets/`](assets/) — envie todos para `wp-content/uploads/black360/`
+(ou para a Biblioteca de mídia, reconectando depois; ver passo 5).
+
+Otimização aplicada: 13,3 MB de PNG viraram **688 KB**.
+
+| Tipo | Tratamento |
+| --- | --- |
+| Capas dos treinamentos | 745×1076 → 496×716 (2x do exibido), WebP q82 |
+| Foto do Adriel | 1290×1464 → 860×976, WebP |
+| Fundos (hero e perfil) | recomprimidos em WebP, largura original |
+| Logo Black 360 | 606×174 → 400×115, WebP |
+| 28 logos do carrossel + ícone | SVG rasterizado em PNG 150 px de altura, cinza + alfa |
+
+Os logos viraram PNG de propósito: o WordPress bloqueia upload de SVG por
+padrão, e rasterizar evita depender de um plugin para isso. Os SVGs originais
+continuam disponíveis no Figma se um dia fizer falta.
 
 **2. Confira a URL das imagens.** O arquivo versionado já aponta para
 `https://adrielaraujo.com.br/wp-content/uploads/black360`. Para gerar com outro

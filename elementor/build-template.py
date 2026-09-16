@@ -273,21 +273,7 @@ def build_hero(img, url):
             "flex_gap": gap(12),
             "padding": dim(0, 0, 0, 0),
         },
-        [
-            image(img("logo-avatar.png"), 58, "Escola Black 360", "left"),
-            rich_text(
-                '<p style="margin:0;letter-spacing:-0.05em;">ESCOLA</p>'
-                '<p style="margin:0;font-size:22px;letter-spacing:-0.06em;">'
-                '<span style="font-weight:200;">BLACK</span> '
-                '<span style="font-weight:400;">360</span></p>',
-                16.3,
-                OFF_WHITE,
-                "left",
-                FONT_TITLE,
-                "700",
-                1.1,
-            ),
-        ],
+        [image(img("logo-black360.webp"), 200, "Escola Black 360", "left")],
     )
 
     topbar_settings = {
@@ -336,10 +322,10 @@ def build_hero(img, url):
     hero_bg = {
         "background_background": "classic",
         "background_color": BG_HERO,
-        "background_image": {"url": img("adriel-retrato.png"), "id": "", "source": "library"},
-        "background_position": "bottom right",
+        "background_image": {"url": img("hero-bg.webp"), "id": "", "source": "library"},
+        "background_position": "center center",
         "background_repeat": "no-repeat",
-        "background_size": "contain",
+        "background_size": "cover",
         "border_radius": dim(24, 24, 24, 24),
     }
 
@@ -390,7 +376,7 @@ def build_pilares(img):
             container(
                 card_settings,
                 [
-                    container(icon_settings, [image(img("icon-sphere.svg"), 32, "")]),
+                    container(icon_settings, [image(img("icon-sphere.png"), 32, "")]),
                     rich_text(
                         "<p>%s</p>" % texto,
                         20, OFF_WHITE, "left", FONT_TEXT, "400", 1.2,
@@ -430,7 +416,7 @@ def build_pilares(img):
 TREINAMENTOS = [
     {
         "title": "Método POWER",
-        "image": "capa-metodo-power.png",
+        "image": "capa-metodo-power.webp",
         "badge": "",
         "variant": "a",
         "html": "<p><strong>Formação completa em apresentações, desde o planejamento "
@@ -440,7 +426,7 @@ TREINAMENTOS = [
     },
     {
         "title": "IA Apresentações 2.0",
-        "image": "apresentacao-ia.png",
+        "image": "apresentacao-ia.webp",
         "badge": "",
         "variant": "a",
         "html": "<p><strong>Aprenda a usar IA para criar apresentações mais rápido sem "
@@ -452,7 +438,7 @@ TREINAMENTOS = [
     },
     {
         "title": "Apresentações Express",
-        "image": "apresentacoes-express.png",
+        "image": "apresentacoes-express.webp",
         "badge": "",
         "variant": "a",
         "html": "<p><strong>Para quando você precisa criar uma boa apresentação em "
@@ -462,7 +448,7 @@ TREINAMENTOS = [
     },
     {
         "title": "Mecanismos de uma Apresentação de Sucesso",
-        "image": "mecanismos.png",
+        "image": "mecanismos.webp",
         "badge": "",
         "variant": "a",
         "html": "<p>A caixa-preta das Palestras aberta: por que alguns pitch’s do Shark "
@@ -473,7 +459,7 @@ TREINAMENTOS = [
     },
     {
         "title": "Bússola da Criatividade",
-        "image": "bussola.png",
+        "image": "bussola.webp",
         "badge": "",
         "variant": "a",
         "html": "<p>Para a hora em que você encara a tela em branco e pensa \"eu não sou "
@@ -482,7 +468,7 @@ TREINAMENTOS = [
     },
     {
         "title": "Networking",
-        "image": "networking.png",
+        "image": "networking.webp",
         "badge": "NOVO",
         "variant": "b",
         "html": "<p><strong>Aprenda a construir relações profissionais que geram acesso "
@@ -492,7 +478,7 @@ TREINAMENTOS = [
     },
     {
         "title": "Branding Pessoal e Posicionamento",
-        "image": "posicionamento.png",
+        "image": "posicionamento.webp",
         "badge": "NOVO",
         "variant": "b",
         "html": "<p><strong>Saia de “mais um bom profissional” para alguém com uma "
@@ -502,7 +488,7 @@ TREINAMENTOS = [
     },
     {
         "title": "Comunicação de Poder",
-        "image": "comunica.png",
+        "image": "comunica.webp",
         "badge": "NOVO",
         "variant": "b",
         "html": "<p><strong>Não basta ter uma boa apresentação se você não consegue "
@@ -514,7 +500,7 @@ TREINAMENTOS = [
     },
     {
         "title": "Novo treinamento",
-        "image": "capa-metodo-power.png",
+        "image": "capa-metodo-power.webp",
         "badge": "NOVO",
         "variant": "b",
         "html": "<p><strong>Como transformar esse conhecimento em conteúdo para as "
@@ -563,17 +549,22 @@ def build_card(img, item, blur=None):
         body_children,
     )
 
-    media_settings = {
-        "content_width": "full",
-        "width": px(248),
-        "flex_shrink": "0",
-        "padding": dim(0, 0, 0, 0),
-    }
-    media_settings.update(border())
-    media = container(
-        media_settings,
-        [image(img(item["image"]), 248, item["title"], "center", blur)],
-    )
+    children = []
+    if item["image"]:
+        media_settings = {
+            "content_width": "full",
+            "width": px(248),
+            "flex_shrink": "0",
+            "padding": dim(0, 0, 0, 0),
+        }
+        media_settings.update(border())
+        children.append(
+            container(
+                media_settings,
+                [image(img(item["image"]), 248, item["title"], "center", blur)],
+            )
+        )
+    children.append(body)
 
     inner_settings = {
         "content_width": "full",
@@ -600,7 +591,7 @@ def build_card(img, item, blur=None):
         inner_settings["background_overlay_background"] = "classic"
         inner_settings["background_overlay_color"] = "rgba(0,0,0,0.6)"
 
-    inner = container(inner_settings, [media, body])
+    inner = container(inner_settings, children)
 
     outer_settings = {
         "content_width": "full",
@@ -633,7 +624,7 @@ def build_treinamentos(img):
             img,
             {
                 "title": "+ Bônus surpresa",
-                "image": "alavanca.png",
+                "image": "",
                 "badge": "",
                 "variant": "b",
                 "html": "<p><strong>Tem um bônus que não vai ser vendido depois, em "
@@ -649,14 +640,14 @@ def build_treinamentos(img):
 
 
 LOGOS = [
-    "logo-hughes.svg", "logo-sebrae.svg", "logo-globo.svg", "logo-cargill.svg",
-    "logo-eletrobras.svg", "logo-saint-gobain.svg", "logo-novo-nordisk.svg",
-    "logo-tedx.svg", "logo-sbm-offshore.svg", "logo-fs.svg", "logo-rpc.svg",
-    "logo-pfizer.svg", "logo-suzano.svg", "logo-banco-do-brasil.svg",
-    "logo-senai.svg", "logo-rede-bahia.svg", "logo-equatorial.svg",
-    "logo-bauducco.svg", "logo-banco-bv.svg", "logo-vivo.svg", "logo-bayer.svg",
-    "logo-taua.svg", "logo-cni.svg", "logo-copacol.svg", "logo-accor.svg",
-    "logo-sicoob.svg", "logo-envista.svg", "logo-orica.svg",
+    "logo-hughes.png", "logo-sebrae.png", "logo-globo.png", "logo-cargill.png",
+    "logo-eletrobras.png", "logo-saint-gobain.png", "logo-novo-nordisk.png",
+    "logo-tedx.png", "logo-sbm-offshore.png", "logo-fs.png", "logo-rpc.png",
+    "logo-pfizer.png", "logo-suzano.png", "logo-banco-do-brasil.png",
+    "logo-senai.png", "logo-rede-bahia.png", "logo-equatorial.png",
+    "logo-bauducco.png", "logo-banco-bv.png", "logo-vivo.png", "logo-bayer.png",
+    "logo-taua.png", "logo-cni.png", "logo-copacol.png", "logo-accor.png",
+    "logo-sicoob.png", "logo-envista.png", "logo-orica.png",
 ]
 
 
@@ -740,7 +731,7 @@ def build_adriel(img):
             "background_color": NAVY,
             "margin": dim(56, 40, 56, 0),
         },
-        [image(img("adriel-retrato.png"), None, "Adriel Araújo", "center")],
+        [image(img("adriel-retrato.webp"), None, "Adriel Araújo", "center")],
     )
 
     box = container(
@@ -767,7 +758,7 @@ def build_adriel(img):
     fundo = {
         "background_background": "classic",
         "background_color": BG,
-        "background_image": {"url": img("adriel-bg.png"), "id": "", "source": "library"},
+        "background_image": {"url": img("adriel-bg.webp"), "id": "", "source": "library"},
         "background_position": "center center",
         "background_size": "cover",
         "background_overlay_background": "gradient",
@@ -792,7 +783,7 @@ def build_footer(img):
             "padding": dim(0, 0, 0, 0),
         },
         [
-            image(img("logo-power-footer.svg"), 128, "Power", "left"),
+            image(img("logo-black360.webp"), 128, "Power", "left"),
             rich_text(
                 "<p>Todos direitos reservados</p>",
                 14, WHITE, "right", FONT_TEXT, "300", 1.1,
