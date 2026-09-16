@@ -33,19 +33,22 @@ Seções: hero (topbar + headline + CTA), pilares (grid 2×2), "Você recebe"
 `wp-content/uploads/black360/`) usando os nomes listados em
 [`../power360-black360/assets/img/README.md`](../power360-black360/assets/img/README.md).
 
-**2. Gere o JSON com a URL do seu site.** O arquivo versionado aponta para
-`https://SEUDOMINIO.com.br/wp-content/uploads/black360`. Troque por um
-find-and-replace no JSON ou rode:
+**2. Confira a URL das imagens.** O arquivo versionado já aponta para
+`https://adrielaraujo.com.br/wp-content/uploads/black360`. Para gerar com outro
+domínio ou já com o link do CTA, rode:
 
 ```bash
 python3 build-template.py \
-  --base-url https://seusite.com.br/wp-content/uploads/black360 \
+  --base-url https://adrielaraujo.com.br/wp-content/uploads/black360 \
   --cta-url https://chat.whatsapp.com/xxxx \
   --out black360-apresentacao.json
 ```
 
 **3. Importe.** Painel → **Modelos → Modelos salvos → Importar modelos** →
 envie o `.json`.
+
+> Os botões estão com o link provisório `#inscricao`. Troque pelos três botões
+> no editor do Elementor, ou por um find-and-replace no JSON antes de importar.
 
 **4. Aplique.** Crie a página, abra com **Editar com Elementor**, clique no
 ícone de pasta (Adicionar modelo) → aba **Meus modelos** → **Inserir**.

@@ -9,7 +9,7 @@ widget de HTML.
 
 Uso:
 
-    python3 build-template.py --base-url https://seusite.com.br/wp-content/uploads/black360 \
+    python3 build-template.py --base-url https://adrielaraujo.com.br/wp-content/uploads/black360 \
         --out black360-apresentacao.json
 """
 
@@ -843,7 +843,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--base-url",
-        default="https://SEUDOMINIO.com.br/wp-content/uploads/black360",
+        default="https://adrielaraujo.com.br/wp-content/uploads/black360",
         help="URL da pasta onde as imagens exportadas do Figma foram enviadas.",
     )
     parser.add_argument(
