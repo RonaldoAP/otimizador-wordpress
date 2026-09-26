@@ -76,6 +76,13 @@ def uid():
     return "".join(random.choice(string.hexdigits.lower()[:16]) for _ in range(7))
 
 
+def tem_texto(n):
+    """True se o no ou qualquer descendente carrega texto."""
+    if n.get("texto"):
+        return True
+    return any(tem_texto(f) for f in (n.get("filhos") or []))
+
+
 def papel(nome):
     """Retorna (tipo, detalhe) a partir do nome da camada."""
     limpo = (nome or "").strip()
@@ -277,19 +284,25 @@ class Conversor:
         if f.get("wrap") == "WRAP":
             s["flex_wrap"] = "wrap"
 
+        s["container_type"] = "flex"
+
+        # Largura: `content_width`/`boxed_width` so existem no container de topo.
+        # Em container aninhado o controle e `width`, e um filho que estica usa
+        # `_flex_size: grow` — largura 100% dentro de uma linha quebra o flex.
         larg = f.get("larg")
         if raiz:
             s["content_width"] = "full"
         elif larg == "FILL":
-            s["width"] = px(100, "%")
+            s["_flex_size"] = "grow"
         elif larg == "HUG":
             s["width"] = {"unit": "custom", "size": "fit-content", "sizes": []}
         elif larg == "FIXED" and n.get("w"):
-            s["content_width"] = "boxed"
-            s["boxed_width"] = px(int(n["w"]))
+            s["width"] = px(int(n["w"]))
 
-        alt = f.get("alt")
-        if alt == "FIXED" and n.get("h"):
+        # Altura fixa do Figma NAO vira min-height quando ha texto dentro: o
+        # navegador quebra linha diferente e a altura travada gera buraco ou
+        # transbordo. So caixas sem texto (imagem, espacador) levam altura.
+        if f.get("alt") == "FIXED" and n.get("h") and not tem_texto(n):
             s["min_height"] = px(int(n["h"]))
         return s
 
