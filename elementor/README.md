@@ -101,3 +101,55 @@ nomes e o template passa a usá-las sozinho.
 arquivo — editar texto, card ou logo ali e rodar de novo é mais seguro do que
 mexer no JSON à mão. Os IDs dos elementos são estáveis (semente fixa), então
 duas gerações seguidas produzem o mesmo arquivo.
+
+## Figma → Elementor automático
+
+A partir do arquivo do Figma nomeado pela convenção de camadas, a conversão é
+feita por dois passos, sem redesenhar nada à mão:
+
+```bash
+# 1. ler a seção no Figma  (dump-figma.js, rodado no contexto do plugin/MCP)
+#    troque NODE_ID pelo nó da seção → devolve um JSON, salve como dump.json
+
+# 2. converter em template do Elementor
+python3 figma2elementor.py dump.json --out secao.json \
+  --base-url https://adrielaraujo.com.br/wp-content/uploads/black360
+```
+
+O conversor traduz auto layout em container flexbox:
+
+| Figma | Elementor |
+| --- | --- |
+| `layoutMode` VERTICAL / HORIZONTAL | `flex_direction` column / row |
+| `itemSpacing` | `flex_gap` |
+| `padding*` | `padding` |
+| `counterAxisAlignItems` | `flex_align_items` |
+| `primaryAxisAlignItems` | `flex_justify_content` |
+| sizing FIXED / HUG / FILL | largura px / `fit-content` / 100% |
+| fills, strokes, corner radius, sombras | fundo, borda, raio, `box_shadow` |
+| fonte, corpo, entrelinha, tracking | controles de tipografia |
+
+O papel de cada nó vem do prefixo do nome da camada — `sec/`, `box/`, `row/`,
+`col/` viram container; `w/heading`, `w/text`, `w/image`, `w/button`,
+`w/carousel` viram o widget nativo correspondente; `bg/` é sinalizado como
+decorativo para virar fundo do container pai.
+
+O script avisa no terminal tudo que não tem equivalente direto: borda em
+gradiente (vira cor sólida, precisa de CSS), blur de camada, texto com mais de
+uma fonte e containers sem auto layout — que são convertidos em coluna simples,
+perdendo o posicionamento.
+
+### Convenção de nomes das camadas
+
+```
+sec/hero            container de topo, largura total
+box/hero            container interno, boxed
+row/topbar          container em linha
+col/texto           container em coluna
+w/heading · título  widget Título
+w/text · parágrafo  widget Editor de Texto
+w/image · capa-01   widget Imagem (o nome vira o arquivo na mídia)
+w/button · cta      widget Botão
+w/carousel · marcas widget Carrossel
+bg/glow-hero        decorativo: vira fundo, não widget
+```
