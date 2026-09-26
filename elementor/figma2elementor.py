@@ -441,6 +441,7 @@ def main():
     p.add_argument("--fonte-titulo", default="Cutta")
     p.add_argument("--fonte-texto", default="Gotham")
     p.add_argument("--largura-conteudo", type=int, default=1140)
+    p.add_argument("--titulo", default="LP VENDAS · Black 360")
     p.add_argument("--seed", type=int, default=360)
     args = p.parse_args()
 
@@ -451,17 +452,31 @@ def main():
 
     conv = Conversor(args.base_url, args.fonte_titulo, args.fonte_texto,
                      args.largura_conteudo)
-    raiz = conv.converte(arvore, raiz=True)
-    if not raiz:
-        sys.exit("Nada para converter.")
 
-    template = {
-        "content": [raiz],
-        "page_settings": [],
-        "version": "0.4",
-        "title": arvore.get("nome", "Secao"),
-        "type": "section",
-    }
+    # uma lista no dump = pagina inteira, uma secao por item, na ordem vertical
+    if isinstance(arvore, list):
+        secoes = sorted(arvore, key=lambda s: s.get("y", 0))
+        conteudo = [c for c in (conv.converte(s, raiz=True) for s in secoes) if c]
+        if not conteudo:
+            sys.exit("Nada para converter.")
+        template = {
+            "content": conteudo,
+            "page_settings": [],
+            "version": "0.4",
+            "title": args.titulo,
+            "type": "page",
+        }
+    else:
+        raiz = conv.converte(arvore, raiz=True)
+        if not raiz:
+            sys.exit("Nada para converter.")
+        template = {
+            "content": [raiz],
+            "page_settings": [],
+            "version": "0.4",
+            "title": arvore.get("nome", "Secao"),
+            "type": "section",
+        }
 
     with open(args.out, "w", encoding="utf-8") as fh:
         json.dump(template, fh, ensure_ascii=False, indent=2)
