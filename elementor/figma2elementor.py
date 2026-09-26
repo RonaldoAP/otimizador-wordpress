@@ -387,6 +387,55 @@ class Conversor:
         return {"id": uid(), "elType": "widget", "widgetType": "image",
                 "settings": s, "elements": []}
 
+    def widget_carrossel(self, n):
+        """`w/carousel` -> widget Carrossel de imagens, com os filhos virando slides.
+
+        Antes este ramo nao existia: como o no tem filhos, ele caia no ramo de
+        container e o carrossel virava uma linha flex de imagens paradas.
+        """
+        slides, larguras = [], []
+
+        def junta(x):
+            if x.get("filhos"):
+                for f in x["filhos"]:
+                    junta(f)
+                return
+            if x.get("texto"):
+                return
+            slides.append(self.widget_imagem(x)["settings"]["image"]["url"])
+            if x.get("w"):
+                larguras.append(x["w"])
+
+        for f in n.get("filhos") or []:
+            junta(f)
+
+        if not slides:
+            self.avisos.append("Carrossel '%s' entrou sem slides." % n["nome"])
+
+        # quantos cabem na largura de conteudo, pelo tamanho medio do slide
+        media = sum(larguras) / len(larguras) if larguras else 300
+        por_tela = max(1, min(len(slides) or 1, int(self.largura_conteudo // max(media, 1))))
+
+        f = n.get("flex") or {}
+        espaco = int(round(f.get("gap") or 20))
+
+        s = {
+            "carousel": [{"id": "", "url": u} for u in slides],
+            "image_size": "full",
+            "slides_to_show": str(por_tela),
+            "slides_to_scroll": "1",
+            "navigation": "arrows",
+            "autoplay": "yes",
+            "autoplay_speed": 3000,
+            "infinite": "yes",
+            "pause_on_hover": "yes",
+            "speed": 600,
+            "image_spacing": "custom",
+            "image_spacing_custom": px(espaco),
+        }
+        return {"id": uid(), "elType": "widget", "widgetType": "image-carousel",
+                "settings": s, "elements": []}
+
     def widget_botao(self, n):
         rotulo = ""
         for f in n.get("filhos") or []:
@@ -416,6 +465,17 @@ class Conversor:
             if wt in ("heading", "text-editor") and n.get("texto"):
                 self.contagem["widget"] += 1
                 return self.widget_texto(n, "heading" if wt == "heading" else "text")
+            if wt == "image-carousel":
+                if tem_texto(n):
+                    # O widget nativo so aceita imagem. Card com texto exige o
+                    # Loop Carousel (Pro); aqui sai como linha, para nao perder
+                    # o conteudo.
+                    self.avisos.append(
+                        "'%s' tem texto nos slides: o Carrossel nativo so aceita imagem. "
+                        "Saiu como linha — usar Loop Carousel (Elementor Pro)." % n["nome"])
+                else:
+                    self.contagem["widget"] += 1
+                    return self.widget_carrossel(n)
             if wt and not n.get("filhos"):
                 self.contagem["widget"] += 1
                 self.avisos.append("Widget '%s' em '%s' entrou vazio — preencher no painel."

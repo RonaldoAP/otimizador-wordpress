@@ -138,6 +138,7 @@ tamanho no Figma — que decide a largura:
 | `box/` | `content_width: boxed` + `boxed_width` — conteúdo limitado e centralizado |
 | `row/` `col/` | container comum; largura vem do sizing do auto layout |
 | `w/…` | widget nativo (heading, text, image, button, carousel) |
+| `w/carousel` | Carrossel de imagens — os filhos viram slides, `slides_to_show` sai da largura média |
 | `bg/` | decorativo: vira fundo do container pai, não entra como nó |
 
 Container sem prefixo segue o sizing do Figma: FIXED vira `width` em px, HUG
@@ -164,3 +165,14 @@ w/button · cta      widget Botão
 w/carousel · marcas widget Carrossel
 bg/glow-hero        decorativo: vira fundo, não widget
 ```
+
+### Carrossel
+
+`w/carousel` vira o widget **Carrossel de imagens**: cada nó filho vira um
+slide, o `slides_to_show` é calculado pela largura média do slide contra a
+largura de conteúdo, e o espaçamento vem do gap do auto layout.
+
+O widget nativo **só aceita imagem**. Um carrossel de cards com texto (as falas
+da dobra 3, por exemplo) não cabe nele — o conversor avisa e deixa como linha,
+para não perder o conteúdo. Para virar carrossel de verdade, esse caso precisa
+do **Loop Carousel** do Elementor Pro.
