@@ -1,0 +1,4712 @@
+{
+	"content": [
+		{
+			"id": "3b2d979",
+			"elType": "container",
+			"settings": {
+				"content_width": "full",
+				"padding": {
+					"unit": "px",
+					"top": "0",
+					"right": "0",
+					"bottom": "0",
+					"left": "0",
+					"isLinked": false
+				},
+				"flex_direction": "column",
+				"flex_align_items": "center",
+				"background_background": "classic",
+				"background_color": "#0D0B11",
+				"background_image": {
+					"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/hero-bg.webp",
+					"id": "",
+					"source": "library"
+				},
+				"background_position": "center center",
+				"background_repeat": "no-repeat",
+				"background_size": "cover",
+				"border_radius": {
+					"unit": "px",
+					"top": "24",
+					"right": "24",
+					"bottom": "24",
+					"left": "24",
+					"isLinked": false
+				},
+				"min_height": {
+					"unit": "px",
+					"size": 1040,
+					"sizes": []
+				}
+			},
+			"elements": [
+				{
+					"id": "c381765",
+					"elType": "container",
+					"settings": {
+						"content_width": "boxed",
+						"boxed_width": {
+							"unit": "px",
+							"size": 1140,
+							"sizes": []
+						},
+						"flex_direction": "column",
+						"padding": {
+							"unit": "px",
+							"top": "0",
+							"right": "20",
+							"bottom": "0",
+							"left": "20",
+							"isLinked": false
+						}
+					},
+					"elements": [
+						{
+							"id": "9340aa9",
+							"elType": "container",
+							"settings": {
+								"content_width": "full",
+								"flex_direction": "row",
+								"flex_align_items": "center",
+								"flex_justify_content": "space-between",
+								"min_height": {
+									"unit": "px",
+									"size": 86,
+									"sizes": []
+								},
+								"padding": {
+									"unit": "px",
+									"top": "12",
+									"right": "12",
+									"bottom": "12",
+									"left": "20",
+									"isLinked": false
+								},
+								"background_background": "classic",
+								"background_color": "rgba(0,0,0,0.2)",
+								"border_border": "solid",
+								"border_width": {
+									"unit": "px",
+									"top": "1",
+									"right": "1",
+									"bottom": "1",
+									"left": "1",
+									"isLinked": false
+								},
+								"border_color": "rgba(228,232,243,0.4)"
+							},
+							"elements": [
+								{
+									"id": "2723ae4",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"width": {
+											"unit": "%",
+											"size": 50,
+											"sizes": []
+										},
+										"flex_direction": "row",
+										"flex_align_items": "center",
+										"flex_gap": {
+											"column": "12",
+											"row": "12",
+											"isLinked": true,
+											"unit": "px",
+											"size": 12
+										},
+										"padding": {
+											"unit": "px",
+											"top": "0",
+											"right": "0",
+											"bottom": "0",
+											"left": "0",
+											"isLinked": false
+										}
+									},
+									"elements": [
+										{
+											"id": "7972645",
+											"elType": "widget",
+											"settings": {
+												"image": {
+													"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-black360.webp",
+													"id": "",
+													"alt": "Escola Black 360",
+													"source": "library"
+												},
+												"image_size": "full",
+												"align": "left",
+												"width": {
+													"unit": "px",
+													"size": 200,
+													"sizes": []
+												}
+											},
+											"elements": [],
+											"widgetType": "image"
+										}
+									],
+									"isInner": true
+								},
+								{
+									"id": "6ae26dd",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"width": {
+											"unit": "px",
+											"size": 351,
+											"sizes": []
+										},
+										"min_height": {
+											"unit": "px",
+											"size": 62,
+											"sizes": []
+										},
+										"flex_direction": "row",
+										"flex_align_items": "center",
+										"flex_justify_content": "center",
+										"padding": {
+											"unit": "px",
+											"top": "0",
+											"right": "0",
+											"bottom": "0",
+											"left": "0",
+											"isLinked": false
+										},
+										"background_background": "gradient",
+										"background_color": "#488BD1",
+										"background_color_stop": {
+											"unit": "%",
+											"size": 15,
+											"sizes": []
+										},
+										"background_color_b": "#111111",
+										"background_color_b_stop": {
+											"unit": "%",
+											"size": 86,
+											"sizes": []
+										},
+										"background_gradient_type": "linear",
+										"background_gradient_angle": {
+											"unit": "deg",
+											"size": 187,
+											"sizes": []
+										}
+									},
+									"elements": [
+										{
+											"id": "cf848b9",
+											"elType": "widget",
+											"settings": {
+												"text": "QUERO ENTRAR NO GRUPO",
+												"link": {
+													"url": "#inscricao",
+													"is_external": "",
+													"nofollow": ""
+												},
+												"align": "center",
+												"size": "md",
+												"button_text_color": "#FFFFFF",
+												"background_color": "rgba(0,0,0,0)",
+												"border_border": "solid",
+												"border_width": {
+													"unit": "px",
+													"top": "1",
+													"right": "1",
+													"bottom": "1",
+													"left": "1",
+													"isLinked": false
+												},
+												"border_color": "rgba(255,255,255,0.6)",
+												"text_padding": {
+													"unit": "px",
+													"top": "8",
+													"right": "16",
+													"bottom": "8",
+													"left": "16",
+													"isLinked": false
+												},
+												"button_box_shadow_box_shadow_type": "yes",
+												"button_box_shadow_box_shadow": {
+													"horizontal": 0,
+													"vertical": 3,
+													"blur": 17,
+													"spread": 0,
+													"color": "rgba(98,153,209,0.9)"
+												},
+												"button_box_shadow_box_shadow_position": "inset",
+												"typography_typography": "custom",
+												"typography_font_family": "Cutta",
+												"typography_font_size": {
+													"unit": "px",
+													"size": 18,
+													"sizes": []
+												},
+												"typography_font_weight": "500",
+												"typography_line_height": {
+													"unit": "em",
+													"size": 1.2,
+													"sizes": []
+												}
+											},
+											"elements": [],
+											"widgetType": "button"
+										}
+									],
+									"isInner": true
+								}
+							],
+							"isInner": true
+						},
+						{
+							"id": "f89dc02",
+							"elType": "container",
+							"settings": {
+								"content_width": "full",
+								"width": {
+									"unit": "px",
+									"size": 690,
+									"sizes": []
+								},
+								"flex_direction": "column",
+								"flex_align_items": "flex-start",
+								"flex_gap": {
+									"column": "32",
+									"row": "32",
+									"isLinked": true,
+									"unit": "px",
+									"size": 32
+								},
+								"padding": {
+									"unit": "px",
+									"top": "200",
+									"right": "0",
+									"bottom": "120",
+									"left": "0",
+									"isLinked": false
+								}
+							},
+							"elements": [
+								{
+									"id": "5e30d32",
+									"elType": "widget",
+									"settings": {
+										"title": "Apresentações, IA, comunicação, networking e posicionamento.",
+										"header_size": "h1",
+										"align": "left",
+										"title_color": "#FFFFFF",
+										"typography_typography": "custom",
+										"typography_font_family": "Cutta",
+										"typography_font_size": {
+											"unit": "px",
+											"size": 50,
+											"sizes": []
+										},
+										"typography_font_weight": "700",
+										"typography_line_height": {
+											"unit": "em",
+											"size": 1.1,
+											"sizes": []
+										},
+										"typography_letter_spacing": {
+											"unit": "px",
+											"size": -4,
+											"sizes": []
+										}
+									},
+									"elements": [],
+									"widgetType": "heading"
+								},
+								{
+									"id": "5b2a63c",
+									"elType": "widget",
+									"settings": {
+										"title": "Tudo em uma única escola",
+										"header_size": "h1",
+										"align": "left",
+										"title_color": "#B0D0F0",
+										"typography_typography": "custom",
+										"typography_font_family": "Cutta",
+										"typography_font_size": {
+											"unit": "px",
+											"size": 50,
+											"sizes": []
+										},
+										"typography_font_weight": "700",
+										"typography_line_height": {
+											"unit": "em",
+											"size": 1.1,
+											"sizes": []
+										},
+										"typography_letter_spacing": {
+											"unit": "px",
+											"size": -4,
+											"sizes": []
+										}
+									},
+									"elements": [],
+									"widgetType": "heading"
+								},
+								{
+									"id": "57e2f38",
+									"elType": "widget",
+									"settings": {
+										"editor": "<p>No dia 28 de setembro, o Adriel vai abrir a Escola Power 360 completa: 10 treinamentos, <strong style=\"color:#B0D0F0;\">acesso vitalício e uma condição especial só para alunos.</strong> Quem estiver no grupo vai receber a oferta primeiro.</p>",
+										"text_color": "#FFFFFF",
+										"align": "left",
+										"typography_typography": "custom",
+										"typography_font_family": "Gotham",
+										"typography_font_size": {
+											"unit": "px",
+											"size": 24,
+											"sizes": []
+										},
+										"typography_font_weight": "300",
+										"typography_line_height": {
+											"unit": "em",
+											"size": 1.3,
+											"sizes": []
+										}
+									},
+									"elements": [],
+									"widgetType": "text-editor"
+								},
+								{
+									"id": "900a64d",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"flex_direction": "column",
+										"flex_align_items": "center",
+										"flex_gap": {
+											"column": "15",
+											"row": "15",
+											"isLinked": true,
+											"unit": "px",
+											"size": 15
+										},
+										"padding": {
+											"unit": "px",
+											"top": "0",
+											"right": "0",
+											"bottom": "0",
+											"left": "0",
+											"isLinked": false
+										}
+									},
+									"elements": [
+										{
+											"id": "40d390b",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"width": {
+													"unit": "px",
+													"size": 351,
+													"sizes": []
+												},
+												"min_height": {
+													"unit": "px",
+													"size": 62,
+													"sizes": []
+												},
+												"flex_direction": "row",
+												"flex_align_items": "center",
+												"flex_justify_content": "center",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												},
+												"background_background": "gradient",
+												"background_color": "#488BD1",
+												"background_color_stop": {
+													"unit": "%",
+													"size": 15,
+													"sizes": []
+												},
+												"background_color_b": "#111111",
+												"background_color_b_stop": {
+													"unit": "%",
+													"size": 86,
+													"sizes": []
+												},
+												"background_gradient_type": "linear",
+												"background_gradient_angle": {
+													"unit": "deg",
+													"size": 187,
+													"sizes": []
+												}
+											},
+											"elements": [
+												{
+													"id": "0f8e762",
+													"elType": "widget",
+													"settings": {
+														"text": "QUERO ENTRAR NO GRUPO",
+														"link": {
+															"url": "#inscricao",
+															"is_external": "",
+															"nofollow": ""
+														},
+														"align": "center",
+														"size": "md",
+														"button_text_color": "#FFFFFF",
+														"background_color": "rgba(0,0,0,0)",
+														"border_border": "solid",
+														"border_width": {
+															"unit": "px",
+															"top": "1",
+															"right": "1",
+															"bottom": "1",
+															"left": "1",
+															"isLinked": false
+														},
+														"border_color": "rgba(255,255,255,0.6)",
+														"text_padding": {
+															"unit": "px",
+															"top": "8",
+															"right": "16",
+															"bottom": "8",
+															"left": "16",
+															"isLinked": false
+														},
+														"button_box_shadow_box_shadow_type": "yes",
+														"button_box_shadow_box_shadow": {
+															"horizontal": 0,
+															"vertical": 3,
+															"blur": 17,
+															"spread": 0,
+															"color": "rgba(98,153,209,0.9)"
+														},
+														"button_box_shadow_box_shadow_position": "inset",
+														"typography_typography": "custom",
+														"typography_font_family": "Cutta",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 18,
+															"sizes": []
+														},
+														"typography_font_weight": "500",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.2,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "button"
+												}
+											],
+											"isInner": true
+										},
+										{
+											"id": "05348e4",
+											"elType": "widget",
+											"settings": {
+												"title": "28 DE OUTUBRO - 20H - AO VIVO",
+												"header_size": "div",
+												"align": "center",
+												"title_color": "#FFFFFF",
+												"typography_typography": "custom",
+												"typography_font_family": "Cutta",
+												"typography_font_size": {
+													"unit": "px",
+													"size": 12.7,
+													"sizes": []
+												},
+												"typography_font_weight": "700",
+												"typography_line_height": {
+													"unit": "em",
+													"size": 1.3,
+													"sizes": []
+												}
+											},
+											"elements": [],
+											"widgetType": "heading"
+										}
+									],
+									"isInner": true
+								}
+							],
+							"isInner": true
+						}
+					],
+					"isInner": true
+				}
+			],
+			"isInner": false
+		},
+		{
+			"id": "be222cb",
+			"elType": "container",
+			"settings": {
+				"content_width": "full",
+				"padding": {
+					"unit": "px",
+					"top": "72",
+					"right": "0",
+					"bottom": "72",
+					"left": "0",
+					"isLinked": false
+				},
+				"flex_direction": "column",
+				"flex_align_items": "center",
+				"background_background": "classic",
+				"background_color": "#111111",
+				"flex_gap": {
+					"column": "58",
+					"row": "58",
+					"isLinked": true,
+					"unit": "px",
+					"size": 58
+				}
+			},
+			"elements": [
+				{
+					"id": "154aa8d",
+					"elType": "container",
+					"settings": {
+						"content_width": "boxed",
+						"boxed_width": {
+							"unit": "px",
+							"size": 930,
+							"sizes": []
+						},
+						"flex_direction": "column",
+						"padding": {
+							"unit": "px",
+							"top": "0",
+							"right": "20",
+							"bottom": "0",
+							"left": "20",
+							"isLinked": false
+						}
+					},
+					"elements": [
+						{
+							"id": "824885c",
+							"elType": "widget",
+							"settings": {
+								"title": "Apresentação é um dos pilares, mas para subir de nível",
+								"header_size": "h2",
+								"align": "center",
+								"title_color": "#FFFFFF",
+								"typography_typography": "custom",
+								"typography_font_family": "Cutta",
+								"typography_font_size": {
+									"unit": "px",
+									"size": 40,
+									"sizes": []
+								},
+								"typography_font_weight": "700",
+								"typography_line_height": {
+									"unit": "em",
+									"size": 1.1,
+									"sizes": []
+								},
+								"typography_letter_spacing": {
+									"unit": "px",
+									"size": -3.2,
+									"sizes": []
+								}
+							},
+							"elements": [],
+							"widgetType": "heading"
+						},
+						{
+							"id": "686e77f",
+							"elType": "widget",
+							"settings": {
+								"title": "é preciso usar ela de forma 360 na sua carreira:",
+								"header_size": "h2",
+								"align": "center",
+								"title_color": "#B0D0F0",
+								"typography_typography": "custom",
+								"typography_font_family": "Cutta",
+								"typography_font_size": {
+									"unit": "px",
+									"size": 40,
+									"sizes": []
+								},
+								"typography_font_weight": "700",
+								"typography_line_height": {
+									"unit": "em",
+									"size": 1.1,
+									"sizes": []
+								},
+								"typography_letter_spacing": {
+									"unit": "px",
+									"size": -3.2,
+									"sizes": []
+								}
+							},
+							"elements": [],
+							"widgetType": "heading"
+						},
+						{
+							"id": "ccf9d8e",
+							"elType": "container",
+							"settings": {
+								"content_width": "full",
+								"flex_direction": "row",
+								"flex_wrap": "wrap",
+								"flex_gap": {
+									"column": "10",
+									"row": "10",
+									"isLinked": true,
+									"unit": "px",
+									"size": 10
+								},
+								"padding": {
+									"unit": "px",
+									"top": "0",
+									"right": "0",
+									"bottom": "0",
+									"left": "0",
+									"isLinked": false
+								}
+							},
+							"elements": [
+								{
+									"id": "ba2c2e4",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"width": {
+											"unit": "%",
+											"size": 49,
+											"sizes": []
+										},
+										"min_height": {
+											"unit": "px",
+											"size": 112,
+											"sizes": []
+										},
+										"flex_direction": "row",
+										"flex_align_items": "center",
+										"flex_gap": {
+											"column": "24",
+											"row": "24",
+											"isLinked": true,
+											"unit": "px",
+											"size": 24
+										},
+										"padding": {
+											"unit": "px",
+											"top": "24",
+											"right": "48",
+											"bottom": "24",
+											"left": "32",
+											"isLinked": false
+										},
+										"border_border": "solid",
+										"border_width": {
+											"unit": "px",
+											"top": "1",
+											"right": "1",
+											"bottom": "1",
+											"left": "1",
+											"isLinked": false
+										},
+										"border_color": "rgba(255,255,255,0.6)",
+										"background_background": "gradient",
+										"background_color": "rgba(72,139,209,0.2)",
+										"background_color_stop": {
+											"unit": "%",
+											"size": 15,
+											"sizes": []
+										},
+										"background_color_b": "rgba(17,17,17,0)",
+										"background_color_b_stop": {
+											"unit": "%",
+											"size": 86,
+											"sizes": []
+										},
+										"background_gradient_type": "linear",
+										"background_gradient_angle": {
+											"unit": "deg",
+											"size": 190,
+											"sizes": []
+										}
+									},
+									"elements": [
+										{
+											"id": "9558f00",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"width": {
+													"unit": "px",
+													"size": 64,
+													"sizes": []
+												},
+												"flex_direction": "row",
+												"flex_align_items": "center",
+												"flex_justify_content": "center",
+												"flex_shrink": "0",
+												"padding": {
+													"unit": "px",
+													"top": "16",
+													"right": "16",
+													"bottom": "16",
+													"left": "16",
+													"isLinked": false
+												},
+												"background_background": "gradient",
+												"background_color": "#488BD1",
+												"background_color_stop": {
+													"unit": "%",
+													"size": 15,
+													"sizes": []
+												},
+												"background_color_b": "rgba(17,17,17,0)",
+												"background_color_b_stop": {
+													"unit": "%",
+													"size": 86,
+													"sizes": []
+												},
+												"background_gradient_type": "linear",
+												"background_gradient_angle": {
+													"unit": "deg",
+													"size": 216,
+													"sizes": []
+												}
+											},
+											"elements": [
+												{
+													"id": "0b9f2c2",
+													"elType": "widget",
+													"settings": {
+														"image": {
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/icon-sphere.png",
+															"id": "",
+															"alt": "",
+															"source": "library"
+														},
+														"image_size": "full",
+														"align": "center",
+														"width": {
+															"unit": "px",
+															"size": 32,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "image"
+												}
+											],
+											"isInner": true
+										},
+										{
+											"id": "1261d74",
+											"elType": "widget",
+											"settings": {
+												"editor": "<p>Fazer a apresentação é uma habilidade.</p>",
+												"text_color": "#F2EDEB",
+												"align": "left",
+												"typography_typography": "custom",
+												"typography_font_family": "Gotham",
+												"typography_font_size": {
+													"unit": "px",
+													"size": 20,
+													"sizes": []
+												},
+												"typography_font_weight": "400",
+												"typography_line_height": {
+													"unit": "em",
+													"size": 1.2,
+													"sizes": []
+												}
+											},
+											"elements": [],
+											"widgetType": "text-editor"
+										}
+									],
+									"isInner": true
+								},
+								{
+									"id": "4ff494d",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"width": {
+											"unit": "%",
+											"size": 49,
+											"sizes": []
+										},
+										"min_height": {
+											"unit": "px",
+											"size": 112,
+											"sizes": []
+										},
+										"flex_direction": "row",
+										"flex_align_items": "center",
+										"flex_gap": {
+											"column": "24",
+											"row": "24",
+											"isLinked": true,
+											"unit": "px",
+											"size": 24
+										},
+										"padding": {
+											"unit": "px",
+											"top": "24",
+											"right": "48",
+											"bottom": "24",
+											"left": "32",
+											"isLinked": false
+										},
+										"border_border": "solid",
+										"border_width": {
+											"unit": "px",
+											"top": "1",
+											"right": "1",
+											"bottom": "1",
+											"left": "1",
+											"isLinked": false
+										},
+										"border_color": "rgba(255,255,255,0.6)",
+										"background_background": "gradient",
+										"background_color": "rgba(72,139,209,0.2)",
+										"background_color_stop": {
+											"unit": "%",
+											"size": 15,
+											"sizes": []
+										},
+										"background_color_b": "rgba(17,17,17,0)",
+										"background_color_b_stop": {
+											"unit": "%",
+											"size": 86,
+											"sizes": []
+										},
+										"background_gradient_type": "linear",
+										"background_gradient_angle": {
+											"unit": "deg",
+											"size": 190,
+											"sizes": []
+										}
+									},
+									"elements": [
+										{
+											"id": "c5c8c9f",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"width": {
+													"unit": "px",
+													"size": 64,
+													"sizes": []
+												},
+												"flex_direction": "row",
+												"flex_align_items": "center",
+												"flex_justify_content": "center",
+												"flex_shrink": "0",
+												"padding": {
+													"unit": "px",
+													"top": "16",
+													"right": "16",
+													"bottom": "16",
+													"left": "16",
+													"isLinked": false
+												},
+												"background_background": "gradient",
+												"background_color": "#488BD1",
+												"background_color_stop": {
+													"unit": "%",
+													"size": 15,
+													"sizes": []
+												},
+												"background_color_b": "rgba(17,17,17,0)",
+												"background_color_b_stop": {
+													"unit": "%",
+													"size": 86,
+													"sizes": []
+												},
+												"background_gradient_type": "linear",
+												"background_gradient_angle": {
+													"unit": "deg",
+													"size": 216,
+													"sizes": []
+												}
+											},
+											"elements": [
+												{
+													"id": "8911649",
+													"elType": "widget",
+													"settings": {
+														"image": {
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/icon-sphere.png",
+															"id": "",
+															"alt": "",
+															"source": "library"
+														},
+														"image_size": "full",
+														"align": "center",
+														"width": {
+															"unit": "px",
+															"size": 32,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "image"
+												}
+											],
+											"isInner": true
+										},
+										{
+											"id": "1e822bf",
+											"elType": "widget",
+											"settings": {
+												"editor": "<p>Defender a sua ideia para seu chefe ou lider é outra.</p>",
+												"text_color": "#F2EDEB",
+												"align": "left",
+												"typography_typography": "custom",
+												"typography_font_family": "Gotham",
+												"typography_font_size": {
+													"unit": "px",
+													"size": 20,
+													"sizes": []
+												},
+												"typography_font_weight": "400",
+												"typography_line_height": {
+													"unit": "em",
+													"size": 1.2,
+													"sizes": []
+												}
+											},
+											"elements": [],
+											"widgetType": "text-editor"
+										}
+									],
+									"isInner": true
+								},
+								{
+									"id": "870bfd9",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"width": {
+											"unit": "%",
+											"size": 49,
+											"sizes": []
+										},
+										"min_height": {
+											"unit": "px",
+											"size": 112,
+											"sizes": []
+										},
+										"flex_direction": "row",
+										"flex_align_items": "center",
+										"flex_gap": {
+											"column": "24",
+											"row": "24",
+											"isLinked": true,
+											"unit": "px",
+											"size": 24
+										},
+										"padding": {
+											"unit": "px",
+											"top": "24",
+											"right": "48",
+											"bottom": "24",
+											"left": "32",
+											"isLinked": false
+										},
+										"border_border": "solid",
+										"border_width": {
+											"unit": "px",
+											"top": "1",
+											"right": "1",
+											"bottom": "1",
+											"left": "1",
+											"isLinked": false
+										},
+										"border_color": "rgba(255,255,255,0.6)",
+										"background_background": "gradient",
+										"background_color": "rgba(72,139,209,0.2)",
+										"background_color_stop": {
+											"unit": "%",
+											"size": 15,
+											"sizes": []
+										},
+										"background_color_b": "rgba(17,17,17,0)",
+										"background_color_b_stop": {
+											"unit": "%",
+											"size": 86,
+											"sizes": []
+										},
+										"background_gradient_type": "linear",
+										"background_gradient_angle": {
+											"unit": "deg",
+											"size": 190,
+											"sizes": []
+										}
+									},
+									"elements": [
+										{
+											"id": "34e494e",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"width": {
+													"unit": "px",
+													"size": 64,
+													"sizes": []
+												},
+												"flex_direction": "row",
+												"flex_align_items": "center",
+												"flex_justify_content": "center",
+												"flex_shrink": "0",
+												"padding": {
+													"unit": "px",
+													"top": "16",
+													"right": "16",
+													"bottom": "16",
+													"left": "16",
+													"isLinked": false
+												},
+												"background_background": "gradient",
+												"background_color": "#488BD1",
+												"background_color_stop": {
+													"unit": "%",
+													"size": 15,
+													"sizes": []
+												},
+												"background_color_b": "rgba(17,17,17,0)",
+												"background_color_b_stop": {
+													"unit": "%",
+													"size": 86,
+													"sizes": []
+												},
+												"background_gradient_type": "linear",
+												"background_gradient_angle": {
+													"unit": "deg",
+													"size": 216,
+													"sizes": []
+												}
+											},
+											"elements": [
+												{
+													"id": "32ed4d1",
+													"elType": "widget",
+													"settings": {
+														"image": {
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/icon-sphere.png",
+															"id": "",
+															"alt": "",
+															"source": "library"
+														},
+														"image_size": "full",
+														"align": "center",
+														"width": {
+															"unit": "px",
+															"size": 32,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "image"
+												}
+											],
+											"isInner": true
+										},
+										{
+											"id": "15722bd",
+											"elType": "widget",
+											"settings": {
+												"editor": "<p>Conhecer as pessoas certas sem parecer que você quer tirar proveito é outra.</p>",
+												"text_color": "#F2EDEB",
+												"align": "left",
+												"typography_typography": "custom",
+												"typography_font_family": "Gotham",
+												"typography_font_size": {
+													"unit": "px",
+													"size": 20,
+													"sizes": []
+												},
+												"typography_font_weight": "400",
+												"typography_line_height": {
+													"unit": "em",
+													"size": 1.2,
+													"sizes": []
+												}
+											},
+											"elements": [],
+											"widgetType": "text-editor"
+										}
+									],
+									"isInner": true
+								},
+								{
+									"id": "c37b998",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"width": {
+											"unit": "%",
+											"size": 49,
+											"sizes": []
+										},
+										"min_height": {
+											"unit": "px",
+											"size": 112,
+											"sizes": []
+										},
+										"flex_direction": "row",
+										"flex_align_items": "center",
+										"flex_gap": {
+											"column": "24",
+											"row": "24",
+											"isLinked": true,
+											"unit": "px",
+											"size": 24
+										},
+										"padding": {
+											"unit": "px",
+											"top": "24",
+											"right": "48",
+											"bottom": "24",
+											"left": "32",
+											"isLinked": false
+										},
+										"border_border": "solid",
+										"border_width": {
+											"unit": "px",
+											"top": "1",
+											"right": "1",
+											"bottom": "1",
+											"left": "1",
+											"isLinked": false
+										},
+										"border_color": "rgba(255,255,255,0.6)",
+										"background_background": "gradient",
+										"background_color": "rgba(72,139,209,0.2)",
+										"background_color_stop": {
+											"unit": "%",
+											"size": 15,
+											"sizes": []
+										},
+										"background_color_b": "rgba(17,17,17,0)",
+										"background_color_b_stop": {
+											"unit": "%",
+											"size": 86,
+											"sizes": []
+										},
+										"background_gradient_type": "linear",
+										"background_gradient_angle": {
+											"unit": "deg",
+											"size": 190,
+											"sizes": []
+										}
+									},
+									"elements": [
+										{
+											"id": "8c6201c",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"width": {
+													"unit": "px",
+													"size": 64,
+													"sizes": []
+												},
+												"flex_direction": "row",
+												"flex_align_items": "center",
+												"flex_justify_content": "center",
+												"flex_shrink": "0",
+												"padding": {
+													"unit": "px",
+													"top": "16",
+													"right": "16",
+													"bottom": "16",
+													"left": "16",
+													"isLinked": false
+												},
+												"background_background": "gradient",
+												"background_color": "#488BD1",
+												"background_color_stop": {
+													"unit": "%",
+													"size": 15,
+													"sizes": []
+												},
+												"background_color_b": "rgba(17,17,17,0)",
+												"background_color_b_stop": {
+													"unit": "%",
+													"size": 86,
+													"sizes": []
+												},
+												"background_gradient_type": "linear",
+												"background_gradient_angle": {
+													"unit": "deg",
+													"size": 216,
+													"sizes": []
+												}
+											},
+											"elements": [
+												{
+													"id": "5d0aa0c",
+													"elType": "widget",
+													"settings": {
+														"image": {
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/icon-sphere.png",
+															"id": "",
+															"alt": "",
+															"source": "library"
+														},
+														"image_size": "full",
+														"align": "center",
+														"width": {
+															"unit": "px",
+															"size": 32,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "image"
+												}
+											],
+											"isInner": true
+										},
+										{
+											"id": "ce6b608",
+											"elType": "widget",
+											"settings": {
+												"editor": "<p>E ser lembrado quando você não está na sala é outra.</p>",
+												"text_color": "#F2EDEB",
+												"align": "left",
+												"typography_typography": "custom",
+												"typography_font_family": "Gotham",
+												"typography_font_size": {
+													"unit": "px",
+													"size": 20,
+													"sizes": []
+												},
+												"typography_font_weight": "400",
+												"typography_line_height": {
+													"unit": "em",
+													"size": 1.2,
+													"sizes": []
+												}
+											},
+											"elements": [],
+											"widgetType": "text-editor"
+										}
+									],
+									"isInner": true
+								}
+							],
+							"isInner": true
+						}
+					],
+					"isInner": true
+				}
+			],
+			"isInner": false
+		},
+		{
+			"id": "753ca0b",
+			"elType": "container",
+			"settings": {
+				"content_width": "full",
+				"padding": {
+					"unit": "px",
+					"top": "72",
+					"right": "0",
+					"bottom": "72",
+					"left": "0",
+					"isLinked": false
+				},
+				"flex_direction": "column",
+				"flex_align_items": "center",
+				"background_background": "classic",
+				"background_color": "#111111",
+				"flex_gap": {
+					"column": "18",
+					"row": "18",
+					"isLinked": true,
+					"unit": "px",
+					"size": 18
+				}
+			},
+			"elements": [
+				{
+					"id": "5e3706c",
+					"elType": "container",
+					"settings": {
+						"content_width": "boxed",
+						"boxed_width": {
+							"unit": "px",
+							"size": 782,
+							"sizes": []
+						},
+						"flex_direction": "column",
+						"padding": {
+							"unit": "px",
+							"top": "0",
+							"right": "20",
+							"bottom": "0",
+							"left": "20",
+							"isLinked": false
+						}
+					},
+					"elements": [
+						{
+							"id": "8113e91",
+							"elType": "widget",
+							"settings": {
+								"title": "Você recebe:",
+								"header_size": "h2",
+								"align": "center",
+								"title_color": "#FFFFFF",
+								"typography_typography": "custom",
+								"typography_font_family": "Cutta",
+								"typography_font_size": {
+									"unit": "px",
+									"size": 54,
+									"sizes": []
+								},
+								"typography_font_weight": "700",
+								"typography_line_height": {
+									"unit": "em",
+									"size": 1.1,
+									"sizes": []
+								},
+								"typography_letter_spacing": {
+									"unit": "px",
+									"size": -4.3,
+									"sizes": []
+								}
+							},
+							"elements": [],
+							"widgetType": "heading"
+						},
+						{
+							"id": "9fc19c0",
+							"elType": "widget",
+							"settings": {
+								"editor": "<p><strong style=\"color:#B0D0F0;\">Dez treinamentos. Acesso vitalício. Paga uma vez e é seu.</strong> Sem mensalidade, sem renovação, sem data para acabar.</p>",
+								"text_color": "#FFFFFF",
+								"align": "center",
+								"typography_typography": "custom",
+								"typography_font_family": "Gotham",
+								"typography_font_size": {
+									"unit": "px",
+									"size": 24,
+									"sizes": []
+								},
+								"typography_font_weight": "300",
+								"typography_line_height": {
+									"unit": "em",
+									"size": 1.3,
+									"sizes": []
+								}
+							},
+							"elements": [],
+							"widgetType": "text-editor"
+						},
+						{
+							"id": "c57e19a",
+							"elType": "container",
+							"settings": {
+								"content_width": "full",
+								"flex_direction": "column",
+								"padding": {
+									"unit": "px",
+									"top": "11",
+									"right": "10",
+									"bottom": "11",
+									"left": "10",
+									"isLinked": false
+								},
+								"background_background": "classic",
+								"background_color": "#080808",
+								"border_border": "solid",
+								"border_width": {
+									"unit": "px",
+									"top": "1",
+									"right": "1",
+									"bottom": "1",
+									"left": "1",
+									"isLinked": false
+								},
+								"border_color": "rgba(255,255,255,0.6)"
+							},
+							"elements": [
+								{
+									"id": "ec2ee67",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"flex_direction": "row",
+										"flex_align_items": "center",
+										"flex_gap": {
+											"column": "32",
+											"row": "32",
+											"isLinked": true,
+											"unit": "px",
+											"size": 32
+										},
+										"padding": {
+											"unit": "px",
+											"top": "22",
+											"right": "22",
+											"bottom": "22",
+											"left": "22",
+											"isLinked": false
+										},
+										"box_shadow_box_shadow_type": "yes",
+										"box_shadow_box_shadow": {
+											"horizontal": 0,
+											"vertical": 7,
+											"blur": 4,
+											"spread": 0,
+											"color": "rgba(0,0,0,0.45)"
+										},
+										"border_border": "solid",
+										"border_width": {
+											"unit": "px",
+											"top": "1",
+											"right": "1",
+											"bottom": "1",
+											"left": "1",
+											"isLinked": false
+										},
+										"border_color": "rgba(255,255,255,0.6)",
+										"background_background": "gradient",
+										"background_color": "rgba(72,139,209,0.2)",
+										"background_color_stop": {
+											"unit": "%",
+											"size": 15,
+											"sizes": []
+										},
+										"background_color_b": "rgba(17,17,17,0)",
+										"background_color_b_stop": {
+											"unit": "%",
+											"size": 86,
+											"sizes": []
+										},
+										"background_gradient_type": "linear",
+										"background_gradient_angle": {
+											"unit": "deg",
+											"size": 201,
+											"sizes": []
+										}
+									},
+									"elements": [
+										{
+											"id": "c09094b",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"width": {
+													"unit": "px",
+													"size": 248,
+													"sizes": []
+												},
+												"flex_shrink": "0",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												},
+												"border_border": "solid",
+												"border_width": {
+													"unit": "px",
+													"top": "1",
+													"right": "1",
+													"bottom": "1",
+													"left": "1",
+													"isLinked": false
+												},
+												"border_color": "rgba(255,255,255,0.6)"
+											},
+											"elements": [
+												{
+													"id": "40d5a17",
+													"elType": "widget",
+													"settings": {
+														"image": {
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/capa-metodo-power.webp",
+															"id": "",
+															"alt": "Método POWER",
+															"source": "library"
+														},
+														"image_size": "full",
+														"align": "center",
+														"width": {
+															"unit": "px",
+															"size": 248,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "image"
+												}
+											],
+											"isInner": true
+										},
+										{
+											"id": "f45da95",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"flex_direction": "column",
+												"flex_align_items": "flex-start",
+												"flex_gap": {
+													"column": "12",
+													"row": "12",
+													"isLinked": true,
+													"unit": "px",
+													"size": 12
+												},
+												"flex_grow": "1",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												}
+											},
+											"elements": [
+												{
+													"id": "ad3ed40",
+													"elType": "widget",
+													"settings": {
+														"title": "Método POWER",
+														"header_size": "h3",
+														"align": "left",
+														"title_color": "#B0D0F0",
+														"typography_typography": "custom",
+														"typography_font_family": "Cutta",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 32,
+															"sizes": []
+														},
+														"typography_font_weight": "700",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "heading"
+												},
+												{
+													"id": "e3c95f5",
+													"elType": "widget",
+													"settings": {
+														"editor": "<p><strong>Formação completa em apresentações, desde o planejamento do conteúdo, narrativas de storytelling, ao design e à entrega.</strong></p><p>A metodologia principal da Power, aprovada pelo MEC e totalmente regravada este ano.</p>",
+														"text_color": "#F2EDEB",
+														"align": "left",
+														"typography_typography": "custom",
+														"typography_font_family": "Gotham",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 16,
+															"sizes": []
+														},
+														"typography_font_weight": "400",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "text-editor"
+												}
+											],
+											"isInner": true
+										}
+									],
+									"isInner": true
+								}
+							],
+							"isInner": true
+						},
+						{
+							"id": "acb7689",
+							"elType": "container",
+							"settings": {
+								"content_width": "full",
+								"flex_direction": "column",
+								"padding": {
+									"unit": "px",
+									"top": "11",
+									"right": "10",
+									"bottom": "11",
+									"left": "10",
+									"isLinked": false
+								},
+								"background_background": "classic",
+								"background_color": "#080808",
+								"border_border": "solid",
+								"border_width": {
+									"unit": "px",
+									"top": "1",
+									"right": "1",
+									"bottom": "1",
+									"left": "1",
+									"isLinked": false
+								},
+								"border_color": "rgba(255,255,255,0.6)"
+							},
+							"elements": [
+								{
+									"id": "1e3df7f",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"flex_direction": "row",
+										"flex_align_items": "center",
+										"flex_gap": {
+											"column": "32",
+											"row": "32",
+											"isLinked": true,
+											"unit": "px",
+											"size": 32
+										},
+										"padding": {
+											"unit": "px",
+											"top": "22",
+											"right": "22",
+											"bottom": "22",
+											"left": "22",
+											"isLinked": false
+										},
+										"box_shadow_box_shadow_type": "yes",
+										"box_shadow_box_shadow": {
+											"horizontal": 0,
+											"vertical": 7,
+											"blur": 4,
+											"spread": 0,
+											"color": "rgba(0,0,0,0.45)"
+										},
+										"border_border": "solid",
+										"border_width": {
+											"unit": "px",
+											"top": "1",
+											"right": "1",
+											"bottom": "1",
+											"left": "1",
+											"isLinked": false
+										},
+										"border_color": "rgba(255,255,255,0.6)",
+										"background_background": "gradient",
+										"background_color": "rgba(72,139,209,0.2)",
+										"background_color_stop": {
+											"unit": "%",
+											"size": 15,
+											"sizes": []
+										},
+										"background_color_b": "rgba(17,17,17,0)",
+										"background_color_b_stop": {
+											"unit": "%",
+											"size": 86,
+											"sizes": []
+										},
+										"background_gradient_type": "linear",
+										"background_gradient_angle": {
+											"unit": "deg",
+											"size": 201,
+											"sizes": []
+										}
+									},
+									"elements": [
+										{
+											"id": "44091ea",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"width": {
+													"unit": "px",
+													"size": 248,
+													"sizes": []
+												},
+												"flex_shrink": "0",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												},
+												"border_border": "solid",
+												"border_width": {
+													"unit": "px",
+													"top": "1",
+													"right": "1",
+													"bottom": "1",
+													"left": "1",
+													"isLinked": false
+												},
+												"border_color": "rgba(255,255,255,0.6)"
+											},
+											"elements": [
+												{
+													"id": "db8df20",
+													"elType": "widget",
+													"settings": {
+														"image": {
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/apresentacao-ia.webp",
+															"id": "",
+															"alt": "IA Apresentações 2.0",
+															"source": "library"
+														},
+														"image_size": "full",
+														"align": "center",
+														"width": {
+															"unit": "px",
+															"size": 248,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "image"
+												}
+											],
+											"isInner": true
+										},
+										{
+											"id": "720232d",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"flex_direction": "column",
+												"flex_align_items": "flex-start",
+												"flex_gap": {
+													"column": "12",
+													"row": "12",
+													"isLinked": true,
+													"unit": "px",
+													"size": 12
+												},
+												"flex_grow": "1",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												}
+											},
+											"elements": [
+												{
+													"id": "bff1a93",
+													"elType": "widget",
+													"settings": {
+														"title": "IA Apresentações 2.0",
+														"header_size": "h3",
+														"align": "left",
+														"title_color": "#B0D0F0",
+														"typography_typography": "custom",
+														"typography_font_family": "Cutta",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 32,
+															"sizes": []
+														},
+														"typography_font_weight": "700",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "heading"
+												},
+												{
+													"id": "9135eb7",
+													"elType": "widget",
+													"settings": {
+														"editor": "<p><strong>Aprenda a usar IA para criar apresentações mais rápido sem cair no resultado genérico.</strong></p><p>Como usar as melhores ferramentas de IA para criar estrutura do conteúdo com storytelling, insumos para apresentação, imagens para criação visual, e até mesmo apresentações inteiras, mas com método para manter qualidade, personalidade e controle do resultado final.</p>",
+														"text_color": "#F2EDEB",
+														"align": "left",
+														"typography_typography": "custom",
+														"typography_font_family": "Gotham",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 16,
+															"sizes": []
+														},
+														"typography_font_weight": "400",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "text-editor"
+												}
+											],
+											"isInner": true
+										}
+									],
+									"isInner": true
+								}
+							],
+							"isInner": true
+						},
+						{
+							"id": "8f79824",
+							"elType": "container",
+							"settings": {
+								"content_width": "full",
+								"flex_direction": "column",
+								"padding": {
+									"unit": "px",
+									"top": "11",
+									"right": "10",
+									"bottom": "11",
+									"left": "10",
+									"isLinked": false
+								},
+								"background_background": "classic",
+								"background_color": "#080808",
+								"border_border": "solid",
+								"border_width": {
+									"unit": "px",
+									"top": "1",
+									"right": "1",
+									"bottom": "1",
+									"left": "1",
+									"isLinked": false
+								},
+								"border_color": "rgba(255,255,255,0.6)"
+							},
+							"elements": [
+								{
+									"id": "666f178",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"flex_direction": "row",
+										"flex_align_items": "center",
+										"flex_gap": {
+											"column": "32",
+											"row": "32",
+											"isLinked": true,
+											"unit": "px",
+											"size": 32
+										},
+										"padding": {
+											"unit": "px",
+											"top": "22",
+											"right": "22",
+											"bottom": "22",
+											"left": "22",
+											"isLinked": false
+										},
+										"box_shadow_box_shadow_type": "yes",
+										"box_shadow_box_shadow": {
+											"horizontal": 0,
+											"vertical": 7,
+											"blur": 4,
+											"spread": 0,
+											"color": "rgba(0,0,0,0.45)"
+										},
+										"border_border": "solid",
+										"border_width": {
+											"unit": "px",
+											"top": "1",
+											"right": "1",
+											"bottom": "1",
+											"left": "1",
+											"isLinked": false
+										},
+										"border_color": "rgba(255,255,255,0.6)",
+										"background_background": "gradient",
+										"background_color": "rgba(72,139,209,0.2)",
+										"background_color_stop": {
+											"unit": "%",
+											"size": 15,
+											"sizes": []
+										},
+										"background_color_b": "rgba(17,17,17,0)",
+										"background_color_b_stop": {
+											"unit": "%",
+											"size": 86,
+											"sizes": []
+										},
+										"background_gradient_type": "linear",
+										"background_gradient_angle": {
+											"unit": "deg",
+											"size": 201,
+											"sizes": []
+										}
+									},
+									"elements": [
+										{
+											"id": "aab7688",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"width": {
+													"unit": "px",
+													"size": 248,
+													"sizes": []
+												},
+												"flex_shrink": "0",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												},
+												"border_border": "solid",
+												"border_width": {
+													"unit": "px",
+													"top": "1",
+													"right": "1",
+													"bottom": "1",
+													"left": "1",
+													"isLinked": false
+												},
+												"border_color": "rgba(255,255,255,0.6)"
+											},
+											"elements": [
+												{
+													"id": "bde02e5",
+													"elType": "widget",
+													"settings": {
+														"image": {
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/apresentacoes-express.webp",
+															"id": "",
+															"alt": "Apresentações Express",
+															"source": "library"
+														},
+														"image_size": "full",
+														"align": "center",
+														"width": {
+															"unit": "px",
+															"size": 248,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "image"
+												}
+											],
+											"isInner": true
+										},
+										{
+											"id": "aef2fec",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"flex_direction": "column",
+												"flex_align_items": "flex-start",
+												"flex_gap": {
+													"column": "12",
+													"row": "12",
+													"isLinked": true,
+													"unit": "px",
+													"size": 12
+												},
+												"flex_grow": "1",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												}
+											},
+											"elements": [
+												{
+													"id": "4bae1a3",
+													"elType": "widget",
+													"settings": {
+														"title": "Apresentações Express",
+														"header_size": "h3",
+														"align": "left",
+														"title_color": "#B0D0F0",
+														"typography_typography": "custom",
+														"typography_font_family": "Cutta",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 32,
+															"sizes": []
+														},
+														"typography_font_weight": "700",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "heading"
+												},
+												{
+													"id": "ec718b5",
+													"elType": "widget",
+													"settings": {
+														"editor": "<p><strong>Para quando você precisa criar uma boa apresentação em pouco tempo.</strong></p><p>Um processo para sair do zero e chegar a uma apresentação pronta em cerca de uma hora.</p>",
+														"text_color": "#F2EDEB",
+														"align": "left",
+														"typography_typography": "custom",
+														"typography_font_family": "Gotham",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 16,
+															"sizes": []
+														},
+														"typography_font_weight": "400",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "text-editor"
+												}
+											],
+											"isInner": true
+										}
+									],
+									"isInner": true
+								}
+							],
+							"isInner": true
+						},
+						{
+							"id": "8a5f12f",
+							"elType": "container",
+							"settings": {
+								"content_width": "full",
+								"flex_direction": "column",
+								"padding": {
+									"unit": "px",
+									"top": "11",
+									"right": "10",
+									"bottom": "11",
+									"left": "10",
+									"isLinked": false
+								},
+								"background_background": "classic",
+								"background_color": "#080808",
+								"border_border": "solid",
+								"border_width": {
+									"unit": "px",
+									"top": "1",
+									"right": "1",
+									"bottom": "1",
+									"left": "1",
+									"isLinked": false
+								},
+								"border_color": "rgba(255,255,255,0.6)"
+							},
+							"elements": [
+								{
+									"id": "a5ab3a9",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"flex_direction": "row",
+										"flex_align_items": "center",
+										"flex_gap": {
+											"column": "32",
+											"row": "32",
+											"isLinked": true,
+											"unit": "px",
+											"size": 32
+										},
+										"padding": {
+											"unit": "px",
+											"top": "22",
+											"right": "22",
+											"bottom": "22",
+											"left": "22",
+											"isLinked": false
+										},
+										"box_shadow_box_shadow_type": "yes",
+										"box_shadow_box_shadow": {
+											"horizontal": 0,
+											"vertical": 7,
+											"blur": 4,
+											"spread": 0,
+											"color": "rgba(0,0,0,0.45)"
+										},
+										"border_border": "solid",
+										"border_width": {
+											"unit": "px",
+											"top": "1",
+											"right": "1",
+											"bottom": "1",
+											"left": "1",
+											"isLinked": false
+										},
+										"border_color": "rgba(255,255,255,0.6)",
+										"background_background": "gradient",
+										"background_color": "rgba(72,139,209,0.2)",
+										"background_color_stop": {
+											"unit": "%",
+											"size": 15,
+											"sizes": []
+										},
+										"background_color_b": "rgba(17,17,17,0)",
+										"background_color_b_stop": {
+											"unit": "%",
+											"size": 86,
+											"sizes": []
+										},
+										"background_gradient_type": "linear",
+										"background_gradient_angle": {
+											"unit": "deg",
+											"size": 201,
+											"sizes": []
+										}
+									},
+									"elements": [
+										{
+											"id": "6e1be3b",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"width": {
+													"unit": "px",
+													"size": 248,
+													"sizes": []
+												},
+												"flex_shrink": "0",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												},
+												"border_border": "solid",
+												"border_width": {
+													"unit": "px",
+													"top": "1",
+													"right": "1",
+													"bottom": "1",
+													"left": "1",
+													"isLinked": false
+												},
+												"border_color": "rgba(255,255,255,0.6)"
+											},
+											"elements": [
+												{
+													"id": "4d30b01",
+													"elType": "widget",
+													"settings": {
+														"image": {
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/mecanismos.webp",
+															"id": "",
+															"alt": "Mecanismos de uma Apresentação de Sucesso",
+															"source": "library"
+														},
+														"image_size": "full",
+														"align": "center",
+														"width": {
+															"unit": "px",
+															"size": 248,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "image"
+												}
+											],
+											"isInner": true
+										},
+										{
+											"id": "ea665c6",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"flex_direction": "column",
+												"flex_align_items": "flex-start",
+												"flex_gap": {
+													"column": "12",
+													"row": "12",
+													"isLinked": true,
+													"unit": "px",
+													"size": 12
+												},
+												"flex_grow": "1",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												}
+											},
+											"elements": [
+												{
+													"id": "35710eb",
+													"elType": "widget",
+													"settings": {
+														"title": "Mecanismos de uma Apresentação de Sucesso",
+														"header_size": "h3",
+														"align": "left",
+														"title_color": "#B0D0F0",
+														"typography_typography": "custom",
+														"typography_font_family": "Cutta",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 32,
+															"sizes": []
+														},
+														"typography_font_weight": "700",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "heading"
+												},
+												{
+													"id": "b19e903",
+													"elType": "widget",
+													"settings": {
+														"editor": "<p>A caixa-preta das Palestras aberta: por que alguns pitch’s do Shark Tank fecham parcerias, o que faz o Steve Jobs prender a atenção de uma plateia inteira por horas, como foram montadas as apresentações do Thiago Nigro e do Ícaro de Carvalho. Você enxerga o mecanismo que se repete, reconhece e começa a aplicar nas suas apresentações.</p>",
+														"text_color": "#F2EDEB",
+														"align": "left",
+														"typography_typography": "custom",
+														"typography_font_family": "Gotham",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 16,
+															"sizes": []
+														},
+														"typography_font_weight": "400",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "text-editor"
+												}
+											],
+											"isInner": true
+										}
+									],
+									"isInner": true
+								}
+							],
+							"isInner": true
+						},
+						{
+							"id": "4ac8735",
+							"elType": "container",
+							"settings": {
+								"content_width": "full",
+								"flex_direction": "column",
+								"padding": {
+									"unit": "px",
+									"top": "11",
+									"right": "10",
+									"bottom": "11",
+									"left": "10",
+									"isLinked": false
+								},
+								"background_background": "classic",
+								"background_color": "#080808",
+								"border_border": "solid",
+								"border_width": {
+									"unit": "px",
+									"top": "1",
+									"right": "1",
+									"bottom": "1",
+									"left": "1",
+									"isLinked": false
+								},
+								"border_color": "rgba(255,255,255,0.6)"
+							},
+							"elements": [
+								{
+									"id": "9e5c5f2",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"flex_direction": "row",
+										"flex_align_items": "center",
+										"flex_gap": {
+											"column": "32",
+											"row": "32",
+											"isLinked": true,
+											"unit": "px",
+											"size": 32
+										},
+										"padding": {
+											"unit": "px",
+											"top": "22",
+											"right": "22",
+											"bottom": "22",
+											"left": "22",
+											"isLinked": false
+										},
+										"box_shadow_box_shadow_type": "yes",
+										"box_shadow_box_shadow": {
+											"horizontal": 0,
+											"vertical": 7,
+											"blur": 4,
+											"spread": 0,
+											"color": "rgba(0,0,0,0.45)"
+										},
+										"border_border": "solid",
+										"border_width": {
+											"unit": "px",
+											"top": "1",
+											"right": "1",
+											"bottom": "1",
+											"left": "1",
+											"isLinked": false
+										},
+										"border_color": "rgba(255,255,255,0.6)",
+										"background_background": "gradient",
+										"background_color": "rgba(72,139,209,0.2)",
+										"background_color_stop": {
+											"unit": "%",
+											"size": 15,
+											"sizes": []
+										},
+										"background_color_b": "rgba(17,17,17,0)",
+										"background_color_b_stop": {
+											"unit": "%",
+											"size": 86,
+											"sizes": []
+										},
+										"background_gradient_type": "linear",
+										"background_gradient_angle": {
+											"unit": "deg",
+											"size": 201,
+											"sizes": []
+										}
+									},
+									"elements": [
+										{
+											"id": "c91958a",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"width": {
+													"unit": "px",
+													"size": 248,
+													"sizes": []
+												},
+												"flex_shrink": "0",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												},
+												"border_border": "solid",
+												"border_width": {
+													"unit": "px",
+													"top": "1",
+													"right": "1",
+													"bottom": "1",
+													"left": "1",
+													"isLinked": false
+												},
+												"border_color": "rgba(255,255,255,0.6)"
+											},
+											"elements": [
+												{
+													"id": "fbef3b6",
+													"elType": "widget",
+													"settings": {
+														"image": {
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/bussola.webp",
+															"id": "",
+															"alt": "Bússola da Criatividade",
+															"source": "library"
+														},
+														"image_size": "full",
+														"align": "center",
+														"width": {
+															"unit": "px",
+															"size": 248,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "image"
+												}
+											],
+											"isInner": true
+										},
+										{
+											"id": "dfe45ea",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"flex_direction": "column",
+												"flex_align_items": "flex-start",
+												"flex_gap": {
+													"column": "12",
+													"row": "12",
+													"isLinked": true,
+													"unit": "px",
+													"size": 12
+												},
+												"flex_grow": "1",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												}
+											},
+											"elements": [
+												{
+													"id": "c57cf51",
+													"elType": "widget",
+													"settings": {
+														"title": "Bússola da Criatividade",
+														"header_size": "h3",
+														"align": "left",
+														"title_color": "#B0D0F0",
+														"typography_typography": "custom",
+														"typography_font_family": "Cutta",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 32,
+															"sizes": []
+														},
+														"typography_font_weight": "700",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "heading"
+												},
+												{
+													"id": "b679b99",
+													"elType": "widget",
+													"settings": {
+														"editor": "<p>Para a hora em que você encara a tela em branco e pensa \"eu não sou criativo\". Ao contrário do que muita gente pensa, a criatividade pode sim ser desenvolvida através de um método.</p>",
+														"text_color": "#F2EDEB",
+														"align": "left",
+														"typography_typography": "custom",
+														"typography_font_family": "Gotham",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 16,
+															"sizes": []
+														},
+														"typography_font_weight": "400",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "text-editor"
+												}
+											],
+											"isInner": true
+										}
+									],
+									"isInner": true
+								}
+							],
+							"isInner": true
+						},
+						{
+							"id": "e1bf44c",
+							"elType": "container",
+							"settings": {
+								"content_width": "full",
+								"flex_direction": "column",
+								"padding": {
+									"unit": "px",
+									"top": "11",
+									"right": "10",
+									"bottom": "11",
+									"left": "10",
+									"isLinked": false
+								},
+								"background_background": "classic",
+								"background_color": "#080808",
+								"border_border": "solid",
+								"border_width": {
+									"unit": "px",
+									"top": "1",
+									"right": "1",
+									"bottom": "1",
+									"left": "1",
+									"isLinked": false
+								},
+								"border_color": "rgba(255,255,255,0.6)"
+							},
+							"elements": [
+								{
+									"id": "71edd51",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"flex_direction": "row",
+										"flex_align_items": "center",
+										"flex_gap": {
+											"column": "32",
+											"row": "32",
+											"isLinked": true,
+											"unit": "px",
+											"size": 32
+										},
+										"padding": {
+											"unit": "px",
+											"top": "22",
+											"right": "22",
+											"bottom": "22",
+											"left": "22",
+											"isLinked": false
+										},
+										"box_shadow_box_shadow_type": "yes",
+										"box_shadow_box_shadow": {
+											"horizontal": 0,
+											"vertical": 7,
+											"blur": 4,
+											"spread": 0,
+											"color": "rgba(0,0,0,0.45)"
+										},
+										"border_border": "solid",
+										"border_width": {
+											"unit": "px",
+											"top": "1",
+											"right": "1",
+											"bottom": "1",
+											"left": "1",
+											"isLinked": false
+										},
+										"border_color": "rgba(255,255,255,0.6)",
+										"background_background": "gradient",
+										"background_color": "rgba(17,17,17,0)",
+										"background_color_stop": {
+											"unit": "%",
+											"size": 15,
+											"sizes": []
+										},
+										"background_color_b": "rgba(72,139,209,0.6)",
+										"background_color_b_stop": {
+											"unit": "%",
+											"size": 86,
+											"sizes": []
+										},
+										"background_gradient_type": "linear",
+										"background_gradient_angle": {
+											"unit": "deg",
+											"size": 201,
+											"sizes": []
+										}
+									},
+									"elements": [
+										{
+											"id": "f9687d6",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"width": {
+													"unit": "px",
+													"size": 248,
+													"sizes": []
+												},
+												"flex_shrink": "0",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												},
+												"border_border": "solid",
+												"border_width": {
+													"unit": "px",
+													"top": "1",
+													"right": "1",
+													"bottom": "1",
+													"left": "1",
+													"isLinked": false
+												},
+												"border_color": "rgba(255,255,255,0.6)"
+											},
+											"elements": [
+												{
+													"id": "7dd7683",
+													"elType": "widget",
+													"settings": {
+														"image": {
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/networking.webp",
+															"id": "",
+															"alt": "Networking",
+															"source": "library"
+														},
+														"image_size": "full",
+														"align": "center",
+														"width": {
+															"unit": "px",
+															"size": 248,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "image"
+												}
+											],
+											"isInner": true
+										},
+										{
+											"id": "ce77e94",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"flex_direction": "column",
+												"flex_align_items": "flex-start",
+												"flex_gap": {
+													"column": "12",
+													"row": "12",
+													"isLinked": true,
+													"unit": "px",
+													"size": 12
+												},
+												"flex_grow": "1",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												}
+											},
+											"elements": [
+												{
+													"id": "3eb7167",
+													"elType": "container",
+													"settings": {
+														"content_width": "full",
+														"width": {
+															"unit": "px",
+															"size": 65,
+															"sizes": []
+														},
+														"min_height": {
+															"unit": "px",
+															"size": 25,
+															"sizes": []
+														},
+														"flex_direction": "row",
+														"flex_align_items": "center",
+														"flex_justify_content": "center",
+														"padding": {
+															"unit": "px",
+															"top": "0",
+															"right": "12",
+															"bottom": "0",
+															"left": "12",
+															"isLinked": false
+														},
+														"border_border": "solid",
+														"border_width": {
+															"unit": "px",
+															"top": "1",
+															"right": "1",
+															"bottom": "1",
+															"left": "1",
+															"isLinked": false
+														},
+														"border_color": "#B0D0F0",
+														"background_background": "gradient",
+														"background_color": "#488BD1",
+														"background_color_stop": {
+															"unit": "%",
+															"size": 15,
+															"sizes": []
+														},
+														"background_color_b": "rgba(17,17,17,0)",
+														"background_color_b_stop": {
+															"unit": "%",
+															"size": 86,
+															"sizes": []
+														},
+														"background_gradient_type": "linear",
+														"background_gradient_angle": {
+															"unit": "deg",
+															"size": 195,
+															"sizes": []
+														}
+													},
+													"elements": [
+														{
+															"id": "3ca5c35",
+															"elType": "widget",
+															"settings": {
+																"title": "NOVO",
+																"header_size": "div",
+																"align": "center",
+																"title_color": "#F2EDEB",
+																"typography_typography": "custom",
+																"typography_font_family": "Gotham",
+																"typography_font_size": {
+																	"unit": "px",
+																	"size": 16,
+																	"sizes": []
+																},
+																"typography_font_weight": "400",
+																"typography_line_height": {
+																	"unit": "em",
+																	"size": 1.3,
+																	"sizes": []
+																}
+															},
+															"elements": [],
+															"widgetType": "heading"
+														}
+													],
+													"isInner": true
+												},
+												{
+													"id": "0a3f280",
+													"elType": "widget",
+													"settings": {
+														"title": "Networking",
+														"header_size": "h3",
+														"align": "left",
+														"title_color": "#B0D0F0",
+														"typography_typography": "custom",
+														"typography_font_family": "Cutta",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 32,
+															"sizes": []
+														},
+														"typography_font_weight": "700",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "heading"
+												},
+												{
+													"id": "eff062d",
+													"elType": "widget",
+													"settings": {
+														"editor": "<p><strong>Aprenda a construir relações profissionais que geram acesso e oportunidades.</strong></p><p>Como se aproximar das pessoas certas, manter contato e criar uma rede de forma natural, sem ser interesseiro.</p>",
+														"text_color": "#F2EDEB",
+														"align": "left",
+														"typography_typography": "custom",
+														"typography_font_family": "Gotham",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 16,
+															"sizes": []
+														},
+														"typography_font_weight": "400",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "text-editor"
+												}
+											],
+											"isInner": true
+										}
+									],
+									"isInner": true
+								}
+							],
+							"isInner": true
+						},
+						{
+							"id": "b33f403",
+							"elType": "container",
+							"settings": {
+								"content_width": "full",
+								"flex_direction": "column",
+								"padding": {
+									"unit": "px",
+									"top": "11",
+									"right": "10",
+									"bottom": "11",
+									"left": "10",
+									"isLinked": false
+								},
+								"background_background": "classic",
+								"background_color": "#080808",
+								"border_border": "solid",
+								"border_width": {
+									"unit": "px",
+									"top": "1",
+									"right": "1",
+									"bottom": "1",
+									"left": "1",
+									"isLinked": false
+								},
+								"border_color": "rgba(255,255,255,0.6)"
+							},
+							"elements": [
+								{
+									"id": "fe429ee",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"flex_direction": "row",
+										"flex_align_items": "center",
+										"flex_gap": {
+											"column": "32",
+											"row": "32",
+											"isLinked": true,
+											"unit": "px",
+											"size": 32
+										},
+										"padding": {
+											"unit": "px",
+											"top": "22",
+											"right": "22",
+											"bottom": "22",
+											"left": "22",
+											"isLinked": false
+										},
+										"box_shadow_box_shadow_type": "yes",
+										"box_shadow_box_shadow": {
+											"horizontal": 0,
+											"vertical": 7,
+											"blur": 4,
+											"spread": 0,
+											"color": "rgba(0,0,0,0.45)"
+										},
+										"border_border": "solid",
+										"border_width": {
+											"unit": "px",
+											"top": "1",
+											"right": "1",
+											"bottom": "1",
+											"left": "1",
+											"isLinked": false
+										},
+										"border_color": "rgba(255,255,255,0.6)",
+										"background_background": "gradient",
+										"background_color": "rgba(17,17,17,0)",
+										"background_color_stop": {
+											"unit": "%",
+											"size": 15,
+											"sizes": []
+										},
+										"background_color_b": "rgba(72,139,209,0.6)",
+										"background_color_b_stop": {
+											"unit": "%",
+											"size": 86,
+											"sizes": []
+										},
+										"background_gradient_type": "linear",
+										"background_gradient_angle": {
+											"unit": "deg",
+											"size": 201,
+											"sizes": []
+										}
+									},
+									"elements": [
+										{
+											"id": "befef8c",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"width": {
+													"unit": "px",
+													"size": 248,
+													"sizes": []
+												},
+												"flex_shrink": "0",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												},
+												"border_border": "solid",
+												"border_width": {
+													"unit": "px",
+													"top": "1",
+													"right": "1",
+													"bottom": "1",
+													"left": "1",
+													"isLinked": false
+												},
+												"border_color": "rgba(255,255,255,0.6)"
+											},
+											"elements": [
+												{
+													"id": "a43d831",
+													"elType": "widget",
+													"settings": {
+														"image": {
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/posicionamento.webp",
+															"id": "",
+															"alt": "Branding Pessoal e Posicionamento",
+															"source": "library"
+														},
+														"image_size": "full",
+														"align": "center",
+														"width": {
+															"unit": "px",
+															"size": 248,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "image"
+												}
+											],
+											"isInner": true
+										},
+										{
+											"id": "963500a",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"flex_direction": "column",
+												"flex_align_items": "flex-start",
+												"flex_gap": {
+													"column": "12",
+													"row": "12",
+													"isLinked": true,
+													"unit": "px",
+													"size": 12
+												},
+												"flex_grow": "1",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												}
+											},
+											"elements": [
+												{
+													"id": "fd129dd",
+													"elType": "container",
+													"settings": {
+														"content_width": "full",
+														"width": {
+															"unit": "px",
+															"size": 65,
+															"sizes": []
+														},
+														"min_height": {
+															"unit": "px",
+															"size": 25,
+															"sizes": []
+														},
+														"flex_direction": "row",
+														"flex_align_items": "center",
+														"flex_justify_content": "center",
+														"padding": {
+															"unit": "px",
+															"top": "0",
+															"right": "12",
+															"bottom": "0",
+															"left": "12",
+															"isLinked": false
+														},
+														"border_border": "solid",
+														"border_width": {
+															"unit": "px",
+															"top": "1",
+															"right": "1",
+															"bottom": "1",
+															"left": "1",
+															"isLinked": false
+														},
+														"border_color": "#B0D0F0",
+														"background_background": "gradient",
+														"background_color": "#488BD1",
+														"background_color_stop": {
+															"unit": "%",
+															"size": 15,
+															"sizes": []
+														},
+														"background_color_b": "rgba(17,17,17,0)",
+														"background_color_b_stop": {
+															"unit": "%",
+															"size": 86,
+															"sizes": []
+														},
+														"background_gradient_type": "linear",
+														"background_gradient_angle": {
+															"unit": "deg",
+															"size": 195,
+															"sizes": []
+														}
+													},
+													"elements": [
+														{
+															"id": "a5b5385",
+															"elType": "widget",
+															"settings": {
+																"title": "NOVO",
+																"header_size": "div",
+																"align": "center",
+																"title_color": "#F2EDEB",
+																"typography_typography": "custom",
+																"typography_font_family": "Gotham",
+																"typography_font_size": {
+																	"unit": "px",
+																	"size": 16,
+																	"sizes": []
+																},
+																"typography_font_weight": "400",
+																"typography_line_height": {
+																	"unit": "em",
+																	"size": 1.3,
+																	"sizes": []
+																}
+															},
+															"elements": [],
+															"widgetType": "heading"
+														}
+													],
+													"isInner": true
+												},
+												{
+													"id": "d4ac0ea",
+													"elType": "widget",
+													"settings": {
+														"title": "Branding Pessoal e Posicionamento",
+														"header_size": "h3",
+														"align": "left",
+														"title_color": "#B0D0F0",
+														"typography_typography": "custom",
+														"typography_font_family": "Cutta",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 32,
+															"sizes": []
+														},
+														"typography_font_weight": "700",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "heading"
+												},
+												{
+													"id": "e0c7eab",
+													"elType": "widget",
+													"settings": {
+														"editor": "<p><strong>Saia de “mais um bom profissional” para alguém com uma posição clara no seu trabalho.</strong></p><p>Um treinamento para definir seu posicionamento, fortalecer sua reputação e aumentar o valor percebido do seu trabalho.</p>",
+														"text_color": "#F2EDEB",
+														"align": "left",
+														"typography_typography": "custom",
+														"typography_font_family": "Gotham",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 16,
+															"sizes": []
+														},
+														"typography_font_weight": "400",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "text-editor"
+												}
+											],
+											"isInner": true
+										}
+									],
+									"isInner": true
+								}
+							],
+							"isInner": true
+						},
+						{
+							"id": "e9355b1",
+							"elType": "container",
+							"settings": {
+								"content_width": "full",
+								"flex_direction": "column",
+								"padding": {
+									"unit": "px",
+									"top": "11",
+									"right": "10",
+									"bottom": "11",
+									"left": "10",
+									"isLinked": false
+								},
+								"background_background": "classic",
+								"background_color": "#080808",
+								"border_border": "solid",
+								"border_width": {
+									"unit": "px",
+									"top": "1",
+									"right": "1",
+									"bottom": "1",
+									"left": "1",
+									"isLinked": false
+								},
+								"border_color": "rgba(255,255,255,0.6)"
+							},
+							"elements": [
+								{
+									"id": "9832943",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"flex_direction": "row",
+										"flex_align_items": "center",
+										"flex_gap": {
+											"column": "32",
+											"row": "32",
+											"isLinked": true,
+											"unit": "px",
+											"size": 32
+										},
+										"padding": {
+											"unit": "px",
+											"top": "22",
+											"right": "22",
+											"bottom": "22",
+											"left": "22",
+											"isLinked": false
+										},
+										"box_shadow_box_shadow_type": "yes",
+										"box_shadow_box_shadow": {
+											"horizontal": 0,
+											"vertical": 7,
+											"blur": 4,
+											"spread": 0,
+											"color": "rgba(0,0,0,0.45)"
+										},
+										"border_border": "solid",
+										"border_width": {
+											"unit": "px",
+											"top": "1",
+											"right": "1",
+											"bottom": "1",
+											"left": "1",
+											"isLinked": false
+										},
+										"border_color": "rgba(255,255,255,0.6)",
+										"background_background": "gradient",
+										"background_color": "rgba(17,17,17,0)",
+										"background_color_stop": {
+											"unit": "%",
+											"size": 15,
+											"sizes": []
+										},
+										"background_color_b": "rgba(72,139,209,0.6)",
+										"background_color_b_stop": {
+											"unit": "%",
+											"size": 86,
+											"sizes": []
+										},
+										"background_gradient_type": "linear",
+										"background_gradient_angle": {
+											"unit": "deg",
+											"size": 201,
+											"sizes": []
+										}
+									},
+									"elements": [
+										{
+											"id": "3508115",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"width": {
+													"unit": "px",
+													"size": 248,
+													"sizes": []
+												},
+												"flex_shrink": "0",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												},
+												"border_border": "solid",
+												"border_width": {
+													"unit": "px",
+													"top": "1",
+													"right": "1",
+													"bottom": "1",
+													"left": "1",
+													"isLinked": false
+												},
+												"border_color": "rgba(255,255,255,0.6)"
+											},
+											"elements": [
+												{
+													"id": "6a1ace5",
+													"elType": "widget",
+													"settings": {
+														"image": {
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/comunica.webp",
+															"id": "",
+															"alt": "Comunicação de Poder",
+															"source": "library"
+														},
+														"image_size": "full",
+														"align": "center",
+														"width": {
+															"unit": "px",
+															"size": 248,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "image"
+												}
+											],
+											"isInner": true
+										},
+										{
+											"id": "17bfd64",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"flex_direction": "column",
+												"flex_align_items": "flex-start",
+												"flex_gap": {
+													"column": "12",
+													"row": "12",
+													"isLinked": true,
+													"unit": "px",
+													"size": 12
+												},
+												"flex_grow": "1",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												}
+											},
+											"elements": [
+												{
+													"id": "a5e81ba",
+													"elType": "container",
+													"settings": {
+														"content_width": "full",
+														"width": {
+															"unit": "px",
+															"size": 65,
+															"sizes": []
+														},
+														"min_height": {
+															"unit": "px",
+															"size": 25,
+															"sizes": []
+														},
+														"flex_direction": "row",
+														"flex_align_items": "center",
+														"flex_justify_content": "center",
+														"padding": {
+															"unit": "px",
+															"top": "0",
+															"right": "12",
+															"bottom": "0",
+															"left": "12",
+															"isLinked": false
+														},
+														"border_border": "solid",
+														"border_width": {
+															"unit": "px",
+															"top": "1",
+															"right": "1",
+															"bottom": "1",
+															"left": "1",
+															"isLinked": false
+														},
+														"border_color": "#B0D0F0",
+														"background_background": "gradient",
+														"background_color": "#488BD1",
+														"background_color_stop": {
+															"unit": "%",
+															"size": 15,
+															"sizes": []
+														},
+														"background_color_b": "rgba(17,17,17,0)",
+														"background_color_b_stop": {
+															"unit": "%",
+															"size": 86,
+															"sizes": []
+														},
+														"background_gradient_type": "linear",
+														"background_gradient_angle": {
+															"unit": "deg",
+															"size": 195,
+															"sizes": []
+														}
+													},
+													"elements": [
+														{
+															"id": "634db6a",
+															"elType": "widget",
+															"settings": {
+																"title": "NOVO",
+																"header_size": "div",
+																"align": "center",
+																"title_color": "#F2EDEB",
+																"typography_typography": "custom",
+																"typography_font_family": "Gotham",
+																"typography_font_size": {
+																	"unit": "px",
+																	"size": 16,
+																	"sizes": []
+																},
+																"typography_font_weight": "400",
+																"typography_line_height": {
+																	"unit": "em",
+																	"size": 1.3,
+																	"sizes": []
+																}
+															},
+															"elements": [],
+															"widgetType": "heading"
+														}
+													],
+													"isInner": true
+												},
+												{
+													"id": "58b6e01",
+													"elType": "widget",
+													"settings": {
+														"title": "Comunicação de Poder",
+														"header_size": "h3",
+														"align": "left",
+														"title_color": "#B0D0F0",
+														"typography_typography": "custom",
+														"typography_font_family": "Cutta",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 32,
+															"sizes": []
+														},
+														"typography_font_weight": "700",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "heading"
+												},
+												{
+													"id": "9891d86",
+													"elType": "widget",
+													"settings": {
+														"editor": "<p><strong>Não basta ter uma boa apresentação se você não consegue sustentar a mensagem ao falar.</strong></p><p>Oratória, comunicação verbal e não verbal para apresentar ideias com mais clareza e segurança, responder a perguntas difíceis, lidar com imprevistos e manter o controle da apresentação mesmo quando algo não sai como o planejado.</p>",
+														"text_color": "#F2EDEB",
+														"align": "left",
+														"typography_typography": "custom",
+														"typography_font_family": "Gotham",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 16,
+															"sizes": []
+														},
+														"typography_font_weight": "400",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "text-editor"
+												}
+											],
+											"isInner": true
+										}
+									],
+									"isInner": true
+								}
+							],
+							"isInner": true
+						},
+						{
+							"id": "a4ca276",
+							"elType": "container",
+							"settings": {
+								"content_width": "full",
+								"flex_direction": "column",
+								"padding": {
+									"unit": "px",
+									"top": "11",
+									"right": "10",
+									"bottom": "11",
+									"left": "10",
+									"isLinked": false
+								},
+								"background_background": "classic",
+								"background_color": "#080808",
+								"border_border": "solid",
+								"border_width": {
+									"unit": "px",
+									"top": "1",
+									"right": "1",
+									"bottom": "1",
+									"left": "1",
+									"isLinked": false
+								},
+								"border_color": "rgba(255,255,255,0.6)"
+							},
+							"elements": [
+								{
+									"id": "0e90a76",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"flex_direction": "row",
+										"flex_align_items": "center",
+										"flex_gap": {
+											"column": "32",
+											"row": "32",
+											"isLinked": true,
+											"unit": "px",
+											"size": 32
+										},
+										"padding": {
+											"unit": "px",
+											"top": "22",
+											"right": "22",
+											"bottom": "22",
+											"left": "22",
+											"isLinked": false
+										},
+										"box_shadow_box_shadow_type": "yes",
+										"box_shadow_box_shadow": {
+											"horizontal": 0,
+											"vertical": 7,
+											"blur": 4,
+											"spread": 0,
+											"color": "rgba(0,0,0,0.45)"
+										},
+										"border_border": "solid",
+										"border_width": {
+											"unit": "px",
+											"top": "1",
+											"right": "1",
+											"bottom": "1",
+											"left": "1",
+											"isLinked": false
+										},
+										"border_color": "rgba(255,255,255,0.6)",
+										"background_background": "gradient",
+										"background_color": "rgba(17,17,17,0)",
+										"background_color_stop": {
+											"unit": "%",
+											"size": 15,
+											"sizes": []
+										},
+										"background_color_b": "rgba(72,139,209,0.6)",
+										"background_color_b_stop": {
+											"unit": "%",
+											"size": 86,
+											"sizes": []
+										},
+										"background_gradient_type": "linear",
+										"background_gradient_angle": {
+											"unit": "deg",
+											"size": 201,
+											"sizes": []
+										}
+									},
+									"elements": [
+										{
+											"id": "bfe6975",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"width": {
+													"unit": "px",
+													"size": 248,
+													"sizes": []
+												},
+												"flex_shrink": "0",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												},
+												"border_border": "solid",
+												"border_width": {
+													"unit": "px",
+													"top": "1",
+													"right": "1",
+													"bottom": "1",
+													"left": "1",
+													"isLinked": false
+												},
+												"border_color": "rgba(255,255,255,0.6)"
+											},
+											"elements": [
+												{
+													"id": "669670d",
+													"elType": "widget",
+													"settings": {
+														"image": {
+															"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/capa-metodo-power.webp",
+															"id": "",
+															"alt": "Novo treinamento",
+															"source": "library"
+														},
+														"image_size": "full",
+														"align": "center",
+														"width": {
+															"unit": "px",
+															"size": 248,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "image"
+												}
+											],
+											"isInner": true
+										},
+										{
+											"id": "da79534",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"flex_direction": "column",
+												"flex_align_items": "flex-start",
+												"flex_gap": {
+													"column": "12",
+													"row": "12",
+													"isLinked": true,
+													"unit": "px",
+													"size": 12
+												},
+												"flex_grow": "1",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												}
+											},
+											"elements": [
+												{
+													"id": "82adcc7",
+													"elType": "container",
+													"settings": {
+														"content_width": "full",
+														"width": {
+															"unit": "px",
+															"size": 65,
+															"sizes": []
+														},
+														"min_height": {
+															"unit": "px",
+															"size": 25,
+															"sizes": []
+														},
+														"flex_direction": "row",
+														"flex_align_items": "center",
+														"flex_justify_content": "center",
+														"padding": {
+															"unit": "px",
+															"top": "0",
+															"right": "12",
+															"bottom": "0",
+															"left": "12",
+															"isLinked": false
+														},
+														"border_border": "solid",
+														"border_width": {
+															"unit": "px",
+															"top": "1",
+															"right": "1",
+															"bottom": "1",
+															"left": "1",
+															"isLinked": false
+														},
+														"border_color": "#B0D0F0",
+														"background_background": "gradient",
+														"background_color": "#488BD1",
+														"background_color_stop": {
+															"unit": "%",
+															"size": 15,
+															"sizes": []
+														},
+														"background_color_b": "rgba(17,17,17,0)",
+														"background_color_b_stop": {
+															"unit": "%",
+															"size": 86,
+															"sizes": []
+														},
+														"background_gradient_type": "linear",
+														"background_gradient_angle": {
+															"unit": "deg",
+															"size": 195,
+															"sizes": []
+														}
+													},
+													"elements": [
+														{
+															"id": "4227b95",
+															"elType": "widget",
+															"settings": {
+																"title": "NOVO",
+																"header_size": "div",
+																"align": "center",
+																"title_color": "#F2EDEB",
+																"typography_typography": "custom",
+																"typography_font_family": "Gotham",
+																"typography_font_size": {
+																	"unit": "px",
+																	"size": 16,
+																	"sizes": []
+																},
+																"typography_font_weight": "400",
+																"typography_line_height": {
+																	"unit": "em",
+																	"size": 1.3,
+																	"sizes": []
+																}
+															},
+															"elements": [],
+															"widgetType": "heading"
+														}
+													],
+													"isInner": true
+												},
+												{
+													"id": "68b4b11",
+													"elType": "widget",
+													"settings": {
+														"title": "Novo treinamento",
+														"header_size": "h3",
+														"align": "left",
+														"title_color": "#B0D0F0",
+														"typography_typography": "custom",
+														"typography_font_family": "Cutta",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 32,
+															"sizes": []
+														},
+														"typography_font_weight": "700",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "heading"
+												},
+												{
+													"id": "d5ead61",
+													"elType": "widget",
+													"settings": {
+														"editor": "<p><strong>Como transformar esse conhecimento em conteúdo para as redes sociais, que gera visibilidade e oportunidade profissional.</strong></p><p>Como eu faço hoje com a Power.</p>",
+														"text_color": "#F2EDEB",
+														"align": "left",
+														"typography_typography": "custom",
+														"typography_font_family": "Gotham",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 16,
+															"sizes": []
+														},
+														"typography_font_weight": "400",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "text-editor"
+												}
+											],
+											"isInner": true
+										}
+									],
+									"isInner": true
+								}
+							],
+							"isInner": true
+						},
+						{
+							"id": "5528fae",
+							"elType": "container",
+							"settings": {
+								"content_width": "full",
+								"flex_direction": "column",
+								"padding": {
+									"unit": "px",
+									"top": "11",
+									"right": "10",
+									"bottom": "11",
+									"left": "10",
+									"isLinked": false
+								},
+								"background_background": "classic",
+								"background_color": "#080808",
+								"border_border": "solid",
+								"border_width": {
+									"unit": "px",
+									"top": "1",
+									"right": "1",
+									"bottom": "1",
+									"left": "1",
+									"isLinked": false
+								},
+								"border_color": "rgba(255,255,255,0.6)"
+							},
+							"elements": [
+								{
+									"id": "a004ac1",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"flex_direction": "row",
+										"flex_align_items": "center",
+										"flex_gap": {
+											"column": "32",
+											"row": "32",
+											"isLinked": true,
+											"unit": "px",
+											"size": 32
+										},
+										"padding": {
+											"unit": "px",
+											"top": "22",
+											"right": "22",
+											"bottom": "22",
+											"left": "22",
+											"isLinked": false
+										},
+										"box_shadow_box_shadow_type": "yes",
+										"box_shadow_box_shadow": {
+											"horizontal": 0,
+											"vertical": 7,
+											"blur": 4,
+											"spread": 0,
+											"color": "rgba(0,0,0,0.45)"
+										},
+										"border_border": "solid",
+										"border_width": {
+											"unit": "px",
+											"top": "1",
+											"right": "1",
+											"bottom": "1",
+											"left": "1",
+											"isLinked": false
+										},
+										"border_color": "rgba(255,255,255,0.6)",
+										"background_background": "gradient",
+										"background_color": "rgba(17,17,17,0)",
+										"background_color_stop": {
+											"unit": "%",
+											"size": 15,
+											"sizes": []
+										},
+										"background_color_b": "rgba(72,139,209,0.6)",
+										"background_color_b_stop": {
+											"unit": "%",
+											"size": 86,
+											"sizes": []
+										},
+										"background_gradient_type": "linear",
+										"background_gradient_angle": {
+											"unit": "deg",
+											"size": 201,
+											"sizes": []
+										},
+										"background_overlay_background": "classic",
+										"background_overlay_color": "rgba(0,0,0,0.6)"
+									},
+									"elements": [
+										{
+											"id": "fd76d17",
+											"elType": "container",
+											"settings": {
+												"content_width": "full",
+												"flex_direction": "column",
+												"flex_align_items": "flex-start",
+												"flex_gap": {
+													"column": "12",
+													"row": "12",
+													"isLinked": true,
+													"unit": "px",
+													"size": 12
+												},
+												"flex_grow": "1",
+												"padding": {
+													"unit": "px",
+													"top": "0",
+													"right": "0",
+													"bottom": "0",
+													"left": "0",
+													"isLinked": false
+												}
+											},
+											"elements": [
+												{
+													"id": "b0d00db",
+													"elType": "widget",
+													"settings": {
+														"title": "+ Bônus surpresa",
+														"header_size": "h3",
+														"align": "left",
+														"title_color": "#B0D0F0",
+														"typography_typography": "custom",
+														"typography_font_family": "Cutta",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 32,
+															"sizes": []
+														},
+														"typography_font_weight": "700",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "heading"
+												},
+												{
+													"id": "d944bed",
+													"elType": "widget",
+													"settings": {
+														"editor": "<p><strong>Tem um bônus que não vai ser vendido depois, em lugar nenhum. Ele é sobre transformar tudo isso em dinheiro no seu bolso.</strong></p><p>O que é exatamente, eu vou contar ao vivo no dia 28.</p>",
+														"text_color": "#F2EDEB",
+														"align": "left",
+														"typography_typography": "custom",
+														"typography_font_family": "Gotham",
+														"typography_font_size": {
+															"unit": "px",
+															"size": 16,
+															"sizes": []
+														},
+														"typography_font_weight": "400",
+														"typography_line_height": {
+															"unit": "em",
+															"size": 1.3,
+															"sizes": []
+														}
+													},
+													"elements": [],
+													"widgetType": "text-editor"
+												}
+											],
+											"isInner": true
+										}
+									],
+									"isInner": true
+								}
+							],
+							"isInner": true
+						}
+					],
+					"isInner": true
+				}
+			],
+			"isInner": false
+		},
+		{
+			"id": "0558856",
+			"elType": "container",
+			"settings": {
+				"content_width": "full",
+				"padding": {
+					"unit": "px",
+					"top": "72",
+					"right": "0",
+					"bottom": "72",
+					"left": "0",
+					"isLinked": false
+				},
+				"flex_direction": "column",
+				"flex_align_items": "center",
+				"background_background": "classic",
+				"background_color": "#111111",
+				"flex_gap": {
+					"column": "48",
+					"row": "48",
+					"isLinked": true,
+					"unit": "px",
+					"size": 48
+				}
+			},
+			"elements": [
+				{
+					"id": "7d6caf9",
+					"elType": "container",
+					"settings": {
+						"content_width": "boxed",
+						"boxed_width": {
+							"unit": "px",
+							"size": 1140,
+							"sizes": []
+						},
+						"flex_direction": "column",
+						"padding": {
+							"unit": "px",
+							"top": "0",
+							"right": "20",
+							"bottom": "0",
+							"left": "20",
+							"isLinked": false
+						}
+					},
+					"elements": [
+						{
+							"id": "0400c44",
+							"elType": "container",
+							"settings": {
+								"content_width": "full",
+								"flex_direction": "column",
+								"flex_align_items": "center",
+								"flex_gap": {
+									"column": "15",
+									"row": "15",
+									"isLinked": true,
+									"unit": "px",
+									"size": 15
+								},
+								"padding": {
+									"unit": "px",
+									"top": "0",
+									"right": "0",
+									"bottom": "0",
+									"left": "0",
+									"isLinked": false
+								}
+							},
+							"elements": [
+								{
+									"id": "1c77085",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"width": {
+											"unit": "px",
+											"size": 351,
+											"sizes": []
+										},
+										"min_height": {
+											"unit": "px",
+											"size": 62,
+											"sizes": []
+										},
+										"flex_direction": "row",
+										"flex_align_items": "center",
+										"flex_justify_content": "center",
+										"padding": {
+											"unit": "px",
+											"top": "0",
+											"right": "0",
+											"bottom": "0",
+											"left": "0",
+											"isLinked": false
+										},
+										"background_background": "gradient",
+										"background_color": "#488BD1",
+										"background_color_stop": {
+											"unit": "%",
+											"size": 15,
+											"sizes": []
+										},
+										"background_color_b": "#111111",
+										"background_color_b_stop": {
+											"unit": "%",
+											"size": 86,
+											"sizes": []
+										},
+										"background_gradient_type": "linear",
+										"background_gradient_angle": {
+											"unit": "deg",
+											"size": 187,
+											"sizes": []
+										}
+									},
+									"elements": [
+										{
+											"id": "ac1c9bb",
+											"elType": "widget",
+											"settings": {
+												"text": "QUERO ENTRAR NO GRUPO",
+												"link": {
+													"url": "#inscricao",
+													"is_external": "",
+													"nofollow": ""
+												},
+												"align": "center",
+												"size": "md",
+												"button_text_color": "#FFFFFF",
+												"background_color": "rgba(0,0,0,0)",
+												"border_border": "solid",
+												"border_width": {
+													"unit": "px",
+													"top": "1",
+													"right": "1",
+													"bottom": "1",
+													"left": "1",
+													"isLinked": false
+												},
+												"border_color": "rgba(255,255,255,0.6)",
+												"text_padding": {
+													"unit": "px",
+													"top": "8",
+													"right": "16",
+													"bottom": "8",
+													"left": "16",
+													"isLinked": false
+												},
+												"button_box_shadow_box_shadow_type": "yes",
+												"button_box_shadow_box_shadow": {
+													"horizontal": 0,
+													"vertical": 3,
+													"blur": 17,
+													"spread": 0,
+													"color": "rgba(98,153,209,0.9)"
+												},
+												"button_box_shadow_box_shadow_position": "inset",
+												"typography_typography": "custom",
+												"typography_font_family": "Cutta",
+												"typography_font_size": {
+													"unit": "px",
+													"size": 18,
+													"sizes": []
+												},
+												"typography_font_weight": "500",
+												"typography_line_height": {
+													"unit": "em",
+													"size": 1.2,
+													"sizes": []
+												}
+											},
+											"elements": [],
+											"widgetType": "button"
+										}
+									],
+									"isInner": true
+								},
+								{
+									"id": "3072c94",
+									"elType": "widget",
+									"settings": {
+										"title": "28 DE OUTUBRO - 20H - AO VIVO",
+										"header_size": "div",
+										"align": "center",
+										"title_color": "#FFFFFF",
+										"typography_typography": "custom",
+										"typography_font_family": "Cutta",
+										"typography_font_size": {
+											"unit": "px",
+											"size": 12.7,
+											"sizes": []
+										},
+										"typography_font_weight": "700",
+										"typography_line_height": {
+											"unit": "em",
+											"size": 1.3,
+											"sizes": []
+										}
+									},
+									"elements": [],
+									"widgetType": "heading"
+								}
+							],
+							"isInner": true
+						},
+						{
+							"id": "f2ca6f0",
+							"elType": "widget",
+							"settings": {
+								"editor": "<p>A Black 360 é para ser <span style=\"color:#B0D0F0;\">a melhor forma de ter a habilidade</span> que as <span style=\"color:#B0D0F0;\">grandes marcas valorizam</span></p>",
+								"text_color": "#FFFFFF",
+								"align": "center",
+								"typography_typography": "custom",
+								"typography_font_family": "Cutta",
+								"typography_font_size": {
+									"unit": "px",
+									"size": 40,
+									"sizes": []
+								},
+								"typography_font_weight": "700",
+								"typography_line_height": {
+									"unit": "em",
+									"size": 1.1,
+									"sizes": []
+								}
+							},
+							"elements": [],
+							"widgetType": "text-editor"
+						},
+						{
+							"id": "44dbd92",
+							"elType": "widget",
+							"settings": {
+								"carousel": [
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-hughes.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-sebrae.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-globo.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-cargill.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-eletrobras.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-saint-gobain.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-novo-nordisk.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-tedx.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-sbm-offshore.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-fs.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-rpc.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-pfizer.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-suzano.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-banco-do-brasil.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-senai.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-rede-bahia.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-equatorial.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-bauducco.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-banco-bv.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-vivo.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-bayer.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-taua.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-cni.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-copacol.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-accor.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-sicoob.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-envista.png"
+									},
+									{
+										"id": "",
+										"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-orica.png"
+									}
+								],
+								"slides_to_show": "5",
+								"slides_to_show_tablet": "3",
+								"slides_to_show_mobile": "2",
+								"slides_to_scroll": "1",
+								"image_size": "full",
+								"navigation": "none",
+								"autoplay": "yes",
+								"autoplay_speed": 2500,
+								"infinite": "yes",
+								"speed": 600,
+								"pause_on_hover": "yes",
+								"image_spacing": "custom",
+								"image_spacing_custom": {
+									"unit": "px",
+									"size": 52,
+									"sizes": []
+								}
+							},
+							"elements": [],
+							"widgetType": "image-carousel"
+						}
+					],
+					"isInner": true
+				}
+			],
+			"isInner": false
+		},
+		{
+			"id": "be42101",
+			"elType": "container",
+			"settings": {
+				"content_width": "full",
+				"padding": {
+					"unit": "px",
+					"top": "95",
+					"right": "0",
+					"bottom": "120",
+					"left": "0",
+					"isLinked": false
+				},
+				"flex_direction": "column",
+				"flex_align_items": "center",
+				"background_background": "classic",
+				"background_color": "#111111",
+				"background_image": {
+					"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/adriel-bg.webp",
+					"id": "",
+					"source": "library"
+				},
+				"background_position": "center center",
+				"background_size": "cover",
+				"background_overlay_background": "gradient",
+				"background_overlay_color": "#111111",
+				"background_overlay_color_stop": {
+					"unit": "%",
+					"size": 38,
+					"sizes": []
+				},
+				"background_overlay_color_b": "rgba(17,17,17,0)",
+				"background_overlay_color_b_stop": {
+					"unit": "%",
+					"size": 100,
+					"sizes": []
+				},
+				"background_overlay_gradient_type": "linear",
+				"background_overlay_gradient_angle": {
+					"unit": "deg",
+					"size": 180,
+					"sizes": []
+				}
+			},
+			"elements": [
+				{
+					"id": "84e6d74",
+					"elType": "container",
+					"settings": {
+						"content_width": "boxed",
+						"boxed_width": {
+							"unit": "px",
+							"size": 1140,
+							"sizes": []
+						},
+						"flex_direction": "column",
+						"padding": {
+							"unit": "px",
+							"top": "0",
+							"right": "20",
+							"bottom": "0",
+							"left": "20",
+							"isLinked": false
+						}
+					},
+					"elements": [
+						{
+							"id": "128ea58",
+							"elType": "container",
+							"settings": {
+								"content_width": "full",
+								"flex_direction": "row",
+								"flex_align_items": "stretch",
+								"min_height": {
+									"unit": "px",
+									"size": 600,
+									"sizes": []
+								},
+								"padding": {
+									"unit": "px",
+									"top": "0",
+									"right": "0",
+									"bottom": "0",
+									"left": "0",
+									"isLinked": false
+								},
+								"background_background": "classic",
+								"background_color": "#FFFFFF",
+								"box_shadow_box_shadow_type": "yes",
+								"box_shadow_box_shadow": {
+									"horizontal": 0,
+									"vertical": 4,
+									"blur": 23,
+									"spread": 9,
+									"color": "rgba(0,0,0,0.55)"
+								}
+							},
+							"elements": [
+								{
+									"id": "4e55ffa",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"flex_direction": "column",
+										"flex_gap": {
+											"column": "32",
+											"row": "32",
+											"isLinked": true,
+											"unit": "px",
+											"size": 32
+										},
+										"flex_grow": "1",
+										"padding": {
+											"unit": "px",
+											"top": "98",
+											"right": "41",
+											"bottom": "98",
+											"left": "51",
+											"isLinked": false
+										}
+									},
+									"elements": [
+										{
+											"id": "d48600f",
+											"elType": "widget",
+											"settings": {
+												"title": "Quem é o Adriel?",
+												"header_size": "h2",
+												"align": "left",
+												"title_color": "#162B44",
+												"typography_typography": "custom",
+												"typography_font_family": "Cutta",
+												"typography_font_size": {
+													"unit": "px",
+													"size": 40,
+													"sizes": []
+												},
+												"typography_font_weight": "700",
+												"typography_line_height": {
+													"unit": "em",
+													"size": 1.1,
+													"sizes": []
+												},
+												"typography_letter_spacing": {
+													"unit": "px",
+													"size": -3.2,
+													"sizes": []
+												}
+											},
+											"elements": [],
+											"widgetType": "heading"
+										},
+										{
+											"id": "70d5997",
+											"elType": "widget",
+											"settings": {
+												"editor": "<p>Ele começou montando apresentação na empresa em que trabalhava como analista e hoje treina as maiores empresas do país. A minha missão é ajudar você a criar uma apresentação estratégica, inovadora, e muito acima da média, é fazer com que você impressione o seu público por onde passar, independente de qual seja sua área de atuação. Eu sou o fundador da PowerPPT, mas antes de chegar até aqui. Foram quase 12 anos de experiência profissional no mercado corporativo, atuei nas maiores empresas de comunicação do país (Editora Abril e TV Globo) e sempre me destaquei pelas habilidades de comunicação e apresentações inovadoras. Sou Formado em Marketing e Pós-graduado em Gestão de Projetos pela USP. Tenho experiências de estudo e trabalho nos Estados Unidos e Argentina.</p><p>Durante toda minha trajetória me aprofundei em Design, Storytelling e comunicação e coloquei todo esse conhecimento dentro de uma metodologia que já ajudou milhares de pessoas. E agora, eu quero compartilhar todo esse conhecimento com você.</p>",
+												"text_color": "#162B44",
+												"align": "left",
+												"typography_typography": "custom",
+												"typography_font_family": "Gotham",
+												"typography_font_size": {
+													"unit": "px",
+													"size": 16,
+													"sizes": []
+												},
+												"typography_font_weight": "400",
+												"typography_line_height": {
+													"unit": "em",
+													"size": 1.3,
+													"sizes": []
+												}
+											},
+											"elements": [],
+											"widgetType": "text-editor"
+										}
+									],
+									"isInner": true
+								},
+								{
+									"id": "d913401",
+									"elType": "container",
+									"settings": {
+										"content_width": "full",
+										"width": {
+											"unit": "px",
+											"size": 430,
+											"sizes": []
+										},
+										"flex_shrink": "0",
+										"padding": {
+											"unit": "px",
+											"top": "0",
+											"right": "0",
+											"bottom": "0",
+											"left": "0",
+											"isLinked": false
+										},
+										"background_background": "classic",
+										"background_color": "#162B44",
+										"margin": {
+											"unit": "px",
+											"top": "56",
+											"right": "40",
+											"bottom": "56",
+											"left": "0",
+											"isLinked": false
+										}
+									},
+									"elements": [
+										{
+											"id": "5ddd30c",
+											"elType": "widget",
+											"settings": {
+												"image": {
+													"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/adriel-retrato.webp",
+													"id": "",
+													"alt": "Adriel Araújo",
+													"source": "library"
+												},
+												"image_size": "full",
+												"align": "center"
+											},
+											"elements": [],
+											"widgetType": "image"
+										}
+									],
+									"isInner": true
+								}
+							],
+							"isInner": true
+						}
+					],
+					"isInner": true
+				}
+			],
+			"isInner": false
+		},
+		{
+			"id": "a936208",
+			"elType": "container",
+			"settings": {
+				"content_width": "full",
+				"padding": {
+					"unit": "px",
+					"top": "64",
+					"right": "0",
+					"bottom": "64",
+					"left": "0",
+					"isLinked": false
+				},
+				"flex_direction": "column",
+				"flex_align_items": "center",
+				"background_background": "classic",
+				"background_color": "#0A0A0A"
+			},
+			"elements": [
+				{
+					"id": "323cc90",
+					"elType": "container",
+					"settings": {
+						"content_width": "boxed",
+						"boxed_width": {
+							"unit": "px",
+							"size": 1140,
+							"sizes": []
+						},
+						"flex_direction": "column",
+						"padding": {
+							"unit": "px",
+							"top": "0",
+							"right": "20",
+							"bottom": "0",
+							"left": "20",
+							"isLinked": false
+						}
+					},
+					"elements": [
+						{
+							"id": "12b9795",
+							"elType": "container",
+							"settings": {
+								"content_width": "full",
+								"flex_direction": "row",
+								"flex_align_items": "center",
+								"flex_justify_content": "space-between",
+								"padding": {
+									"unit": "px",
+									"top": "0",
+									"right": "0",
+									"bottom": "0",
+									"left": "0",
+									"isLinked": false
+								}
+							},
+							"elements": [
+								{
+									"id": "27512ab",
+									"elType": "widget",
+									"settings": {
+										"image": {
+											"url": "https://adrielaraujo.com.br/wp-content/uploads/black360/logo-black360.webp",
+											"id": "",
+											"alt": "Power",
+											"source": "library"
+										},
+										"image_size": "full",
+										"align": "left",
+										"width": {
+											"unit": "px",
+											"size": 128,
+											"sizes": []
+										}
+									},
+									"elements": [],
+									"widgetType": "image"
+								},
+								{
+									"id": "18bde6b",
+									"elType": "widget",
+									"settings": {
+										"editor": "<p>Todos direitos reservados</p>",
+										"text_color": "#FFFFFF",
+										"align": "right",
+										"typography_typography": "custom",
+										"typography_font_family": "Gotham",
+										"typography_font_size": {
+											"unit": "px",
+											"size": 14,
+											"sizes": []
+										},
+										"typography_font_weight": "300",
+										"typography_line_height": {
+											"unit": "em",
+											"size": 1.1,
+											"sizes": []
+										}
+									},
+									"elements": [],
+									"widgetType": "text-editor"
+								}
+							],
+							"isInner": true
+						}
+					],
+					"isInner": true
+				}
+			],
+			"isInner": false
+		}
+	],
+	"page_settings": {
+		"background_background": "classic",
+		"background_color": "#111111",
+		"hide_title": "yes"
+	},
+	"version": "0.4",
+	"title": "Black 360 - Apresentação",
+	"type": "page"
+}
