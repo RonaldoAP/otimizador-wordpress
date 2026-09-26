@@ -275,6 +275,16 @@ class Conversor:
         f = n.get("flex")
         s = {}
         if not f:
+            # Sem auto layout no Figma o no vira coluna simples, mas o prefixo
+            # do nome continua mandando na largura.
+            tipo, _ = papel(n.get("nome"))
+            s["container_type"] = "flex"
+            s["flex_direction"] = "column"
+            if tipo == "sec" or raiz:
+                s["content_width"] = "full"
+            elif tipo == "box":
+                s["content_width"] = "boxed"
+                s["boxed_width"] = px(int(n["w"])) if n.get("w") else px(self.largura_conteudo)
             return s
         s["flex_direction"] = DIRECAO.get(f["dir"], "column")
         s["flex_gap"] = gap(f.get("gap"))
@@ -286,11 +296,22 @@ class Conversor:
 
         s["container_type"] = "flex"
 
-        # Largura: `content_width`/`boxed_width` so existem no container de topo.
-        # Em container aninhado o controle e `width`, e um filho que estica usa
-        # `_flex_size: grow` — largura 100% dentro de uma linha quebra o flex.
+        # O prefixo do nome manda na largura — e so ele:
+        #   sec/ -> largura total, fundo sangrando de ponta a ponta
+        #   box/ -> boxed, conteudo limitado e centralizado
+        # Sem prefixo, quem decide e o sizing do auto layout. `content_width` e
+        # `boxed_width` so valem para essa dupla; em container comum o controle
+        # e `width`, e um filho que estica usa `_flex_size: grow` (largura 100%
+        # dentro de uma linha quebra o flex).
+        tipo, _ = papel(n.get("nome"))
         larg = f.get("larg")
-        if raiz:
+
+        if tipo == "sec":
+            s["content_width"] = "full"
+        elif tipo == "box":
+            s["content_width"] = "boxed"
+            s["boxed_width"] = px(int(n["w"])) if n.get("w") else px(self.largura_conteudo)
+        elif raiz:
             s["content_width"] = "full"
         elif larg == "FILL":
             s["_flex_size"] = "grow"

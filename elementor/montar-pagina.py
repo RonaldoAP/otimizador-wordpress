@@ -51,8 +51,21 @@ def cont(nome, filhos, w=None, h=None, fundo=None, borda=None, efeitos=None,
     return n
 
 
-def secao(nome, y, filhos, pad=(120, 0, 120, 0), gap=40, fundo=None, **kw):
-    s = cont(nome, filhos, w=1920, pad=pad, gap=gap, fundo=fundo or BG, al="CENTER", **kw)
+def secao(nome, y, filhos, pad=(120, 0, 120, 0), gap=40, fundo=None,
+          box=1140, sangra=(), **kw):
+    """Secao full-bleed com um container boxed dentro.
+
+    `filhos` entram no container boxed (conteudo centralizado); `sangra` entra
+    direto na secao, de ponta a ponta — carrossel e faixa, que nao podem ser
+    limitados pela coluna de conteudo.
+    """
+    dentro = []
+    if filhos:
+        dentro.append(cont("box/" + nome.split("/")[-1], filhos, w=box, gap=gap,
+                           al="CENTER", lg="FIXED"))
+    dentro.extend(sangra)
+    s = cont(nome, dentro, w=1920, pad=pad, gap=gap, fundo=fundo or BG,
+             al="CENTER", **kw)
     s["id"] = nome
     s["y"] = y
     return s
@@ -89,8 +102,7 @@ cartas = [
 ]
 paginas.append(secao("sec/problema", 1959, [
     txt("w/heading · H1", h1_problema["texto"]["conteudo"], "Cutta|Bold", 54, BRANCO, 110, -8),
-    cont("row/falas", cartas, w=1886, gap=20, al="CENTER", lg="FIXED"),
-], gap=56))
+], gap=56, sangra=[cont("row/falas", cartas, w=1886, gap=20, al="CENTER", lg="FIXED")]))
 
 # ---------------------------------------------------------------- dobra 4
 paginas.append(dict(json.loads((AQUI / "dobra4.json").read_text(encoding="utf-8")),
@@ -143,9 +155,9 @@ LOGOS = ["globo", "suzano", "pfizer", "novo-nordisk", "bauducco", "bayer", "sico
 paginas.append(secao("sec/empresas", 4914, [
     txt("w/heading", "Mais de 60 das maiores empresas do Brasil atendidas",
         "Montserrat|Bold", 32, BRANCO, 120, -4, w=830),
+], pad=(0, 0, 0, 0), gap=36, sangra=[
     cont("w/carousel", [img("logo-" + m, 160, 75) for m in LOGOS],
-         w=1920, gap=85, dir="HORIZONTAL", al="CENTER", ju="CENTER", lg="FIXED"),
-], pad=(0, 0, 0, 0), gap=36))
+         w=1920, gap=85, dir="HORIZONTAL", al="CENTER", ju="CENTER", lg="FIXED")]))
 
 # ------------------------------------------------------- agora é 360
 HAB = [
@@ -293,9 +305,9 @@ paginas.append(secao("sec/oferta", 11794, [
 # ------------------------------------------------------- depoimentos
 paginas.append(secao("sec/depoimentos", 14518, [
     txt("w/heading", "Resultados reais de quem já é aluno", "Cutta|Bold", 40, BRANCO, 115, -4, w=930),
+], gap=40, sangra=[
     cont("w/carousel", [img("depoimento-%02d" % i, 324, 318) for i in range(1, 25)],
-         w=1886, gap=20, dir="HORIZONTAL", al="CENTER", ju="MIN", lg="FIXED"),
-], gap=40))
+         w=1886, gap=20, dir="HORIZONTAL", al="CENTER", ju="MIN", lg="FIXED")]))
 
 # ---------------------------------------------------------------- dobra 9
 paginas.append(dict(json.loads((AQUI / "dobra9.json").read_text(encoding="utf-8")),

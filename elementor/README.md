@@ -129,10 +129,21 @@ O conversor traduz auto layout em container flexbox:
 | fills, strokes, corner radius, sombras | fundo, borda, raio, `box_shadow` |
 | fonte, corpo, entrelinha, tracking | controles de tipografia |
 
-O papel de cada nó vem do prefixo do nome da camada — `sec/`, `box/`, `row/`,
-`col/` viram container; `w/heading`, `w/text`, `w/image`, `w/button`,
-`w/carousel` viram o widget nativo correspondente; `bg/` é sinalizado como
-decorativo para virar fundo do container pai.
+O papel de cada nó vem do prefixo do nome da camada, e é o prefixo — não o
+tamanho no Figma — que decide a largura:
+
+| Prefixo | No Elementor |
+| --- | --- |
+| `sec/` | `content_width: full` — fundo sangra de ponta a ponta |
+| `box/` | `content_width: boxed` + `boxed_width` — conteúdo limitado e centralizado |
+| `row/` `col/` | container comum; largura vem do sizing do auto layout |
+| `w/…` | widget nativo (heading, text, image, button, carousel) |
+| `bg/` | decorativo: vira fundo do container pai, não entra como nó |
+
+Container sem prefixo segue o sizing do Figma: FIXED vira `width` em px, HUG
+vira `fit-content`, FILL vira `_flex_size: grow`. Carrossel e faixa que sangram
+ficam **fora** do `box/`, como irmãos dele dentro da `sec/` — senão a coluna de
+conteúdo os corta.
 
 O script avisa no terminal tudo que não tem equivalente direto: borda em
 gradiente (vira cor sólida, precisa de CSS), blur de camada, texto com mais de
