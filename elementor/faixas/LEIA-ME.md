@@ -21,19 +21,23 @@ mede o conteúdo, duplica o necessário e reinicia exatamente no tamanho de uma
 cópia, então a emenda nunca aparece — e para sozinha quando a seção sai da
 tela ou a aba fica em segundo plano.
 
-## Antes de usar: as 10 capas
+## As 10 capas
 
-O único passo manual. O download das imagens direto do Figma está bloqueado
-pela política de rede do ambiente, então exporte você mesmo:
+Já estão em `capas/` (e no `capas-black360.zip` na raiz do repositório),
+endireitadas e prontas: o Figma guarda cada pôster já inclinado, então
+extraí e desfiz o cisalhamento, para que o ângulo venha do CSS e você possa
+trocar uma capa por outra reta sem que fique torta.
 
-1. No Figma, selecione o frame `imagem` (nó `291-2901`).
-2. Selecione as 10 capas dentro dele e exporte em **JPG 2x**.
-3. Suba para `wp-content/uploads/black360/`.
-4. No bloco, ajuste a lista `FOTOS` (logo no começo do `<script>`) com os
-   nomes dos arquivos. A ordem é a mesma do Figma, da esquerda para a direita.
+Suba a pasta para `wp-content/uploads/black360/` e pronto — os nomes na lista
+`FOTOS` já batem.
 
-Enquanto um arquivo não existir, aquela capa aparece como um retângulo
-tracejado com o nome do módulo — dá para publicar sem quebrar o layout.
+**Resolução:** 176 x 300 px. É o tamanho nativo que o Figma entrega por esta
+via e serve bem em tela comum, mas fica um pouco macio em tela retina. Para a
+versão final, exporte as mesmas 10 do Figma em **2x** (frame `imagem`, nó
+`291-2901`) e substitua os arquivos mantendo os nomes.
+
+Enquanto um arquivo faltar, aquela capa aparece como retângulo tracejado com o
+nome do módulo — dá para publicar sem quebrar o layout.
 
 ## Ajustes rápidos
 

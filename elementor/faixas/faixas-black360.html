@@ -41,10 +41,11 @@
 /* ----------------------------------------------------------------- base */
 
 .p360-faixas {
-  --carta-l: 180px;          /* largura da capa */
-  --carta-a: 432px;          /* altura da capa */
-  --carta-sobrepoe: 65px;    /* quanto uma capa entra na outra */
-  --angulo: -9deg;           /* inclinação das capas */
+  --carta-l: 176px;          /* largura da capa (tamanho real do pôster) */
+  --carta-a: 300px;          /* altura da capa */
+  --carta-sobrepoe: 61px;    /* quanto uma capa entra na outra */
+  --angulo: 33.69deg;        /* inclinação medida no Figma (cisalhamento de 2/3) */
+  --cai: .667;               /* tan(--angulo) — usado só para calcular a altura */
   --sobe: 26px;              /* quanto a capa sobe no hover */
   --azul: #3b9ae8;
   --navy: #17304e;
@@ -53,7 +54,7 @@
   overflow: hidden;
   background: #0a0a0a;
   padding: 70px 0;
-  min-height: calc(var(--carta-a) + 140px);
+  min-height: calc(var(--carta-a) + var(--carta-l) * var(--cai) + 140px);
   display: flex;
   align-items: center;
   isolation: isolate;
@@ -124,6 +125,8 @@
   overflow: hidden;
   display: flex;
   padding: var(--sobe) 0;          /* espaço para a capa subir sem cortar */
+  min-height: calc(var(--carta-a) + var(--carta-l) * var(--cai) + var(--sobe) * 2);
+  align-items: center;
 }
 
 /* quando a fileira anda (celular), as pontas somem num degradê — a capa não
@@ -141,6 +144,8 @@
 
 .p360-foto {
   flex: 0 0 auto;
+  position: relative;
+  z-index: var(--z, 1);   /* a capa da esquerda fica por cima, como no Figma */
   width: var(--carta-l);
   margin-right: calc(var(--carta-sobrepoe) * -1);
   transition: transform .35s cubic-bezier(.22, .8, .3, 1);
@@ -193,19 +198,19 @@
 }
 
 .p360-foto:hover,
-.p360-foto.ativa { z-index: 3; position: relative; }
+.p360-foto.ativa { z-index: 999; }
 
 /* ------------------------------------------------------------- responsivo */
 
 @media (max-width: 1024px) {
-  .p360-faixas { --carta-l: 150px; --carta-a: 360px; --carta-sobrepoe: 54px; padding: 56px 0; }
+  .p360-faixas { --carta-l: 146px; --carta-a: 249px; --carta-sobrepoe: 51px; padding: 56px 0; }
   .p360-marca { font-size: 36px; }
   .p360-marca--peq { font-size: 21px; }
   .p360-faixa--escura { height: 72px; }
 }
 
 @media (max-width: 767px) {
-  .p360-faixas { --carta-l: 104px; --carta-a: 250px; --carta-sobrepoe: 37px; --sobe: 16px; padding: 46px 0; }
+  .p360-faixas { --carta-l: 112px; --carta-a: 191px; --carta-sobrepoe: 39px; --sobe: 16px; padding: 46px 0; }
   .p360-marca { font-size: 26px; }
   .p360-marca--peq { font-size: 15px; }
   .p360-trilho { gap: 34px; }
@@ -230,17 +235,18 @@
   var BASE = "https://adrielaraujo.com.br/wp-content/uploads/black360/";
 
   var FOTOS = [
-    { nome: "Método Power Pro",         img: BASE + "capa-power-pro.jpg" },
-    { nome: "Apresentações 2.0",        img: BASE + "capa-apresentacoes-20.jpg" },
-    { nome: "Bússola da Criatividade",  img: BASE + "capa-bussola.jpg" },
-    { nome: "Os Mecanismos",            img: BASE + "capa-mecanismos.jpg" },
-    { nome: "Alavanca",                 img: BASE + "capa-alavanca.jpg" },
-    { nome: "Comunicação e Poder",      img: BASE + "capa-comunicacao.jpg" },
-    { nome: "Visibilidade e Redes",     img: BASE + "capa-visibilidade.jpg" },
-    { nome: "Networking Estratégico",   img: BASE + "capa-networking.jpg" },
-    { nome: "Branding Pessoal",         img: BASE + "capa-branding.jpg" },
-    { nome: "Apresentação de Impacto",  img: BASE + "capa-impacto.jpg" }
+    { nome: "Método Power Pro",         img: BASE + "capa-power-pro.webp" },
+    { nome: "[I.A.]presentações 2.0",   img: BASE + "capa-apresentacoes-20.webp" },
+    { nome: "A Bússola da Criatividade",img: BASE + "capa-bussola.webp" },
+    { nome: "Os Mecanismos",            img: BASE + "capa-mecanismos.webp" },
+    { nome: "Alavanca",                 img: BASE + "capa-alavanca.webp" },
+    { nome: "O Poder da Comunicação",   img: BASE + "capa-comunicacao.webp" },
+    { nome: "Visibilidade e Redes Sociais", img: BASE + "capa-visibilidade.webp" },
+    { nome: "Networking Estratégico",   img: BASE + "capa-networking.webp" },
+    { nome: "Branding Pessoal e Posicionamento", img: BASE + "capa-branding.webp" },
+    { nome: "Apresentação de Impacto",  img: BASE + "capa-impacto.webp" }
   ];
+
 
   /* "auto"  = a fileira só anda quando as capas não cabem na tela
                (desktop parado como no Figma, celular em carrossel)
@@ -255,7 +261,7 @@
 
   var trilhoFotos = document.getElementById("p360-fotos");
 
-  FOTOS.forEach(function (f) {
+  FOTOS.forEach(function (f, i) {
     var fora = document.createElement("div");
     fora.className = "p360-foto";
 
@@ -283,6 +289,8 @@
       })(dentro, rotulo, f);
       teste.src = f.img;
     }
+
+    fora.style.setProperty("--z", String(FOTOS.length - i));
 
     fora.appendChild(dentro);
     trilhoFotos.appendChild(fora);
