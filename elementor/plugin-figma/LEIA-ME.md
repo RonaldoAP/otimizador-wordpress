@@ -48,7 +48,7 @@ parece quebrada mesmo com o layout correto.
 | `EXPORTAR_IMAGENS` | `true` | desligue para gerar só o JSON |
 | `FORMATO_IMG` | `"PNG"` | o JSON usa a mesma extensão |
 | `ESCALA_IMG` | `2` | 2x para retina |
-| `LARGURA_MAX` | `1600` | nó mais largo que isso sai em 1x |
+| `LARGURA_2X` | `600` | nó mais largo que isso sai em 1x — 2x de uma foto grande vira dezenas de MB sem ganho visível |
 | `LADO_MAX_ARTE` | `360` | acima disso, arte vetorial não vira imagem única |
 
 Os nomes saem das camadas do Figma, com o prefixo da convenção removido:
@@ -82,3 +82,15 @@ resolvidos pelo `bordas-gradiente.css`:
 
 E o **Carrossel de imagens** do Elementor só aceita imagem: carrossel cujos
 slides tenham texto sai como linha, e o aviso diz quais.
+
+## Se o zip não aparecer
+
+A barra de progresso mostra quantas imagens já saíram. Se ela travar ou o botão
+não habilitar, a janela passa a exibir o erro em vermelho — me mande esse texto.
+
+Há um plano B embutido: se a montagem do zip falhar (memória, tipicamente), o
+botão muda para **"Zip falhou — baixar uma a uma"** e salva os arquivos em
+sequência. O navegador pergunta uma vez se aceita downloads múltiplos.
+
+Se o arquivo for grande demais, baixe em duas rodadas: rode o plugin com
+`NODE_ID` apontando para uma seção por vez, em vez do frame inteiro.

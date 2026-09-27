@@ -21,8 +21,9 @@ const ARQUIVO = "lp-vendas-black360.json";
 // Exportacao das imagens. O JSON referencia a mesma extensao escolhida aqui.
 const EXPORTAR_IMAGENS = true;
 const FORMATO_IMG = "PNG";
-const ESCALA_IMG = 2;        // 2x para retina
-const LARGURA_MAX = 1600;    // no mais largo que isso sai em 1x
+const ESCALA_IMG = 2;        // 2x só para no pequeno (ate LARGURA_2X)
+const LARGURA_2X = 600;      // acima disso exporta em 1x: 2x de uma foto grande
+                             // vira dezenas de MB sem ganho visivel
 const LADO_MAX_ARTE = 360;   // acima disso, arte vetorial nao colapsa em 1 imagem
 
 /* --------------------------------------------------------------- estado */
@@ -556,7 +557,7 @@ async function rodar() {
 async function exportarImagens() {
   // Um nó pode aparecer duas vezes com nomes diferentes (imagem e fundo);
   // exporta uma vez por nome, que é o que o JSON referencia.
-  let feitas = 0, erros = 0;
+  let feitas = 0, erros = 0, bytesTotais = 0;
 
   for (const item of paraExportar) {
     const no = item.no;
@@ -565,19 +566,21 @@ async function exportarImagens() {
 
       // nó muito largo não precisa de 2x: dobraria o peso sem ganho visível
       const largura = (no.absoluteBoundingBox && no.absoluteBoundingBox.width) || no.width || 0;
-      const escala = largura > LARGURA_MAX ? 1 : ESCALA_IMG;
+      const escala = largura > LARGURA_2X ? 1 : ESCALA_IMG;
 
       const bytes = await no.exportAsync({
         format: FORMATO_IMG,
         constraint: { type: "SCALE", value: escala },
       });
 
+      bytesTotais += bytes.length;
       figma.ui.postMessage({
         tipo: "imagem",
         nome: item.nome,
-        bytes: Array.from(bytes),
+        bytes: bytes,   // Uint8Array direto: Array.from explodiria o postMessage
         feitas: ++feitas,
         total: paraExportar.length,
+        bytesTotais: bytesTotais,
       });
     } catch (e) {
       erros++;
@@ -589,6 +592,7 @@ async function exportarImagens() {
     tipo: "imagens-fim",
     feitas: feitas,
     erros: erros,
+    bytesTotais: bytesTotais,
     avisos: Array.from(new Set(avisos)),
   });
 }
