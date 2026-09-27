@@ -176,3 +176,33 @@ O widget nativo **só aceita imagem**. Um carrossel de cards com texto (as falas
 da dobra 3, por exemplo) não cabe nele — o conversor avisa e deixa como linha,
 para não perder o conteúdo. Para virar carrossel de verdade, esse caso precisa
 do **Loop Carousel** do Elementor Pro.
+
+## Conversão sem intermediário — `figma-para-elementor.js`
+
+`dump-figma.js` + `figma2elementor.py` funcionam, mas têm um ponto fraco: a
+árvore do Figma precisa ser copiada à mão para um arquivo, em pedaços de 20 KB.
+Essa cópia desatualiza assim que o arquivo muda e perde conteúdo pelo caminho —
+numa medição, a transcrição manual tinha 130 containers contra 192 da leitura
+ao vivo do mesmo frame.
+
+[`figma-para-elementor.js`](figma-para-elementor.js) resolve isso: é o
+conversor inteiro num script só, que roda **dentro do Figma**, lê a árvore ao
+vivo e devolve o JSON do Elementor pronto.
+
+```
+1. Figma → Plugins → Development → New Plugin → escolha "Run once"
+2. Cole o script, ajuste NODE_ID e MODO no topo
+3. Rode e copie a saída (campo `json`) para um arquivo .json
+4. WordPress → Modelos → Modelos salvos → Importar
+```
+
+### Os dois modos
+
+| `MODO` | O que faz | Quando usar |
+| --- | --- | --- |
+| `"fluido"` | Auto layout vira flexbox, seções empilham na ordem vertical, o que é absoluto no Figma vira posição absoluta do Elementor | Padrão. Responsivo e editável |
+| `"exato"` | Tudo com posição absoluta em x/y e tamanho em px, igual ao Figma | Conferir fidelidade em 1920. **Não é responsivo** |
+
+O modo `exato` reproduz o layout pixel a pixel na largura de referência e
+quebra em qualquer outra — inclusive no celular. Serve para comparar, não para
+publicar.
