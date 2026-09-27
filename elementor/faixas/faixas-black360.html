@@ -232,20 +232,46 @@
      Troque as URLs pelas imagens reais. Deixe "" para ver o placeholder.
      A ordem aqui é a ordem do Figma, da esquerda para a direita.        */
 
-  var BASE = "https://adrielaraujo.com.br/wp-content/uploads/black360/";
+  /* Onde estão as capas.
+
+     Deixe "" e o bloco procura sozinho nos lugares de sempre: a pasta
+     black360/ e as pastas ano/mês da biblioteca de mídia dos últimos meses.
+     Se souber o caminho, preencha e ele vai direto — abra qualquer capa na
+     Biblioteca de mídia, copie a URL do arquivo e apague o nome do arquivo
+     do fim. Ex.: "https://adrielaraujo.com.br/wp-content/uploads/2026/09/" */
+
+  var BASE = "";
 
   var FOTOS = [
-    { nome: "Método Power Pro",         img: BASE + "capa-power-pro.webp" },
-    { nome: "[I.A.]presentações 2.0",   img: BASE + "capa-apresentacoes-20.webp" },
-    { nome: "A Bússola da Criatividade",img: BASE + "capa-bussola.webp" },
-    { nome: "Os Mecanismos",            img: BASE + "capa-mecanismos.webp" },
-    { nome: "Alavanca",                 img: BASE + "capa-alavanca.webp" },
-    { nome: "O Poder da Comunicação",   img: BASE + "capa-comunicacao.webp" },
-    { nome: "Visibilidade e Redes Sociais", img: BASE + "capa-visibilidade.webp" },
-    { nome: "Networking Estratégico",   img: BASE + "capa-networking.webp" },
-    { nome: "Branding Pessoal e Posicionamento", img: BASE + "capa-branding.webp" },
-    { nome: "Apresentação de Impacto",  img: BASE + "capa-impacto.webp" }
+    { nome: "Método Power Pro",         img: "capa-power-pro.webp" },
+    { nome: "[I.A.]presentações 2.0",   img: "capa-apresentacoes-20.webp" },
+    { nome: "A Bússola da Criatividade",img: "capa-bussola.webp" },
+    { nome: "Os Mecanismos",            img: "capa-mecanismos.webp" },
+    { nome: "Alavanca",                 img: "capa-alavanca.webp" },
+    { nome: "O Poder da Comunicação",   img: "capa-comunicacao.webp" },
+    { nome: "Visibilidade e Redes Sociais", img: "capa-visibilidade.webp" },
+    { nome: "Networking Estratégico",   img: "capa-networking.webp" },
+    { nome: "Branding Pessoal e Posicionamento", img: "capa-branding.webp" },
+    { nome: "Apresentação de Impacto",  img: "capa-impacto.webp" }
   ];
+
+  /* Lista de pastas a tentar, em ordem. A biblioteca de mídia guarda por
+     ano/mês, então geramos os últimos meses; a primeira que responder passa
+     a ser usada por todas as capas, sem repetir a busca.                  */
+
+  function caminhos() {
+    if (BASE) return [BASE];
+    var lista = ["/wp-content/uploads/black360/"];
+    var d = new Date();
+    for (var k = 0; k < 14; k++) {
+      lista.push("/wp-content/uploads/" + d.getFullYear() + "/" +
+                 ("0" + (d.getMonth() + 1)).slice(-2) + "/");
+      d.setMonth(d.getMonth() - 1);
+    }
+    lista.push("/wp-content/uploads/");
+    return lista;
+  }
+
 
 
   /* "auto"  = a fileira só anda quando as capas não cabem na tela
@@ -258,6 +284,63 @@
   if (!secao) return;
 
   /* ------------------------------------------------------------ montagem */
+
+  /* Descobre a pasta uma vez só, testando a primeira capa em cada candidata,
+     e só então carrega as dez — em vez de deixar cada capa errar sozinha. */
+
+  var PASTAS = caminhos();
+  var pendentes = [];
+  var pastaBoa = null;
+
+  function mostra(dentro, rotulo, url, alt) {
+    var im = document.createElement("img");
+    im.src = url;
+    im.alt = alt;
+    im.decoding = "async";
+    dentro.appendChild(im);
+    rotulo.remove();
+  }
+
+  function carrega(f, dentro, rotulo) {
+    // caminho já resolvido: data URI, URL absoluta ou caminho da raiz do site
+    if (/^(data:|https?:|\/)/.test(f.img)) {
+      mostra(dentro, rotulo, f.img, f.nome);
+      return;
+    }
+    if (pastaBoa !== null) {
+      mostra(dentro, rotulo, pastaBoa + f.img, f.nome);
+      return;
+    }
+    pendentes.push([f, dentro, rotulo]);
+  }
+
+  function procuraPasta() {
+    if (!pendentes.length) return;
+    var primeira = pendentes[0][0].img;
+    var i = 0;
+
+    function tenta() {
+      if (i >= PASTAS.length) {
+        if (window.console) {
+          console.warn("[b360] não encontrei " + primeira + ". Preencha BASE no " +
+            "começo do script: Biblioteca de mídia > abra uma capa > copie a URL " +
+            "do arquivo e apague o nome do arquivo do fim.");
+        }
+        return;   // ficam os retângulos tracejados com o nome de cada módulo
+      }
+      var base = PASTAS[i++];
+      var teste = new Image();
+      teste.onload = function () {
+        pastaBoa = base;
+        pendentes.forEach(function (t) { mostra(t[1], t[2], base + t[0].img, t[0].nome); });
+        pendentes = [];
+      };
+      teste.onerror = tenta;
+      teste.src = base + primeira;
+    }
+
+    tenta();
+  }
 
   var trilhoFotos = document.getElementById("p360-fotos");
 
@@ -273,28 +356,15 @@
     rotulo.textContent = f.nome;
     dentro.appendChild(rotulo);
 
-    if (f.img) {
-      // carrega antes de inserir, para não piscar o ícone de imagem quebrada
-      // enquanto os arquivos ainda não estiverem no servidor
-      var teste = new Image();
-      teste.onload = (function (dentro, rotulo, f) {
-        return function () {
-          var im = document.createElement("img");
-          im.src = f.img;
-          im.alt = f.nome;
-          im.decoding = "async";
-          dentro.appendChild(im);
-          rotulo.remove();
-        };
-      })(dentro, rotulo, f);
-      teste.src = f.img;
-    }
+    if (f.img) carrega(f, dentro, rotulo);
 
     fora.style.setProperty("--z", String(FOTOS.length - i));
 
     fora.appendChild(dentro);
     trilhoFotos.appendChild(fora);
   });
+
+  procuraPasta();
 
   if (MOVER_FOTOS === false) {
     trilhoFotos.dataset.velocidade = "0";
