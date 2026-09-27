@@ -1,0 +1,432 @@
+<!-- ============================================================
+     BLACK 360 · faixas em movimento + fotos em ângulo
+     Cole este bloco inteiro num widget HTML do Elementor.
+     Não precisa de biblioteca nenhuma.
+     ============================================================ -->
+
+<div class="p360-faixas" id="p360-faixas">
+
+  <!-- faixa escura: barra preta, desce da esquerda para a direita -->
+  <div class="p360-faixa p360-faixa--escura" aria-hidden="true">
+    <div class="p360-trilho" data-velocidade="-38">
+      <span class="p360-marca">BLACK<b>360</b></span>
+      <span class="p360-marca p360-marca--peq">ESCOLA<b>POWER</b></span>
+      <span class="p360-marca">BLACK<b>360</b></span>
+      <span class="p360-marca p360-marca--peq">ESCOLA<b>POWER</b></span>
+      <span class="p360-marca">BLACK<b>360</b></span>
+      <span class="p360-marca p360-marca--peq">ESCOLA<b>POWER</b></span>
+    </div>
+  </div>
+
+  <!-- faixa clara: só tipografia, sobe da esquerda para a direita -->
+  <div class="p360-faixa p360-faixa--clara" aria-hidden="true">
+    <div class="p360-trilho" data-velocidade="26">
+      <span class="p360-marca">BLACK<b>360</b></span>
+      <span class="p360-marca p360-marca--peq">ESCOLA<b>POWER</b></span>
+      <span class="p360-marca">BLACK<b>360</b></span>
+      <span class="p360-marca p360-marca--peq">ESCOLA<b>POWER</b></span>
+      <span class="p360-marca">BLACK<b>360</b></span>
+      <span class="p360-marca p360-marca--peq">ESCOLA<b>POWER</b></span>
+    </div>
+  </div>
+
+  <!-- fotos -->
+  <div class="p360-fotos">
+    <div class="p360-trilho p360-trilho--fotos" data-velocidade="-22" id="p360-fotos"></div>
+  </div>
+
+</div>
+
+<style>
+/* ----------------------------------------------------------------- base */
+
+.p360-faixas {
+  --carta-l: 180px;          /* largura da capa */
+  --carta-a: 432px;          /* altura da capa */
+  --carta-sobrepoe: 65px;    /* quanto uma capa entra na outra */
+  --angulo: -9deg;           /* inclinação das capas */
+  --sobe: 26px;              /* quanto a capa sobe no hover */
+  --azul: #3b9ae8;
+  --navy: #17304e;
+
+  position: relative;
+  overflow: hidden;
+  background: #0a0a0a;
+  padding: 70px 0;
+  min-height: calc(var(--carta-a) + 140px);
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+}
+
+/* ---------------------------------------------------------------- faixas */
+
+.p360-faixa {
+  position: absolute;
+  left: -15%;
+  width: 130%;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.p360-faixa--escura {
+  top: 27%;
+  height: 86px;
+  background: #000;
+  border-top: 1px solid rgba(255, 255, 255, .07);
+  border-bottom: 1px solid rgba(255, 255, 255, .07);
+  transform: rotate(5deg);
+}
+
+.p360-faixa--clara {
+  top: 52%;
+  height: 72px;
+  background: #fff;
+  transform: rotate(-5deg);
+}
+
+.p360-trilho {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.p360-marca {
+  font-family: "Cutta", "Gotham", "Archivo", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: -.01em;
+  white-space: nowrap;
+}
+
+.p360-marca--peq { font-size: 26px; letter-spacing: .02em; }
+
+.p360-faixa--escura .p360-marca      { color: #fff; }
+.p360-faixa--escura .p360-marca b    { color: var(--azul); font-weight: 800; }
+.p360-faixa--escura .p360-marca--peq b { color: #fff; }
+
+.p360-faixa--clara .p360-marca       { color: var(--navy); }
+.p360-faixa--clara .p360-marca b     { color: var(--navy); font-weight: 800; }
+
+/* ----------------------------------------------------------------- fotos */
+
+.p360-fotos {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  padding: var(--sobe) 0;          /* espaço para a capa subir sem cortar */
+}
+
+/* quando a fileira anda (celular), as pontas somem num degradê — a capa não
+   é cortada numa linha seca e as faixas aparecem por baixo nas laterais */
+.p360-fotos--movel {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 13%, #000 87%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 13%, #000 87%, transparent 100%);
+}
+
+.p360-trilho--fotos { gap: 0; align-items: center; }
+
+/* quando as capas cabem na tela a fileira fica parada e centralizada,
+   como no Figma — e aí as faixas aparecem nas laterais */
+.p360-trilho--parado { margin: 0 auto; }
+
+.p360-foto {
+  flex: 0 0 auto;
+  width: var(--carta-l);
+  margin-right: calc(var(--carta-sobrepoe) * -1);
+  transition: transform .35s cubic-bezier(.22, .8, .3, 1);
+  will-change: transform;
+}
+
+.p360-foto-i {
+  position: relative;
+  width: 100%;
+  height: var(--carta-a);
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(160deg, #1b2733, #0b0f14);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .55), inset 1px 0 0 rgba(255, 255, 255, .09);
+  transform: skewY(var(--angulo));   /* é isto que dá o ângulo do Figma */
+  transition: box-shadow .35s ease;
+}
+
+.p360-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* rótulo de reserva, aparece só enquanto a imagem não existe */
+.p360-foto-vazia {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px 12px;
+  font: 600 12px/1.3 system-ui, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .55);
+  border: 1px dashed rgba(255, 255, 255, .18);
+  border-radius: 14px;
+}
+
+/* o que o usuário pediu: sobe no translateY */
+.p360-foto:hover,
+.p360-foto.ativa {
+  transform: translateY(calc(var(--sobe) * -1));
+}
+
+.p360-foto:hover .p360-foto-i,
+.p360-foto.ativa .p360-foto-i {
+  box-shadow: 0 34px 60px rgba(0, 0, 0, .7), 0 0 0 1px rgba(59, 154, 232, .35);
+}
+
+.p360-foto:hover,
+.p360-foto.ativa { z-index: 3; position: relative; }
+
+/* ------------------------------------------------------------- responsivo */
+
+@media (max-width: 1024px) {
+  .p360-faixas { --carta-l: 150px; --carta-a: 360px; --carta-sobrepoe: 54px; padding: 56px 0; }
+  .p360-marca { font-size: 36px; }
+  .p360-marca--peq { font-size: 21px; }
+  .p360-faixa--escura { height: 72px; }
+}
+
+@media (max-width: 767px) {
+  .p360-faixas { --carta-l: 104px; --carta-a: 250px; --carta-sobrepoe: 37px; --sobe: 16px; padding: 46px 0; }
+  .p360-marca { font-size: 26px; }
+  .p360-marca--peq { font-size: 15px; }
+  .p360-trilho { gap: 34px; }
+  .p360-faixa--escura { height: 48px; top: 20%; }
+  .p360-faixa--clara { height: 42px; top: 64%; }
+  .p360-foto-i { border-radius: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .p360-foto { transition: none; }
+}
+</style>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ------------------------------------------------------------- capas
+     Troque as URLs pelas imagens reais. Deixe "" para ver o placeholder.
+     A ordem aqui é a ordem do Figma, da esquerda para a direita.        */
+
+  var BASE = "https://adrielaraujo.com.br/wp-content/uploads/black360/";
+
+  var FOTOS = [
+    { nome: "Método Power Pro",         img: BASE + "capa-power-pro.jpg" },
+    { nome: "Apresentações 2.0",        img: BASE + "capa-apresentacoes-20.jpg" },
+    { nome: "Bússola da Criatividade",  img: BASE + "capa-bussola.jpg" },
+    { nome: "Os Mecanismos",            img: BASE + "capa-mecanismos.jpg" },
+    { nome: "Alavanca",                 img: BASE + "capa-alavanca.jpg" },
+    { nome: "Comunicação e Poder",      img: BASE + "capa-comunicacao.jpg" },
+    { nome: "Visibilidade e Redes",     img: BASE + "capa-visibilidade.jpg" },
+    { nome: "Networking Estratégico",   img: BASE + "capa-networking.jpg" },
+    { nome: "Branding Pessoal",         img: BASE + "capa-branding.jpg" },
+    { nome: "Apresentação de Impacto",  img: BASE + "capa-impacto.jpg" }
+  ];
+
+  /* "auto"  = a fileira só anda quando as capas não cabem na tela
+               (desktop parado como no Figma, celular em carrossel)
+     true    = anda sempre
+     false   = nunca anda                                            */
+  var MOVER_FOTOS = "auto";
+
+  var secao = document.getElementById("p360-faixas");
+  if (!secao) return;
+
+  /* ------------------------------------------------------------ montagem */
+
+  var trilhoFotos = document.getElementById("p360-fotos");
+
+  FOTOS.forEach(function (f) {
+    var fora = document.createElement("div");
+    fora.className = "p360-foto";
+
+    var dentro = document.createElement("div");
+    dentro.className = "p360-foto-i";
+
+    var rotulo = document.createElement("span");
+    rotulo.className = "p360-foto-vazia";
+    rotulo.textContent = f.nome;
+    dentro.appendChild(rotulo);
+
+    if (f.img) {
+      // carrega antes de inserir, para não piscar o ícone de imagem quebrada
+      // enquanto os arquivos ainda não estiverem no servidor
+      var teste = new Image();
+      teste.onload = (function (dentro, rotulo, f) {
+        return function () {
+          var im = document.createElement("img");
+          im.src = f.img;
+          im.alt = f.nome;
+          im.decoding = "async";
+          dentro.appendChild(im);
+          rotulo.remove();
+        };
+      })(dentro, rotulo, f);
+      teste.src = f.img;
+    }
+
+    fora.appendChild(dentro);
+    trilhoFotos.appendChild(fora);
+  });
+
+  if (MOVER_FOTOS === false) {
+    trilhoFotos.dataset.velocidade = "0";
+  } else if (MOVER_FOTOS === "auto") {
+    // mede a fileira inteira: se couber, para e centraliza
+    var cabe = trilhoFotos.scrollWidth <= trilhoFotos.parentElement.clientWidth;
+    if (cabe) trilhoFotos.dataset.velocidade = "0";
+  }
+  if (trilhoFotos.dataset.velocidade === "0") {
+    trilhoFotos.classList.add("p360-trilho--parado");
+  } else {
+    trilhoFotos.parentElement.classList.add("p360-fotos--movel");
+  }
+
+  /* ------------------------------------------------- carrossel infinito
+     Duplica o conteúdo até cobrir duas vezes a largura visível e desloca
+     com requestAnimationFrame. Quando anda uma cópia inteira, volta ao
+     começo — como o deslocamento é exatamente a largura de uma cópia, a
+     emenda não aparece.                                                 */
+
+  var parado = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var trilhos = [];
+
+  function prepara(trilho) {
+    var vel = parseFloat(trilho.dataset.velocidade || "0");   // px por segundo
+    if (!vel) return;
+
+    var originais = Array.prototype.slice.call(trilho.children);
+    if (!originais.length) return;
+
+    function medir() {
+      // largura de uma cópia, contando o gap entre os itens
+      var estilo = getComputedStyle(trilho);
+      var gap = parseFloat(estilo.columnGap || estilo.gap || "0") || 0;
+      var largura = 0;
+      originais.forEach(function (el) {
+        largura += el.getBoundingClientRect().width + gap;
+      });
+      // capas se sobrepõem por margin-right negativa, que o rect não conta
+      var margem = parseFloat(getComputedStyle(originais[0]).marginRight) || 0;
+      return largura + margem * originais.length;
+    }
+
+    var base = medir();
+    if (base <= 0) return;
+
+    // clona até cobrir duas vezes a largura visível, contando as cópias em
+    // vez de medir o trilho (o flex já o deixou do tamanho do conteúdo)
+    var visivel = trilho.parentElement.getBoundingClientRect().width;
+    var copias = Math.min(Math.ceil((visivel * 2 + base) / base), 12);
+    for (var k = 1; k < copias; k++) {
+      originais.forEach(function (el) {
+        var c = el.cloneNode(true);
+        c.setAttribute("aria-hidden", "true");
+        trilho.appendChild(c);
+      });
+    }
+
+    var item = { el: trilho, vel: vel, base: base, x: vel < 0 ? 0 : -base, pausado: false };
+    trilho.style.transform = "translate3d(" + item.x + "px,0,0)";
+    trilhos.push(item);
+
+    // recalcula quando a largura da tela muda
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(function () {
+        var nova = medir();
+        if (nova > 0) { item.base = nova; }
+      });
+      ro.observe(trilho.parentElement);
+    }
+  }
+
+  Array.prototype.forEach.call(secao.querySelectorAll(".p360-trilho"), prepara);
+
+  var anterior = 0, rodando = false, quadro = null;
+
+  function passo(agora) {
+    var dt = anterior ? Math.min((agora - anterior) / 1000, 0.05) : 0;
+    anterior = agora;
+
+    for (var i = 0; i < trilhos.length; i++) {
+      var t = trilhos[i];
+      if (!t.pausado) {
+        t.x += t.vel * dt;
+        if (t.x <= -t.base) t.x += t.base;
+        if (t.x >= 0) t.x -= t.base;
+        t.el.style.transform = "translate3d(" + t.x.toFixed(2) + "px,0,0)";
+      }
+    }
+    quadro = requestAnimationFrame(passo);
+  }
+
+  function liga() {
+    if (rodando || parado || !trilhos.length) return;
+    rodando = true; anterior = 0;
+    quadro = requestAnimationFrame(passo);
+  }
+
+  function desliga() {
+    rodando = false;
+    if (quadro) cancelAnimationFrame(quadro);
+    quadro = null;
+  }
+
+  // só anima enquanto a seção está na tela
+  if (window.IntersectionObserver) {
+    new IntersectionObserver(function (ent) {
+      ent[0].isIntersecting ? liga() : desliga();
+    }, { threshold: 0 }).observe(secao);
+  } else {
+    liga();
+  }
+
+  document.addEventListener("visibilitychange", function () {
+    document.hidden ? desliga() : liga();
+  });
+
+  /* ------------------------------------------------------- pausa e toque */
+
+  var areaFotos = secao.querySelector(".p360-fotos");
+
+  function pausaFotos(v) {
+    trilhos.forEach(function (t) {
+      if (t.el.classList.contains("p360-trilho--fotos")) t.pausado = v;
+    });
+  }
+
+  areaFotos.addEventListener("mouseenter", function () { pausaFotos(true); });
+  areaFotos.addEventListener("mouseleave", function () { pausaFotos(false); });
+
+  // no celular não existe hover: o toque levanta a capa e pausa a fileira
+  if (window.matchMedia("(hover: none)").matches) {
+    secao.addEventListener("pointerdown", function (e) {
+      var capa = e.target.closest(".p360-foto");
+      var jaAtiva = capa && capa.classList.contains("ativa");
+      Array.prototype.forEach.call(secao.querySelectorAll(".p360-foto.ativa"),
+        function (el) { el.classList.remove("ativa"); });
+      if (capa && !jaAtiva) { capa.classList.add("ativa"); pausaFotos(true); }
+      else { pausaFotos(false); }
+    });
+  }
+})();
+</script>
