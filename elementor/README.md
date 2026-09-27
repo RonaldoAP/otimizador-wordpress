@@ -206,3 +206,23 @@ vivo e devolve o JSON do Elementor pronto.
 O modo `exato` reproduz o layout pixel a pixel na largura de referência e
 quebra em qualquer outra — inclusive no celular. Serve para comparar, não para
 publicar.
+
+## Conferir o layout antes de importar — `preview.py`
+
+O template pode estar estruturalmente correto e mesmo assim parecer errado no
+site. Para separar um caso do outro sem subir nada no WordPress:
+
+```bash
+python3 preview.py template.json --out preview.html --largura 1920
+```
+
+Gera um HTML que reproduz a estrutura que o Elementor monta de verdade —
+`.e-con` para largura total, `.e-con` + `.e-con-inner` com `max-width` para
+boxed, e os controles de flex aplicados na camada certa de cada caso. Abra no
+navegador, ou tire print com Chromium, e compare com o Figma.
+
+Imagem que não existe aparece como caixa tracejada com o nome do arquivo, o
+que torna óbvio quanto do visual depende de asset ainda não enviado.
+
+Não é o Elementor: é uma aproximação. Serve para pegar erro de largura,
+empilhamento, espaçamento e tipografia — que são os que mais doem.
