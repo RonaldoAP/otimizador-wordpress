@@ -18,12 +18,20 @@ const LARGURA_CONTEUDO = 1140;
 const TITULO = "LP VENDAS · Black 360";
 const ARQUIVO = "lp-vendas-black360.json";
 
+// Exportacao das imagens. O JSON referencia a mesma extensao escolhida aqui.
+const EXPORTAR_IMAGENS = true;
+const FORMATO_IMG = "PNG";
+const ESCALA_IMG = 2;        // 2x para retina
+const LARGURA_MAX = 1600;    // no mais largo que isso sai em 1x
+const LADO_MAX_ARTE = 360;   // acima disso, arte vetorial nao colapsa em 1 imagem
+
 /* --------------------------------------------------------------- estado */
 
 figma.showUI(__html__, { width: 460, height: 420 });
 
 const avisos = [];
 const arquivos = new Set();
+const paraExportar = [];  // { nome, no }
 let nContainer = 0, nWidget = 0;
 
 /* --------------------------------------------------------------- helpers */
@@ -80,6 +88,29 @@ function ehImagem(x) {
   return "fills" in x && Array.isArray(x.fills) &&
          x.fills.some((f) => f.type === "IMAGE" && f.visible !== false);
 }
+function ehArteVetorial(x) {
+  // Logo com microtexto dentro (o do Sebrae, por exemplo) tem texto e por isso
+  // não colapsa pela regra normal — e sairia como uma imagem por path.
+  // Se há vetor e nenhum texto de corpo legível, é arte: vira uma imagem só.
+  if (!("children" in x) || !x.children.length) return false;
+  // Só vale para arte pequena — logo, ícone, selo. Uma grade de logos inteira
+  // não pode virar uma imagem só, senão o carrossel perde os slides.
+  const larg = (x.absoluteBoundingBox && x.absoluteBoundingBox.width) || x.width || 0;
+  const alt = (x.absoluteBoundingBox && x.absoluteBoundingBox.height) || x.height || 0;
+  if (larg > LADO_MAX_ARTE || alt > LADO_MAX_ARTE) return false;
+  if (papel(x.name).detalhe === "carousel") return false;
+  let vetor = false, textoDeVerdade = false;
+  (function anda(n) {
+    for (const c of n.children || []) {
+      if (VET.indexOf(c.type) >= 0) vetor = true;
+      if (c.type === "TEXT" && (typeof c.fontSize !== "number" || c.fontSize >= 12))
+        textoDeVerdade = true;
+      if ("children" in c) anda(c);
+    }
+  })(x);
+  return vetor && !textoDeVerdade;
+}
+
 function temTexto(x) {
   if (x.type === "TEXT") return true;
   if (!("children" in x)) return false;
@@ -123,7 +154,7 @@ function fundo(x) {
     s.background_color = corDoPaint(solido);
   } else if (imagem) {
     s.background_background = "classic";
-    s.background_image = { url: BASE_URL + "/" + nomeArquivo(x.name), id: "" };
+    s.background_image = { url: BASE_URL + "/" + nomeArquivo(x.name, x), id: "" };
     s.background_size = imagem.scaleMode === "FIT" ? "contain" : "cover";
     s.background_position = "center center";
     s.background_repeat = "no-repeat";
@@ -245,26 +276,57 @@ function flexDoNo(x, ehRaiz) {
 
 /* ------------------------------------------------------------- widgets */
 
-function nomeArquivo(bruto) {
-  let n = (bruto || "").replace(/^(w\/image|img\/)\s*·?\s*/i, "").trim();
-  n = n.normalize("NFD").replace(/[̀-ͯ]/g, "");
-  n = n.replace(/[^\w.\-]+/g, "-").replace(/^[-.]+|[-.]+$/g, "").toLowerCase() || "imagem";
-  const ext = n.split(".").pop();
-  if (["webp", "png", "jpg", "jpeg", "svg", "gif", "avif"].indexOf(ext) < 0) {
-    n = n.replace(/\./g, "-") + ".webp";
+// Nomes que o Figma gera sozinho e não dizem nada sobre o conteúdo.
+// "capa", "slide", "logo" NÃO entram aqui: são nomes de verdade no projeto.
+const GENERICOS = /^(image|imagem|rectangle|ellipse|frame|group|vector|mask group|img|union|subtract|component)\b/i;
+// "w/" leva junto a palavra do widget: "w/image · logo-globo" -> "logo-globo",
+// "w/image" -> "". Os outros prefixos levam só o prefixo: "sec/marcas" -> "marcas".
+const PREFIXO_W = /^w\/(heading|text|image|button|icon|carousel|video|divider|spacer)?\s*[·:\-]?\s*/i;
+const PREFIXO = /^(sec|box|row|col|bg|img|cls|hide)\/\s*[·:\-]?\s*/i;
+
+function nomeUtil(x) {
+  // O nome da camada costuma ser generico ("w/image", "Rectangle 12"). Nesse
+  // caso procura um nome de verdade: primeiro nos filhos, depois nos pais.
+  const limpo = (n) =>
+    (n || "").replace(PREFIXO_W, "").replace(PREFIXO, "").replace(/^[·:\-]\s*/, "").trim();
+  let n = limpo(x.name);
+  if (n && !GENERICOS.test(n)) return n;
+
+  if ("children" in x) {
+    const fila = x.children.slice();
+    while (fila.length) {
+      const c = fila.shift();
+      const cn = limpo(c.name);
+      if (cn && !GENERICOS.test(cn)) return cn;
+      if ("children" in c) fila.push.apply(fila, c.children);
+    }
   }
-  let final = n, i = 2;
-  const base = final.slice(0, final.lastIndexOf("."));
-  const e = final.slice(final.lastIndexOf("."));
-  while (arquivos.has(final)) { final = base + "-" + i + e; i++; }
+  let p = x.parent, salto = 0;
+  while (p && salto < 3) {
+    const pn = limpo(p.name);
+    if (pn && !GENERICOS.test(pn)) return pn;
+    p = p.parent; salto++;
+  }
+  return n || "imagem";
+}
+
+function nomeArquivo(bruto, no) {
+  const ext = "." + FORMATO_IMG.toLowerCase();
+  let n = no ? nomeUtil(no) : (bruto || "imagem");
+  n = n.normalize("NFD").replace(/[̀-ͯ]/g, "");
+  n = n.replace(/\.[a-z0-9]{2,4}$/i, "");
+  n = n.replace(/[^\w\-]+/g, "-").replace(/^-+|-+$/g, "").toLowerCase() || "imagem";
+  let final = n + ext, i = 2;
+  while (arquivos.has(final)) { final = n + "-" + i + ext; i++; }
   arquivos.add(final);
+  if (no && EXPORTAR_IMAGENS) paraExportar.push({ nome: final, no: no });
   return final;
 }
 
 function widgetImagem(x) {
   nWidget++;
   const s = {
-    image: { url: BASE_URL + "/" + nomeArquivo(x.name), id: "", alt: "", source: "library" },
+    image: { url: BASE_URL + "/" + nomeArquivo(x.name, x), id: "", alt: "", source: "library" },
     image_size: "full",
     align: "center",
   };
@@ -358,7 +420,7 @@ function widgetCarrossel(x) {
   (function junta(n) {
     if (n.children && n.children.length && !soVetor(n)) { n.children.forEach(junta); return; }
     if (n.type === "TEXT") return;
-    slides.push(BASE_URL + "/" + nomeArquivo(n.name));
+    slides.push(BASE_URL + "/" + nomeArquivo(n.name, n));
     if (r0(n.width)) larguras.push(n.width);
   })(x);
 
@@ -407,7 +469,7 @@ function converte(x, ehRaiz) {
   }
 
   if (x.type === "TEXT") return widgetTexto(x);
-  if (soVetor(x) || (ehImagem(x) && !temTexto(x))) return widgetImagem(x);
+  if (soVetor(x) || ehArteVetorial(x) || (ehImagem(x) && !temTexto(x))) return widgetImagem(x);
 
   const filhos = [];
   if ("children" in x) {
@@ -476,11 +538,57 @@ async function rodar() {
   const texto = JSON.stringify(template);
 
   figma.ui.postMessage({
+    tipo: "pronto",
     ok: true,
     json: texto,
     arquivo: ARQUIVO,
     resumo: { modo: MODO, secoes: conteudo.length, containers: nContainer,
               widgets: nWidget, imagens: arquivos.size, tamanhoJSON: texto.length },
+    avisos: Array.from(new Set(avisos)),
+    totalImagens: EXPORTAR_IMAGENS ? paraExportar.length : 0,
+  });
+
+  if (EXPORTAR_IMAGENS && paraExportar.length) await exportarImagens();
+}
+
+/* ------------------------------------------------------- exportar imagens */
+
+async function exportarImagens() {
+  // Um nó pode aparecer duas vezes com nomes diferentes (imagem e fundo);
+  // exporta uma vez por nome, que é o que o JSON referencia.
+  let feitas = 0, erros = 0;
+
+  for (const item of paraExportar) {
+    const no = item.no;
+    try {
+      if (!no || typeof no.exportAsync !== "function") { erros++; continue; }
+
+      // nó muito largo não precisa de 2x: dobraria o peso sem ganho visível
+      const largura = (no.absoluteBoundingBox && no.absoluteBoundingBox.width) || no.width || 0;
+      const escala = largura > LARGURA_MAX ? 1 : ESCALA_IMG;
+
+      const bytes = await no.exportAsync({
+        format: FORMATO_IMG,
+        constraint: { type: "SCALE", value: escala },
+      });
+
+      figma.ui.postMessage({
+        tipo: "imagem",
+        nome: item.nome,
+        bytes: Array.from(bytes),
+        feitas: ++feitas,
+        total: paraExportar.length,
+      });
+    } catch (e) {
+      erros++;
+      avisos.push("Não consegui exportar '" + item.nome + "': " + ((e && e.message) || e));
+    }
+  }
+
+  figma.ui.postMessage({
+    tipo: "imagens-fim",
+    feitas: feitas,
+    erros: erros,
     avisos: Array.from(new Set(avisos)),
   });
 }
