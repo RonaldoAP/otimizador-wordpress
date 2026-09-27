@@ -16,6 +16,11 @@ Arquivo: `faixas-black360.html`
   também vira carrossel infinito, com as pontas em degradê; o toque levanta a
   capa (e pausa a fileira). Tocar de novo abaixa.
 
+  O degradê das pontas (`--esfuma`) acompanha a largura da tela: 14% no
+  desktop, 20% no tablet e 28% no celular. Ele precisa ser mais largo que uma
+  capa inteira — se for menor, a capa da borda aparece **cortada** em vez de
+  desaparecer, que é exatamente o que acontecia antes.
+
 A animação é feita com `requestAnimationFrame`, não com `@keyframes`: ela
 mede o conteúdo, duplica o necessário e reinicia exatamente no tamanho de uma
 cópia, então a emenda nunca aparece — e para sozinha quando a seção sai da
@@ -70,6 +75,7 @@ Tudo que costuma precisar de ajuste está no topo:
 | `--carta-sobrepoe` | quanto uma capa entra na outra |
 | `--angulo` | inclinação das capas |
 | `--sobe` | quanto a capa sobe no hover |
+| `--esfuma` | largura do degradê nas pontas da fileira |
 | `--azul` / `--navy` | cores do "360" e da faixa clara |
 | `data-velocidade` (no HTML) | px por segundo de cada faixa; sinal negativo inverte o sentido |
 | `MOVER_FOTOS` | `"auto"` (padrão), `true` ou `false` |

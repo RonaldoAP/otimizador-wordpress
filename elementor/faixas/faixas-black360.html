@@ -47,6 +47,7 @@
   --angulo: 33.69deg;        /* inclinação medida no Figma (cisalhamento de 2/3) */
   --cai: .667;               /* tan(--angulo) — usado só para calcular a altura */
   --sobe: 26px;              /* quanto a capa sobe no hover */
+  --esfuma: 14%;             /* largura do degradê nas pontas da fileira */
   --azul: #3b9ae8;
   --navy: #17304e;
 
@@ -132,8 +133,10 @@
 /* quando a fileira anda (celular), as pontas somem num degradê — a capa não
    é cortada numa linha seca e as faixas aparecem por baixo nas laterais */
 .p360-fotos--movel {
-  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 13%, #000 87%, transparent 100%);
-          mask-image: linear-gradient(90deg, transparent 0, #000 13%, #000 87%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg,
+    transparent 0, #000 var(--esfuma), #000 calc(100% - var(--esfuma)), transparent 100%);
+          mask-image: linear-gradient(90deg,
+    transparent 0, #000 var(--esfuma), #000 calc(100% - var(--esfuma)), transparent 100%);
 }
 
 .p360-trilho--fotos { gap: 0; align-items: center; }
@@ -203,14 +206,19 @@
 /* ------------------------------------------------------------- responsivo */
 
 @media (max-width: 1024px) {
-  .p360-faixas { --carta-l: 146px; --carta-a: 249px; --carta-sobrepoe: 51px; padding: 56px 0; }
+  .p360-faixas { --carta-l: 132px; --carta-a: 225px; --carta-sobrepoe: 46px;
+                 --esfuma: 20%; padding: 56px 0; }
   .p360-marca { font-size: 36px; }
   .p360-marca--peq { font-size: 21px; }
   .p360-faixa--escura { height: 72px; }
 }
 
 @media (max-width: 767px) {
-  .p360-faixas { --carta-l: 112px; --carta-a: 191px; --carta-sobrepoe: 39px; --sobe: 16px; padding: 46px 0; }
+  /* No celular a capa precisa ser pequena o bastante para caberem várias, e
+     o degradê das pontas tem de ser mais largo que uma capa inteira — senão a
+     capa da borda aparece cortada em vez de desaparecer. */
+  .p360-faixas { --carta-l: 110px; --carta-a: 188px; --carta-sobrepoe: 38px;
+                 --sobe: 14px; --esfuma: 28%; padding: 40px 0; }
   .p360-marca { font-size: 26px; }
   .p360-marca--peq { font-size: 15px; }
   .p360-trilho { gap: 34px; }
