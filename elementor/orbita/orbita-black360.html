@@ -14,8 +14,7 @@
 
     <div class="b360-cena">
 
-    <!-- luz de fundo: as duas elipses do Figma, mais um véu largo por baixo -->
-    <div class="b360-luz-c"></div>
+    <!-- luz de fundo: as duas elipses do Figma -->
     <div class="b360-luz-a"></div>
     <div class="b360-luz-b"></div>
 
@@ -83,6 +82,11 @@
   --giro-fora: 90s;      /* volta completa do anel pontilhado */
   --giro-dentro: 34s;    /* volta completa do anel de brilho */
 
+  /* Celular: quanto a lista de boxes sobe por cima dos anéis.
+     A conta está no @media lá embaixo — mexa só neste número.
+     Quanto maior, mais perto da esfera os boxes chegam.        */
+  --aproxima: .28;
+
   position: relative;
   background: #0a0a0c;
   overflow: hidden;
@@ -91,6 +95,7 @@
 
 .b360-palco {
   position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 1124px;
   margin: 0 auto;
@@ -103,17 +108,24 @@
 
 .b360-cena { position: absolute; inset: 0; }
 
-.b360-luz-a, .b360-luz-b, .b360-luz-c {
+.b360-luz-a, .b360-luz-b {
   position: absolute; pointer-events: none; z-index: 0;
 }
 
-.b360-luz-c {
-  left: -12%; top: -14%; width: 124%; height: 128%;
-  background: radial-gradient(ellipse 50% 50% at 46.4% 50%,
+/* O véu largo fica na própria seção, ocupando exatamente a área dela. Antes
+   ele sobrava 12% para fora do palco e o overflow da seção cortava isso numa
+   linha reta — era daí o corte seco na luz. */
+.b360-orbita::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 46% 62% at 50% 50%,
     rgba(150,186,230,.20)  0%,
     rgba(120,158,208,.11) 32%,
     rgba(110,146,196,.04) 58%,
-    transparent           82%);
+    transparent           84%);
 }
 
 .b360-luz-a {
@@ -219,8 +231,6 @@
   background:
     linear-gradient(150deg, rgba(255,255,255,.055), rgba(255,255,255,.012) 60%),
     rgba(10,12,16,.62);
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
   box-shadow: 0 18px 40px rgba(0,0,0,.45);
   pointer-events: auto;
 }
@@ -261,20 +271,41 @@
    cima e os quatro boxes viram uma lista. */
 
 @media (max-width: 900px) {
-  .b360-orbita { padding: 32px 16px; }
+  /* Largura do palco. Tudo no celular é medido a partir dela — inclusive o
+     quanto os boxes sobem — para a conta não depender da largura do pai,
+     que é o que a porcentagem de margem usaria.                          */
+  .b360-orbita { --palco-l: min(100vw - 32px, 460px); padding: 24px 16px 32px; }
 
   /* o palco vira quadrado para a órbita não ficar espremida; a cena inteira
      (luzes, anéis e esfera) é ampliada junto, para as proporções do Figma
-     não se perderem */
-  .b360-palco { max-width: 460px; aspect-ratio: 1; }
-  .b360-cena  { transform: scale(1.34); }
+     não se perderem, e deslocada 3.57% para a direita, que é o quanto a
+     órbita é descentralizada no Figma — no celular ela fica no meio */
+  .b360-palco {
+    width: var(--palco-l);
+    max-width: 100%;
+    aspect-ratio: 1;
+    overflow: visible;
+  }
 
+  .b360-cena { transform: translateX(4.78%) scale(1.34); }   /* 3.57% x 1.34 */
+
+  /* o véu largo cansa a vista nesse tamanho; fica só o miolo da luz */
+  .b360-orbita::before { opacity: .45; }
+
+  /* Os boxes sobem por cima dos anéis — mas não da esfera.
+     A esfera ocupa 23.04% do palco e a cena está ampliada 1.34x, então ela
+     termina em 50% + (23.04% x 1.34) / 2 = 65.4% da altura do palco. Com
+     --aproxima em .28 os boxes começam em 72%: em cima dos anéis, com folga
+     da esfera. Suba o número para aproximar mais.                        */
   .b360-orbita > .b360-cartoes {
-    position: static;
+    position: relative;
+    left: auto; top: auto;      /* desfaz o posicionamento do desktop */
+    z-index: 3;
     transform: none;
     height: auto;
-    max-width: 460px;
-    margin: 24px auto 0;
+    width: var(--palco-l);
+    max-width: 100%;
+    margin: calc(var(--aproxima) * -1 * var(--palco-l)) auto 0;
     display: grid;
     gap: 12px;
     container-type: normal;
@@ -285,11 +316,19 @@
     width: auto;
     padding: 16px 18px;
     border-radius: 14px;
+    background:
+      linear-gradient(150deg, rgba(255,255,255,.06), rgba(255,255,255,.015) 60%),
+      rgba(10,12,16,.80);          /* mais opaco: os anéis passam por trás */
   }
 
   .b360-cartao b  { font-size: 11px; margin-bottom: 8px; }
   .b360-cartao h3 { font-size: 17px; margin-bottom: 5px; }
   .b360-cartao p  { font-size: 13px; }
+}
+
+/* telas bem estreitas: a órbita encolhe junto */
+@media (max-width: 420px) {
+  .b360-orbita { --palco-l: min(100vw - 32px, 360px); --aproxima: .30; }
 }
 
 @media (prefers-reduced-motion: reduce) {
