@@ -1,0 +1,79 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font: 13px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif;
+    margin: 0; padding: 16px; background: #fff; color: #111;
+  }
+  @media (prefers-color-scheme: dark) { body { background: #2c2c2c; color: #eee; } }
+  h1 { font-size: 14px; margin: 0 0 12px; }
+  .linha { display: flex; justify-content: space-between; padding: 3px 0; }
+  .linha span:last-child { font-variant-numeric: tabular-nums; font-weight: 600; }
+  button {
+    width: 100%; padding: 10px; margin-top: 14px; border: 0; border-radius: 6px;
+    background: #0d99ff; color: #fff; font-size: 13px; font-weight: 600; cursor: pointer;
+  }
+  button:disabled { background: #999; cursor: default; }
+  details { margin-top: 14px; }
+  summary { cursor: pointer; opacity: .75; }
+  ul { margin: 8px 0 0; padding-left: 18px; }
+  li { margin-bottom: 4px; opacity: .8; }
+  .erro { color: #d93025; white-space: pre-wrap; }
+  .aguarde { opacity: .6; }
+</style>
+
+<h1>Figma → Elementor</h1>
+<div id="corpo"><p class="aguarde">Lendo o arquivo…</p></div>
+
+<script>
+let conteudo = null, nomeArquivo = "template.json";
+
+onmessage = (evento) => {
+  const m = evento.data.pluginMessage;
+  const corpo = document.getElementById("corpo");
+
+  if (!m.ok) {
+    corpo.innerHTML = '<p class="erro"></p>';
+    corpo.querySelector(".erro").textContent = "Erro: " + m.erro;
+    return;
+  }
+
+  conteudo = m.json;
+  nomeArquivo = m.arquivo;
+  const r = m.resumo;
+
+  const linha = (a, b) => '<div class="linha"><span>' + a + '</span><span>' + b + '</span></div>';
+  let html =
+    linha("Modo", r.modo) +
+    linha("Seções", r.secoes) +
+    linha("Containers", r.containers) +
+    linha("Widgets", r.widgets) +
+    linha("Imagens", r.imagens) +
+    linha("Tamanho", (r.tamanhoJSON / 1024).toFixed(0) + " KB") +
+    '<button id="baixar">Baixar ' + nomeArquivo + '</button>';
+
+  if (m.avisos && m.avisos.length) {
+    html += '<details><summary>' + m.avisos.length + ' aviso(s)</summary><ul>' +
+            m.avisos.map(a => '<li></li>').join("") + '</ul></details>';
+  }
+  corpo.innerHTML = html;
+
+  if (m.avisos && m.avisos.length) {
+    const itens = corpo.querySelectorAll("details li");
+    m.avisos.forEach((a, i) => { if (itens[i]) itens[i].textContent = a; });
+  }
+
+  document.getElementById("baixar").onclick = () => {
+    const blob = new Blob([conteudo], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = nomeArquivo;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
+};
+</script>
