@@ -3,7 +3,8 @@
 Prepara imagens para a web: redimensiona, recomprime e renomeia.
 
 Gera duas pastas: webp/ (o que vai para o site) e jpg/ (reserva, para o caso
-de algum plugin antigo não aceitar WebP). Os nomes saem em minúsculo com
+de algum plugin antigo não aceitar WebP; quem tem transparência sai como PNG,
+que JPEG não guarda alfa). Os nomes saem em minúsculo com
 hífen, que é o que o WordPress espera na URL, e os metadados (EXIF, GPS) são
 descartados.
 
@@ -87,14 +88,29 @@ def main():
             im.thumbnail((args.max, args.max), Image.LANCZOS)
 
         q = args.qualidade_texto if tem_texto(im) else args.qualidade
-        rgb = im.convert("RGB") if im.mode not in ("RGB", "RGBA") else im
+
+        # Transparência de verdade (não só um canal alfa cheio de 255) precisa
+        # sobreviver: aí o WebP guarda o alfa e a reserva vira PNG, porque JPEG
+        # não tem transparência e pintaria de preto o que era vazado.
+        if im.mode in ("RGBA", "LA", "P"):
+            im = im.convert("RGBA")
+            vazado = im.getchannel("A").getextrema()[0] < 250
+        else:
+            im = im.convert("RGB")
+            vazado = False
 
         cw = os.path.join(args.saida, "webp", base + ".webp")
-        rgb.save(cw, "WEBP", quality=q, method=6)
+        im.save(cw, "WEBP", quality=q, method=6)
         w = os.path.getsize(cw)
 
-        cj = os.path.join(args.saida, "jpg", base + ".jpg")
-        rgb.convert("RGB").save(cj, "JPEG", quality=max(q - 4, 70), optimize=True, progressive=True)
+        if vazado:
+            cj = os.path.join(args.saida, "jpg", base + ".png")
+            # RGBA só aceita octree; MAXCOVERAGE é exclusivo de imagem sem alfa
+            im.quantize(colors=256, method=Image.FASTOCTREE).save(cj, optimize=True)
+        else:
+            cj = os.path.join(args.saida, "jpg", base + ".jpg")
+            im.convert("RGB").save(cj, "JPEG", quality=max(q - 4, 70),
+                                   optimize=True, progressive=True)
         j = os.path.getsize(cj)
 
         tot_o, tot_w, tot_j = tot_o + o, tot_w + w, tot_j + j
