@@ -1,0 +1,60 @@
+/* =========================================================================
+   Black 360 — o que o template não consegue carregar
+   Cole em Aparência → Personalizar → CSS adicional (ou no CSS do Kit).
+
+   O Elementor não tem borda em gradiente no painel, então o conversor
+   rebaixa para cor sólida. Estas regras devolvem o gradiente original
+   (branco 60% → #89BCF0 30%) e o blur de fundo dos selos.
+
+   Aplique a classe no container: Avançado → Classes CSS.
+   ========================================================================= */
+
+/* Borda em gradiente de 1 px — cards, selos, acordeão, stack de valores */
+.b360-borda {
+	position: relative;
+	border: 0 !important;
+	background-clip: padding-box;
+}
+
+.b360-borda::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	padding: 1px;
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.6) 0%,
+		rgba(137, 188, 240, 0.3) 100%
+	);
+	-webkit-mask:
+		linear-gradient(#000 0 0) content-box,
+		linear-gradient(#000 0 0);
+	-webkit-mask-composite: xor;
+	mask-composite: exclude;
+	pointer-events: none;
+}
+
+/* Variante de 2 px — bloco de preço */
+.b360-borda-2::before {
+	padding: 2px;
+	background: linear-gradient(180deg, #488bd1 0%, #111111 100%);
+}
+
+/* Botão: mesma borda + a sombra interna azul do layout */
+.b360-botao .elementor-button {
+	box-shadow: inset 0 3.5px 17.4px rgba(98, 153, 209, 0.9);
+}
+
+/* Blur de fundo dos selos de número (20K / MEC / 10) */
+.b360-vidro {
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+
+/* Glow do bloco de preço */
+.b360-glow {
+	box-shadow:
+		0 0 80px rgba(72, 139, 209, 0.35),
+		0 7px 3.5px rgba(0, 0, 0, 0.45);
+}

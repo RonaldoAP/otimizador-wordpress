@@ -1,0 +1,381 @@
+<!-- ============================================================
+     BLACK 360 · órbita girando
+     Nó 394-7236 do Figma. Cole num widget HTML do Elementor.
+     Sem biblioteca. As medidas saíram do Figma (palco de 1124 x 734).
+     ============================================================ -->
+
+<div class="b360-orbita" id="b360-orbita">
+
+  <div class="b360-palco">
+
+    <!-- imagem do container de trás (a que você vai subir).
+         Ponha a URL em BASE_TRASEIRA lá no script, ou apague este div. -->
+    <div class="b360-traseira" id="b360-traseira"></div>
+
+    <div class="b360-cena">
+
+    <!-- luz de fundo: as duas elipses do Figma -->
+    <div class="b360-luz-a"></div>
+    <div class="b360-luz-b"></div>
+
+    <!-- anéis -->
+    <svg class="b360-aneis" viewBox="0 0 1124 734" aria-hidden="true"
+         preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <linearGradient id="b360-brilho" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0"   stop-color="#cfe2f7" stop-opacity=".55"/>
+          <stop offset=".45" stop-color="#7fa8d8" stop-opacity=".18"/>
+          <stop offset=".8"  stop-color="#7fa8d8" stop-opacity="0"/>
+        </linearGradient>
+        <radialGradient id="b360-ponto">
+          <stop offset="0"  stop-color="#eaf3ff"/>
+          <stop offset=".5" stop-color="#8fc0f5" stop-opacity=".7"/>
+          <stop offset="1"  stop-color="#8fc0f5" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <!-- anel externo, pontilhado, gira devagar no sentido anti-horário -->
+      <g class="b360-gira b360-gira--fora">
+        <circle cx="522" cy="367" r="366" fill="none"
+                stroke="rgba(220,233,248,.20)" stroke-width="1"
+                stroke-dasharray="2 9" stroke-linecap="round"/>
+      </g>
+
+      <!-- anel interno, contínuo com brilho de um lado, gira no horário -->
+      <g class="b360-gira b360-gira--dentro">
+        <circle cx="522" cy="367" r="307.8" fill="none"
+                stroke="url(#b360-brilho)" stroke-width="1.4"/>
+        <circle cx="522" cy="59.2" r="9" fill="url(#b360-ponto)"/>
+        <circle cx="829.8" cy="367" r="5" fill="url(#b360-ponto)" opacity=".7"/>
+      </g>
+    </svg>
+
+    <!-- esfera do meio -->
+    <div class="b360-nucleo"><img id="b360-esfera" alt=""></div>
+
+    </div><!-- /cena -->
+  </div>
+
+  <!-- os quatro boxes -->
+  <div class="b360-cartoes">
+    <article class="b360-cartao" style="--x:0%;     --y:16.26%; --w:34.96%">
+      <b>01</b><h3>Fazer a apresentação</h3><p>mensagem, storytelling e design</p>
+    </article>
+    <article class="b360-cartao" style="--x:62.46%; --y:22.44%; --w:37.54%">
+      <b>02</b><h3>Defender a ideia ao vivo</h3><p>segurança na hora de falar</p>
+    </article>
+    <article class="b360-cartao" style="--x:1.07%;  --y:64.60%; --w:32.92%">
+      <b>03</b><h3>Conhecer as pessoas certas</h3><p>networking sem parecer interesseiro</p>
+    </article>
+    <article class="b360-cartao" style="--x:60.23%; --y:66.79%; --w:37.81%">
+      <b>04</b><h3>Ser lembrado sem estar na sala</h3><p>posicionamento e reputação</p>
+    </article>
+  </div>
+
+</div>
+
+<style>
+/* ------------------------------------------------------------------ base */
+
+.b360-orbita {
+  --azul:  #3b9ae8;
+  --giro-fora: 90s;      /* volta completa do anel pontilhado */
+  --giro-dentro: 34s;    /* volta completa do anel de brilho */
+
+  /* Celular: quanto a lista de boxes sobe por cima dos anéis.
+     A conta está no @media lá embaixo — mexa só neste número.
+     Quanto maior, mais perto da esfera os boxes chegam.        */
+  --aproxima: .28;
+
+  position: relative;
+  background: #0a0a0c;
+  overflow: hidden;
+  padding: 40px 0;
+}
+
+.b360-palco {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1124px;
+  margin: 0 auto;
+  aspect-ratio: 1124 / 734;
+  container-type: inline-size;     /* deixa tudo escalar junto, em cqw */
+}
+
+/* ------------------------------------------------------------- luz de fundo */
+/* As duas elipses "luz de fundo" do Figma, na posição e no tamanho de lá. */
+
+.b360-cena { position: absolute; inset: 0; }
+
+.b360-luz-a, .b360-luz-b {
+  position: absolute; pointer-events: none; z-index: 0;
+}
+
+/* O véu largo fica na própria seção, ocupando exatamente a área dela. Antes
+   ele sobrava 12% para fora do palco e o overflow da seção cortava isso numa
+   linha reta — era daí o corte seco na luz. */
+.b360-orbita::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 46% 62% at 50% 50%,
+    rgba(150,186,230,.20)  0%,
+    rgba(120,158,208,.11) 32%,
+    rgba(110,146,196,.04) 58%,
+    transparent           84%);
+}
+
+.b360-luz-a {
+  left: 15.9%; top: 17.7%; width: 37.9%; height: 42%;
+  background: radial-gradient(ellipse 50% 50% at 50% 50%,
+    rgba(214,231,250,.60)  0%,
+    rgba(150,190,234,.34) 26%,
+    rgba(130,172,220,.14) 50%,
+    rgba(130,172,220,.04) 74%,
+    transparent          100%);
+}
+
+.b360-luz-b {
+  left: 14.2%; top: 19.7%; width: 64.3%; height: 61.3%;
+  background: radial-gradient(ellipse 50% 50% at 50% 50%,
+    rgba(186,214,244,.44)  0%,
+    rgba(124,168,218,.26) 30%,
+    rgba(110,152,204,.11) 56%,
+    rgba(110,152,204,.03) 78%,
+    transparent          100%);
+}
+
+/* imagem do container de trás — só aparece quando você põe a URL */
+.b360-traseira {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 118%; height: 118%;
+  transform: translate(-50%, -50%);
+  background: no-repeat center / contain;
+  opacity: .9;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ----------------------------------------------------------------- anéis */
+
+.b360-aneis {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  z-index: 1;
+  overflow: visible;
+}
+
+/* o giro precisa acontecer em volta do centro da órbita (522 / 367 do
+   viewBox), não do canto do SVG */
+.b360-gira {
+  transform-box: view-box;
+  transform-origin: 522px 367px;
+  animation: b360-gira linear infinite;
+}
+
+.b360-gira--fora   { animation-duration: var(--giro-fora); }
+.b360-gira--dentro { animation-duration: var(--giro-dentro); animation-direction: reverse; }
+
+@keyframes b360-gira { to { transform: rotate(360deg); } }
+
+/* ---------------------------------------------------------------- esfera */
+
+.b360-nucleo {
+  position: absolute;
+  left: 46.43%; top: 49.27%;          /* centro da órbita, medido no Figma */
+  width: 23.04%;                       /* 259 de 1124 */
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.b360-nucleo img {
+  width: 100%; height: 100%;
+  display: block;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 40px rgba(90,150,220,.35));
+}
+
+.b360-nucleo:empty, .b360-nucleo img:not([src]) { display: none; }
+
+/* ----------------------------------------------------------------- boxes */
+
+.b360-cartoes {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.b360-orbita > .b360-cartoes {                 /* sobrepõe o palco */
+  position: absolute;
+  left: 50%; top: 40px;
+  width: 100%; max-width: 1124px;
+  height: calc(100% - 80px);
+  transform: translateX(-50%);
+  container-type: inline-size;
+}
+
+.b360-cartao {
+  position: absolute;
+  left: var(--x); top: var(--y); width: var(--w);
+  box-sizing: border-box;
+  padding: 2.3cqw 2.7cqw;
+  border-radius: 1.25cqw;
+  border: 1px solid rgba(255,255,255,.09);
+  background:
+    linear-gradient(150deg, rgba(255,255,255,.055), rgba(255,255,255,.012) 60%),
+    rgba(10,12,16,.62);
+  box-shadow: 0 18px 40px rgba(0,0,0,.45);
+  pointer-events: auto;
+}
+
+.b360-cartao b {
+  display: block;
+  color: var(--azul);
+  font-size: 1.07cqw;
+  font-weight: 700;
+  letter-spacing: .12em;
+  margin-bottom: .9cqw;
+}
+
+.b360-cartao h3 {
+  margin: 0 0 .7cqw;
+  color: #fff;
+  font-size: 1.72cqw;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+
+.b360-cartao p {
+  margin: 0;
+  color: rgba(255,255,255,.55);
+  font-size: 1.16cqw;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.b360-orbita, .b360-cartao {
+  font-family: "Cutta", "Gotham", "Archivo", system-ui, -apple-system, sans-serif;
+}
+
+/* ------------------------------------------------------------- responsivo */
+/* Abaixo de 900px a órbita não comporta os boxes em volta: a órbita fica em
+   cima e os quatro boxes viram uma lista. */
+
+@media (max-width: 900px) {
+  /* Largura do palco. Tudo no celular é medido a partir dela — inclusive o
+     quanto os boxes sobem — para a conta não depender da largura do pai,
+     que é o que a porcentagem de margem usaria.                          */
+  .b360-orbita { --palco-l: min(100vw - 32px, 460px); padding: 24px 16px 32px; }
+
+  /* o palco vira quadrado para a órbita não ficar espremida; a cena inteira
+     (luzes, anéis e esfera) é ampliada junto, para as proporções do Figma
+     não se perderem, e deslocada 3.57% para a direita, que é o quanto a
+     órbita é descentralizada no Figma — no celular ela fica no meio */
+  .b360-palco {
+    width: var(--palco-l);
+    max-width: 100%;
+    aspect-ratio: 1;
+    overflow: visible;
+  }
+
+  .b360-cena { transform: translateX(4.78%) scale(1.34); }   /* 3.57% x 1.34 */
+
+  /* o véu largo cansa a vista nesse tamanho; fica só o miolo da luz */
+  .b360-orbita::before { opacity: .45; }
+
+  /* Os boxes sobem por cima dos anéis — mas não da esfera.
+     A esfera ocupa 23.04% do palco e a cena está ampliada 1.34x, então ela
+     termina em 50% + (23.04% x 1.34) / 2 = 65.4% da altura do palco. Com
+     --aproxima em .28 os boxes começam em 72%: em cima dos anéis, com folga
+     da esfera. Suba o número para aproximar mais.                        */
+  .b360-orbita > .b360-cartoes {
+    position: relative;
+    left: auto; top: auto;      /* desfaz o posicionamento do desktop */
+    z-index: 3;
+    transform: none;
+    height: auto;
+    width: var(--palco-l);
+    max-width: 100%;
+    margin: calc(var(--aproxima) * -1 * var(--palco-l)) auto 0;
+    display: grid;
+    gap: 12px;
+    container-type: normal;
+  }
+
+  .b360-cartao {
+    position: static;
+    width: auto;
+    padding: 16px 18px;
+    border-radius: 14px;
+    background:
+      linear-gradient(150deg, rgba(255,255,255,.06), rgba(255,255,255,.015) 60%),
+      rgba(10,12,16,.80);          /* mais opaco: os anéis passam por trás */
+  }
+
+  .b360-cartao b  { font-size: 11px; margin-bottom: 8px; }
+  .b360-cartao h3 { font-size: 17px; margin-bottom: 5px; }
+  .b360-cartao p  { font-size: 13px; }
+}
+
+/* telas bem estreitas: a órbita encolhe junto */
+@media (max-width: 420px) {
+  .b360-orbita { --palco-l: min(100vw - 32px, 360px); --aproxima: .30; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .b360-gira { animation: none; }
+}
+</style>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ------------------------------------------------------------- imagens */
+
+  /* A esfera do meio vai embutida logo abaixo, então não depende de upload.
+     A imagem do container de trás é a que você vai subir: ponha a URL aqui.
+     Enquanto estiver "", esse container simplesmente não aparece.        */
+
+  var TRASEIRA = "";
+
+  var ESFERA = "data:image/webp;base64,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";
+
+  var raiz = document.getElementById("b360-orbita");
+  if (!raiz) return;
+
+  var esfera = document.getElementById("b360-esfera");
+  if (ESFERA) esfera.src = ESFERA; else esfera.remove();
+
+  var tras = document.getElementById("b360-traseira");
+  if (TRASEIRA) tras.style.backgroundImage = 'url("' + TRASEIRA + '")';
+  else tras.remove();
+
+  /* ----------------------------------------------------- pausa fora da tela
+     A animação é do CSS; aqui só evitamos girar o que ninguém está vendo. */
+
+  function corre(sim) {
+    var estado = sim ? "running" : "paused";
+    Array.prototype.forEach.call(raiz.querySelectorAll(".b360-gira"),
+      function (g) { g.style.animationPlayState = estado; });
+  }
+
+  if (window.IntersectionObserver) {
+    new IntersectionObserver(function (e) { corre(e[0].isIntersecting); },
+      { threshold: 0 }).observe(raiz);
+  }
+
+  document.addEventListener("visibilitychange", function () {
+    corre(!document.hidden);
+  });
+})();
+</script>

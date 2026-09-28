@@ -1,0 +1,133 @@
+/* ==========================================================================
+   BLACK 360 · luz de fundo para containers
+   Reprodução do nó 291-2571 do Figma.
+
+   Como usar no Elementor
+   ----------------------
+   1. Cole este arquivo em Elementor > Configurações > CSS personalizado
+      (ou no CSS do tema / filho).
+   2. No container, aba Avançado > CSS classes, escreva:  b360-luz
+   3. Ainda no container, aba Avançado:
+        Posição        -> Relativo
+        Overflow       -> Oculto        (senão a luz vaza para fora)
+      e um fundo escuro, senão não há o que iluminar.
+
+   Para variar, some uma segunda classe: b360-luz--topo, --centro, --canto,
+   --dupla. Sem nenhuma delas, o padrão é a do Figma (luz no topo).
+   ========================================================================== */
+
+.b360-luz {
+  /* --------------------------------------------------- ajuste por aqui */
+  --luz-cor:    #8fb6e4;   /* cor da luz */
+  --luz-nucleo: #dce7f5;   /* o ponto mais claro, no centro */
+  --luz-forca:  1;         /* 0 a 1 — opacidade geral */
+  --luz-l:      125%;      /* largura da mancha */
+  --luz-a:      185%;      /* altura da mancha */
+  --luz-x:      50%;       /* posição horizontal do centro */
+  --luz-y:      4%;        /* posição vertical do centro */
+
+  position: relative;
+  isolation: isolate;      /* mantém a luz presa neste container */
+  overflow: hidden;
+}
+
+/* A luz é um gradiente radial, não um círculo com filter: blur().
+   Dá o mesmo resultado, não custa uma camada de composição por seção e não
+   engasga ao rolar no celular — blur(180px) é caro. */
+.b360-luz::before {
+  content: "";
+  position: absolute;
+  left: var(--luz-x);
+  top: var(--luz-y);
+  width: var(--luz-l);
+  height: var(--luz-a);
+  transform: translate(-50%, -50%);
+  opacity: var(--luz-forca);
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 50% 50% at 50% 50%,
+      var(--luz-nucleo)                                    0%,
+      color-mix(in srgb, var(--luz-cor) 70%, transparent) 14%,
+      color-mix(in srgb, var(--luz-cor) 40%, transparent) 26%,
+      color-mix(in srgb, var(--luz-cor) 20%, transparent) 40%,
+      color-mix(in srgb, var(--luz-cor)  9%, transparent) 56%,
+      color-mix(in srgb, var(--luz-cor)  3%, transparent) 74%,
+      transparent                                        100%);
+}
+
+/* Navegadores sem color-mix (Safari < 16.2) caem nesta versão, um pouco
+   menos macia mas com a mesma aparência. */
+@supports not (background: color-mix(in srgb, red 50%, transparent)) {
+  .b360-luz::before {
+    background:
+      radial-gradient(ellipse 50% 50% at 50% 50%,
+        var(--luz-nucleo)          0%,
+        rgba(143, 182, 228, .70)  14%,
+        rgba(143, 182, 228, .40)  26%,
+        rgba(143, 182, 228, .20)  40%,
+        rgba(143, 182, 228, .09)  56%,
+        rgba(143, 182, 228, .03)  74%,
+        transparent              100%);
+  }
+}
+
+/* O conteúdo precisa ficar por cima da luz. */
+.b360-luz > *,
+.b360-luz > .e-con-inner { position: relative; z-index: 1; }
+
+/* ------------------------------------------------------------- variações */
+
+/* como no Figma: luz nascendo na borda de cima */
+.b360-luz--topo   { --luz-x: 50%; --luz-y: 4%;  --luz-l: 125%; --luz-a: 185%; }
+
+/* halo no meio do container */
+.b360-luz--centro { --luz-x: 50%; --luz-y: 50%; --luz-l: 110%; --luz-a: 200%; --luz-forca: .85; }
+
+/* luz vindo de um canto */
+.b360-luz--canto  { --luz-x: 10%; --luz-y: 6%;  --luz-l: 100%; --luz-a: 230%; --luz-forca: .8; }
+
+/* duas luzes: a principal e um contraponto no canto oposto */
+.b360-luz--dupla::after {
+  content: "";
+  position: absolute;
+  right: -10%;
+  bottom: -30%;
+  width: 70%;
+  height: 120%;
+  opacity: calc(var(--luz-forca) * .45);
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 50% 50% at 50% 50%,
+      var(--luz-cor)  0%,
+      color-mix(in srgb, var(--luz-cor) 30%, transparent) 40%,
+      transparent 72%);
+}
+
+/* ---------------------------------------------------------------- opções */
+
+/* luz mais discreta / mais forte */
+.b360-luz--suave  { --luz-forca: .55; }
+.b360-luz--forte  { --luz-forca: 1;   --luz-nucleo: #ffffff; }
+
+/* outras cores da marca */
+.b360-luz--azul   { --luz-cor: #3b9ae8; --luz-nucleo: #cfe4f8; }
+.b360-luz--gelo   { --luz-cor: #8fb6e4; --luz-nucleo: #dce7f5; }
+.b360-luz--verde  { --luz-cor: #2f9e5e; --luz-nucleo: #cdeadb; }
+.b360-luz--roxo   { --luz-cor: #6f5ae0; --luz-nucleo: #ddd6f8; }
+
+/* ------------------------------------------------------------ responsivo */
+
+@media (max-width: 767px) {
+  .b360-luz { --luz-l: 210%; --luz-a: 130%; }  /* no estreito a luz precisa ser bem mais larga */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* respiro lento, opcional: acrescente a classe b360-luz--pulsa */
+  .b360-luz--pulsa::before { animation: b360-respira 9s ease-in-out infinite; }
+  @keyframes b360-respira {
+    0%, 100% { opacity: var(--luz-forca); transform: translate(-50%, -50%) scale(1); }
+    50%      { opacity: calc(var(--luz-forca) * .78); transform: translate(-50%, -50%) scale(1.08); }
+  }
+}

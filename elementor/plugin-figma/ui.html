@@ -1,0 +1,251 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font: 13px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif;
+    margin: 0; padding: 16px; background: #fff; color: #111;
+  }
+  @media (prefers-color-scheme: dark) { body { background: #2c2c2c; color: #eee; } }
+  h1 { font-size: 14px; margin: 0 0 12px; }
+  .linha { display: flex; justify-content: space-between; padding: 3px 0; }
+  .linha span:last-child { font-variant-numeric: tabular-nums; font-weight: 600; }
+  button {
+    width: 100%; padding: 10px; margin-top: 10px; border: 0; border-radius: 6px;
+    background: #0d99ff; color: #fff; font-size: 13px; font-weight: 600; cursor: pointer;
+  }
+  button.secundario { background: #444; }
+  @media (prefers-color-scheme: light) { button.secundario { background: #e0e0e0; color: #111; } }
+  button:disabled { opacity: .5; cursor: default; }
+  .barra { height: 4px; background: #0002; border-radius: 2px; margin-top: 8px; overflow: hidden; }
+  .barra i { display: block; height: 100%; width: 0; background: #0d99ff; transition: width .2s; }
+  details { margin-top: 14px; }
+  summary { cursor: pointer; opacity: .75; }
+  ul { margin: 8px 0 0; padding-left: 18px; }
+  li { margin-bottom: 4px; opacity: .8; }
+  .erro { color: #d93025; white-space: pre-wrap; }
+  .aguarde { opacity: .6; }
+  .nota { opacity: .6; font-size: 11px; margin-top: 6px; }
+</style>
+
+<h1>Figma → Elementor</h1>
+<div id="corpo"><p class="aguarde">Lendo o arquivo…</p></div>
+
+<script>
+/* ---------------------------------------------------------------- estado */
+
+let jsonTexto = null, nomeJson = "template.json";
+const imagens = [];           // { nome, bytes: Uint8Array }
+let totalImagens = 0, imagensProntas = false;
+
+/* ------------------------------------------------------------ zip (store) */
+/* PNG já vem comprimido, então o zip é só empacotamento — método 0 (store).
+   Evita depender de biblioteca externa dentro do iframe do plugin.        */
+
+const TABELA_CRC = (() => {
+  const t = new Uint32Array(256);
+  for (let n = 0; n < 256; n++) {
+    let c = n;
+    for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1;
+    t[n] = c >>> 0;
+  }
+  return t;
+})();
+
+function crc32(buf) {
+  let c = 0xffffffff;
+  for (let i = 0; i < buf.length; i++) c = TABELA_CRC[(c ^ buf[i]) & 0xff] ^ (c >>> 8);
+  return (c ^ 0xffffffff) >>> 0;
+}
+
+function escreve(arr, pos, valor, bytes) {
+  for (let i = 0; i < bytes; i++) arr[pos + i] = (valor >>> (i * 8)) & 0xff;
+}
+
+function montaZip(entradas) {
+  // Monta o zip como uma lista de pedaços e deixa o Blob juntar. Alocar um
+  // Uint8Array com o total estoura a memória do iframe com 100+ imagens.
+  const cod = new TextEncoder();
+  const pedacos = [];
+  const centrais = [];
+  let desloc = 0, tamCentral = 0;
+
+  for (const e of entradas) {
+    const nome = cod.encode(e.nome);
+    const cab = new Uint8Array(30 + nome.length);
+    escreve(cab, 0, 0x04034b50, 4);
+    escreve(cab, 4, 20, 2);
+    escreve(cab, 6, 0, 2);
+    escreve(cab, 8, 0, 2);      // método: store
+    escreve(cab, 10, 0, 2);
+    escreve(cab, 12, 0, 2);
+    escreve(cab, 14, e.crc, 4);
+    escreve(cab, 18, e.bytes.length, 4);
+    escreve(cab, 22, e.bytes.length, 4);
+    escreve(cab, 26, nome.length, 2);
+    escreve(cab, 28, 0, 2);
+    cab.set(nome, 30);
+
+    pedacos.push(cab, e.bytes);
+
+    const c = new Uint8Array(46 + nome.length);
+    escreve(c, 0, 0x02014b50, 4);
+    escreve(c, 4, 20, 2);
+    escreve(c, 6, 20, 2);
+    escreve(c, 8, 0, 2);
+    escreve(c, 10, 0, 2);
+    escreve(c, 12, 0, 2);
+    escreve(c, 14, 0, 2);
+    escreve(c, 16, e.crc, 4);
+    escreve(c, 20, e.bytes.length, 4);
+    escreve(c, 24, e.bytes.length, 4);
+    escreve(c, 28, nome.length, 2);
+    escreve(c, 42, desloc, 4);
+    c.set(nome, 46);
+    centrais.push(c);
+    tamCentral += c.length;
+
+    desloc += cab.length + e.bytes.length;
+  }
+
+  const fim = new Uint8Array(22);
+  escreve(fim, 0, 0x06054b50, 4);
+  escreve(fim, 8, entradas.length, 2);
+  escreve(fim, 10, entradas.length, 2);
+  escreve(fim, 12, tamCentral, 4);
+  escreve(fim, 16, desloc, 4);
+
+  return new Blob(pedacos.concat(centrais, [fim]), { type: "application/zip" });
+}
+
+function baixar(conteudo, nome, tipo) {
+  const blob = conteudo instanceof Blob ? conteudo : new Blob([conteudo], { type: tipo });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = nome;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+}
+
+/* ----------------------------------------------------------------- tela */
+
+function texto(el, t) { el.textContent = t; return el; }
+
+function desenha(m) {
+  const corpo = document.getElementById("corpo");
+  const r = m.resumo;
+  const linha = (a, b) => '<div class="linha"><span>' + a + '</span><span>' + b + '</span></div>';
+
+  corpo.innerHTML =
+    linha("Modo", r.modo) +
+    linha("Seções", r.secoes) +
+    linha("Containers", r.containers) +
+    linha("Widgets", r.widgets) +
+    linha("Imagens", r.imagens) +
+    linha("JSON", (r.tamanhoJSON / 1024).toFixed(0) + " KB") +
+    '<button id="bJson">Baixar ' + nomeJson + '</button>' +
+    (m.totalImagens
+      ? '<button id="bImg" class="secundario" disabled>Exportando imagens… 0/' + m.totalImagens + '</button>' +
+        '<div class="barra"><i id="prog"></i></div>' +
+        '<p class="nota">Descompacte em <code>wp-content/uploads/black360/</code></p>'
+      : '') +
+    '<details id="avisos"><summary></summary><ul></ul></details>';
+
+  document.getElementById("bJson").onclick =
+    () => baixar(jsonTexto, nomeJson, "application/json");
+
+  mostraAvisos(m.avisos || []);
+}
+
+function mostraAvisos(lista) {
+  const d = document.getElementById("avisos");
+  if (!d) return;
+  if (!lista.length) { d.style.display = "none"; return; }
+  d.style.display = "";
+  texto(d.querySelector("summary"), lista.length + " aviso(s)");
+  const ul = d.querySelector("ul");
+  ul.innerHTML = "";
+  for (const a of lista) ul.appendChild(texto(document.createElement("li"), a));
+}
+
+onmessage = (evento) => {
+  try { trata(evento.data.pluginMessage); }
+  catch (e) {
+    const corpo = document.getElementById("corpo");
+    const p = document.createElement("p");
+    p.className = "erro";
+    p.textContent = "Erro na interface: " + ((e && e.message) || e);
+    corpo.appendChild(p);
+  }
+};
+
+function trata(m) {
+  if (!m) return;
+
+  if (m.ok === false) {
+    const corpo = document.getElementById("corpo");
+    corpo.innerHTML = '<p class="erro"></p>';
+    texto(corpo.querySelector(".erro"), "Erro: " + m.erro);
+    return;
+  }
+
+  if (m.tipo === "pronto") {
+    jsonTexto = m.json;
+    nomeJson = m.arquivo;
+    totalImagens = m.totalImagens || 0;
+    desenha(m);
+    return;
+  }
+
+  if (m.tipo === "imagem") {
+    imagens.push({ nome: m.nome, bytes: new Uint8Array(m.bytes) });
+    const b = document.getElementById("bImg");
+    const p = document.getElementById("prog");
+    if (b) b.textContent = "Exportando imagens… " + m.feitas + "/" + m.total;
+    if (p) p.style.width = (m.feitas / m.total * 100) + "%";
+    return;
+  }
+
+  if (m.tipo === "imagens-fim") {
+    imagensProntas = true;
+    mostraAvisos(m.avisos || []);
+    const b = document.getElementById("bImg");
+    if (!b) return;
+
+    if (!imagens.length) {
+      b.textContent = "Nenhuma imagem exportada";
+      return;
+    }
+
+    try {
+      b.textContent = "Montando o zip…";
+      const entradas = imagens.map((i) => ({ nome: i.nome, bytes: i.bytes, crc: crc32(i.bytes) }));
+      const zip = montaZip(entradas);
+      const mb = (zip.size / 1048576).toFixed(1);
+
+      b.disabled = false;
+      b.className = "";
+      b.textContent = "Baixar " + imagens.length + " imagens (" + mb + " MB)" +
+                      (m.erros ? " · " + m.erros + " falharam" : "");
+      b.onclick = () => baixar(zip, "imagens-black360.zip", "application/zip");
+    } catch (e) {
+      b.className = "";
+      b.textContent = "Zip falhou — baixar uma a uma";
+      b.disabled = false;
+      b.onclick = () => {
+        // plano B: sem zip, salva cada arquivo. O navegador pergunta uma vez.
+        let i = 0;
+        const proximo = () => {
+          if (i >= imagens.length) return;
+          const img = imagens[i++];
+          baixar(img.bytes, img.nome, "image/png");
+          setTimeout(proximo, 250);
+        };
+        proximo();
+      };
+      mostraAvisos([("Erro ao montar o zip: " + ((e && e.message) || e)),
+                    "Use o botão para baixar as imagens uma a uma."]);
+    }
+  }
+}
+</script>

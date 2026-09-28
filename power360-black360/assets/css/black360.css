@@ -1,0 +1,1022 @@
+/**
+ * Power 360 - Landing Black 360
+ * Tokens e medidas extraidos do Figma (node 203:4138).
+ */
+
+.b360 {
+	--b360-bg: #111;
+	--b360-bg-soft: #0d0b11;
+	--b360-bg-card: #080808;
+	--b360-navy: #162b44;
+	--b360-off-white: #f2edeb;
+	--b360-blue: #488bd1;
+	--b360-blue-light: #b0d0f0;
+	--b360-border: rgba(255, 255, 255, 0.6);
+
+	--b360-font-title: "Cutta", "Herokid", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	--b360-font-text: "Gotham", "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+	--b360-grad-text: linear-gradient(186deg, #b0d0f0 15.255%, #488bd1 85.853%);
+	--b360-grad-card-a: linear-gradient(190deg, rgba(72, 139, 209, 0.2) 15.255%, rgba(17, 17, 17, 0) 85.853%);
+	--b360-grad-card-b: linear-gradient(201deg, rgba(17, 17, 17, 0) 15.255%, rgba(72, 139, 209, 0.6) 85.853%);
+	--b360-grad-btn: linear-gradient(187deg, #488bd1 15.255%, #111 85.853%);
+	--b360-grad-icon: linear-gradient(216deg, #488bd1 15.255%, rgba(17, 17, 17, 0) 85.853%);
+
+	background: var(--b360-bg);
+	color: #fff;
+	font-family: var(--b360-font-text);
+	font-size: 16px;
+	line-height: 1.3;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+}
+
+.b360 *,
+.b360 *::before,
+.b360 *::after {
+	box-sizing: border-box;
+}
+
+.b360 img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	border: 0;
+}
+
+.b360 p {
+	margin: 0 0 1em;
+}
+
+.b360 p:last-child {
+	margin-bottom: 0;
+}
+
+/* -------------------------------------------------------------------------
+ * Conteiners
+ * ---------------------------------------------------------------------- */
+
+.b360-container {
+	width: 100%;
+	max-width: 1140px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+.b360-container--930 {
+	max-width: 930px;
+}
+
+.b360-container--782 {
+	max-width: 782px;
+}
+
+.b360-container--734 {
+	max-width: 734px;
+}
+
+.b360-container--1140 {
+	max-width: 1140px;
+}
+
+.b360-section {
+	position: relative;
+	padding: 72px 0;
+}
+
+/* -------------------------------------------------------------------------
+ * Tipografia
+ * ---------------------------------------------------------------------- */
+
+.b360-title {
+	font-family: var(--b360-font-title);
+	font-weight: 700;
+	text-align: center;
+	color: #fff;
+	margin: 0;
+	line-height: 1.1;
+}
+
+.b360-title--40 {
+	font-size: 40px;
+	letter-spacing: -0.08em;
+}
+
+.b360-title--54 {
+	font-size: 54px;
+	letter-spacing: -0.08em;
+}
+
+.b360-title span {
+	display: inline;
+}
+
+.b360-grad {
+	background: var(--b360-grad-text);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	-webkit-text-fill-color: transparent;
+}
+
+/* -------------------------------------------------------------------------
+ * Botao / CTA
+ * ---------------------------------------------------------------------- */
+
+.b360-btn {
+	position: relative;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	width: 351px;
+	max-width: 100%;
+	height: 62px;
+	padding: 8px 16px;
+	border: 0.794px solid var(--b360-border);
+	background: var(--b360-grad-btn);
+	box-shadow: inset 0 3.489px 17.398px rgba(98, 153, 209, 0.9);
+	text-decoration: none;
+	overflow: hidden;
+	transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.b360-btn:hover,
+.b360-btn:focus {
+	box-shadow: inset 0 3.489px 22px rgba(98, 153, 209, 1);
+	transform: translateY(-1px);
+	text-decoration: none;
+}
+
+.b360-btn__label {
+	font-family: var(--b360-font-title);
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 1.2;
+	color: #fff;
+	white-space: nowrap;
+}
+
+.b360-cta {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	gap: 15.08px;
+}
+
+.b360-cta__note {
+	margin: 0;
+	font-family: var(--b360-font-title);
+	font-weight: 700;
+	font-size: 12.711px;
+	line-height: 1.3;
+	text-align: center;
+	color: #fff;
+}
+
+.b360-cta-section {
+	padding: 40px 0 72px;
+}
+
+.b360-cta-section .b360-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
+/* -------------------------------------------------------------------------
+ * Hero
+ * ---------------------------------------------------------------------- */
+
+.b360-hero {
+	padding: 20px 0 0;
+}
+
+.b360-hero__box {
+	position: relative;
+	max-width: 1880px;
+	min-height: 1040px;
+	margin: 0 auto;
+	border: 1px solid #0b0c0e;
+	border-radius: 24px;
+	background: var(--b360-bg-soft);
+	overflow: hidden;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.b360-hero__bg {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	pointer-events: none;
+}
+
+.b360-hero__bg-photo {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 62%;
+	height: 100%;
+	background-image: url("../img/adriel-retrato.png");
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-size: contain;
+}
+
+.b360-hero__bg-glow {
+	position: absolute;
+	top: -142px;
+	right: -10%;
+	width: 1439px;
+	height: 1192px;
+	background-image: url("../img/glow-hero.svg");
+	background-repeat: no-repeat;
+	background-size: contain;
+	opacity: 0.9;
+}
+
+.b360-hero__bg-noise {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: url("../img/noise.png");
+	background-size: cover;
+	mix-blend-mode: overlay;
+	opacity: 0.5;
+}
+
+.b360-hero .b360-container {
+	position: relative;
+	z-index: 2;
+	padding-top: 59px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+
+/* Barra superior */
+
+.b360-topbar {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	gap: 20px;
+	height: 86px;
+	padding: 12px 12px 12px 20px;
+	border: 1px solid rgba(228, 232, 243, 0.4);
+	background: rgba(0, 0, 0, 0.2);
+	-webkit-backdrop-filter: blur(4px);
+	backdrop-filter: blur(4px);
+}
+
+.b360-brand {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	gap: 12px;
+}
+
+.b360-brand__avatar {
+	display: block;
+	width: 58px;
+	height: 58px;
+	border-radius: 50%;
+	background: #1c2433 url("../img/logo-avatar.png") center / cover no-repeat;
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+}
+
+.b360-brand__text {
+	display: block;
+	color: var(--b360-off-white);
+}
+
+.b360-brand__line--top {
+	display: block;
+	font-family: var(--b360-font-title);
+	font-weight: 700;
+	font-size: 16.259px;
+	letter-spacing: -0.05em;
+}
+
+.b360-brand__line--main {
+	display: block;
+	font-size: 22px;
+	letter-spacing: -0.06em;
+	line-height: 1;
+}
+
+.b360-brand__black {
+	font-weight: 200;
+}
+
+.b360-brand__360 {
+	font-weight: 400;
+}
+
+/* Conteudo do hero */
+
+.b360-hero__content {
+	max-width: 690px;
+	margin: 0;
+	padding: 200px 0 120px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+	gap: 32px;
+}
+
+.b360-hero__title {
+	margin: 0;
+	font-family: var(--b360-font-title);
+	font-weight: 700;
+	font-size: 50px;
+	line-height: 1.1;
+	letter-spacing: -0.08em;
+	color: #fff;
+}
+
+.b360-hero__text {
+	margin: 0;
+	font-size: 24px;
+	line-height: 1.3;
+	font-weight: 300;
+	color: #fff;
+}
+
+.b360-hero__text strong {
+	font-weight: 700;
+}
+
+/* -------------------------------------------------------------------------
+ * Pilares
+ * ---------------------------------------------------------------------- */
+
+.b360-pilares .b360-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	gap: 58px;
+}
+
+.b360-grid {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	gap: 10px;
+	width: 100%;
+}
+
+.b360-pilar {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	gap: 24px;
+	-webkit-box-flex: 1;
+	-ms-flex: 1 1 calc(50% - 5px);
+	flex: 1 1 calc(50% - 5px);
+	min-width: 320px;
+	max-width: 460px;
+	min-height: 112px;
+	padding: 24px 48px 24px 32px;
+	border: 1px solid var(--b360-border);
+	background: var(--b360-grad-card-a);
+	overflow: hidden;
+}
+
+.b360-pilar__icon {
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+	padding: 16px;
+	background: var(--b360-grad-icon);
+	line-height: 0;
+}
+
+.b360-pilar__icon img {
+	width: 32px;
+	height: 32px;
+}
+
+.b360-pilar__text {
+	margin: 0;
+	font-size: 20px;
+	line-height: 1.2;
+	letter-spacing: -0.04em;
+	color: var(--b360-off-white);
+}
+
+/* -------------------------------------------------------------------------
+ * Voce recebe / cards de treinamento
+ * ---------------------------------------------------------------------- */
+
+.b360-recebe__header {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	gap: 18px;
+	margin-bottom: 18px;
+}
+
+.b360-recebe__lead {
+	margin: 0;
+	font-size: 24px;
+	line-height: 1.3;
+	font-weight: 300;
+	text-align: center;
+	color: #fff;
+}
+
+.b360-recebe__lead strong {
+	font-weight: 700;
+}
+
+.b360-cards {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	gap: 18px;
+}
+
+.b360-card {
+	padding: 11px 10px;
+	border: 1px solid var(--b360-border);
+	background: var(--b360-bg-card);
+	overflow: hidden;
+}
+
+.b360-card + .b360-card,
+.b360-cards + .b360-card {
+	margin-top: 18px;
+}
+
+.b360-card__inner {
+	position: relative;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	gap: 32px;
+	padding: 22px;
+	border: 0.788px solid var(--b360-border);
+	box-shadow: 0 7px 3.5px rgba(0, 0, 0, 0.45);
+	overflow: hidden;
+}
+
+.b360-card--a .b360-card__inner {
+	background: var(--b360-grad-card-a);
+}
+
+.b360-card--b .b360-card__inner {
+	background: var(--b360-grad-card-b);
+}
+
+.b360-card__media {
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+	width: 248px;
+	height: 358px;
+	border: 1px solid var(--b360-border);
+	overflow: hidden;
+}
+
+.b360-card__media img {
+	width: 100%;
+	height: 100%;
+	-o-object-fit: cover;
+	object-fit: cover;
+}
+
+.b360-card__body {
+	position: relative;
+	z-index: 2;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+	gap: 12px;
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	min-width: 0;
+}
+
+.b360-badge {
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	min-width: 65px;
+	height: 24.6px;
+	padding: 0 12px;
+	border: 0.3px solid var(--b360-blue-light);
+	background: linear-gradient(195deg, #488bd1 15.255%, rgba(17, 17, 17, 0) 85.853%);
+	font-size: 16px;
+	line-height: 1.3;
+	color: var(--b360-off-white);
+	white-space: nowrap;
+}
+
+.b360-card__title {
+	margin: 0;
+	font-family: var(--b360-font-title);
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 1.3;
+	color: var(--b360-blue-light);
+}
+
+.b360-card__text {
+	margin-top: 12px;
+	font-size: 16px;
+	line-height: 1.3;
+	color: var(--b360-off-white);
+}
+
+.b360-card__text p {
+	margin: 0 0 1.3em;
+}
+
+.b360-card__text p:last-child {
+	margin-bottom: 0;
+}
+
+.b360-card__text strong {
+	font-weight: 700;
+}
+
+/* Bonus: conteudo velado por um overlay borrado */
+
+.b360-card--bonus .b360-card__inner {
+	min-height: 400px;
+}
+
+.b360-card__veil {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	background: rgba(0, 0, 0, 0.6);
+	-webkit-backdrop-filter: blur(7.6px);
+	backdrop-filter: blur(7.6px);
+}
+
+/* -------------------------------------------------------------------------
+ * Carrossel de marcas
+ * ---------------------------------------------------------------------- */
+
+.b360-marcas .b360-title {
+	margin-bottom: 48px;
+}
+
+.b360-carousel {
+	position: relative;
+	overflow: hidden;
+	padding: 38.844px 0;
+}
+
+.b360-carousel::before,
+.b360-carousel::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 22%;
+	z-index: 2;
+	pointer-events: none;
+}
+
+.b360-carousel::before {
+	left: 0;
+	background: linear-gradient(to right, #111, rgba(17, 17, 17, 0));
+}
+
+.b360-carousel::after {
+	right: 0;
+	background: linear-gradient(to left, #111, rgba(17, 17, 17, 0));
+}
+
+.b360-carousel__track {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	gap: 52px;
+	width: -webkit-max-content;
+	width: -moz-max-content;
+	width: max-content;
+	-webkit-animation: b360-marquee 60s linear infinite;
+	animation: b360-marquee 60s linear infinite;
+}
+
+.b360-carousel:hover .b360-carousel__track {
+	-webkit-animation-play-state: paused;
+	animation-play-state: paused;
+}
+
+.b360-carousel__item {
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+	height: 74.311px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	opacity: 0.85;
+}
+
+.b360-carousel__item img {
+	max-height: 74.311px;
+	width: auto;
+}
+
+@-webkit-keyframes b360-marquee {
+	from { -webkit-transform: translateX(0); transform: translateX(0); }
+	to { -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+}
+
+@keyframes b360-marquee {
+	from { transform: translateX(0); }
+	to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.b360-carousel__track {
+		-webkit-animation: none;
+		animation: none;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		width: 100%;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Quem e o Adriel
+ * ---------------------------------------------------------------------- */
+
+.b360-adriel {
+	position: relative;
+	padding: 95px 0 120px;
+}
+
+.b360-adriel__bg {
+	position: absolute;
+	top: -199px;
+	right: 0;
+	left: 0;
+	height: 1070px;
+	background: url("../img/adriel-bg.png") center / cover no-repeat;
+	z-index: 0;
+}
+
+.b360-adriel__bg::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: linear-gradient(to bottom, #111 37.71%, rgba(17, 17, 17, 0));
+}
+
+.b360-adriel .b360-container {
+	position: relative;
+	z-index: 1;
+}
+
+.b360-adriel__box {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
+	min-height: 600px;
+	background: #fff;
+	box-shadow: 0 4px 23px 9px rgba(0, 0, 0, 0.55);
+	overflow: hidden;
+}
+
+.b360-adriel__content {
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	min-width: 0;
+	padding: 98px 41px 98px 51px;
+	color: var(--b360-navy);
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	gap: 32px;
+}
+
+.b360-adriel__title {
+	margin: 0;
+	font-family: var(--b360-font-title);
+	font-weight: 700;
+	font-size: 40px;
+	line-height: 1.1;
+	letter-spacing: -0.08em;
+	color: var(--b360-navy);
+}
+
+.b360-adriel__text {
+	font-size: 16px;
+	line-height: 1.3;
+	color: var(--b360-navy);
+}
+
+.b360-adriel__media {
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+	width: 430px;
+	margin: 56px 40px 56px 0;
+	background: var(--b360-navy);
+	overflow: hidden;
+	position: relative;
+}
+
+.b360-adriel__media img {
+	width: 100%;
+	height: 100%;
+	-o-object-fit: cover;
+	object-fit: cover;
+	-o-object-position: center top;
+	object-position: center top;
+}
+
+/* -------------------------------------------------------------------------
+ * Footer
+ * ---------------------------------------------------------------------- */
+
+.b360-footer {
+	background: #0a0a0a;
+	padding: 64px 0;
+}
+
+.b360-footer__row {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	gap: 24px;
+}
+
+.b360-footer__logo {
+	width: 128px;
+	height: auto;
+}
+
+.b360-footer__text {
+	margin: 0;
+	font-size: 14px;
+	line-height: 1.1;
+	font-weight: 300;
+	letter-spacing: -0.08em;
+	color: #fff;
+}
+
+/* -------------------------------------------------------------------------
+ * Responsivo
+ * ---------------------------------------------------------------------- */
+
+@media (max-width: 1180px) {
+	.b360-hero__box {
+		min-height: 0;
+	}
+
+	.b360-hero__content {
+		padding: 140px 0 80px;
+	}
+
+	.b360-hero__bg-photo {
+		opacity: 0.45;
+	}
+}
+
+@media (max-width: 960px) {
+	.b360-section {
+		padding: 48px 0;
+	}
+
+	.b360-hero__title {
+		font-size: 38px;
+	}
+
+	.b360-hero__text,
+	.b360-recebe__lead {
+		font-size: 19px;
+	}
+
+	.b360-title--54 {
+		font-size: 40px;
+	}
+
+	.b360-title--40 {
+		font-size: 30px;
+	}
+
+	.b360-card__inner {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-webkit-box-align: start;
+		-ms-flex-align: start;
+		align-items: flex-start;
+		gap: 24px;
+	}
+
+	.b360-card__media {
+		width: 100%;
+		max-width: 320px;
+		height: auto;
+		-ms-flex-item-align: center;
+		align-self: center;
+	}
+
+	.b360-card__media img {
+		height: auto;
+	}
+
+	.b360-card__title {
+		font-size: 26px;
+	}
+
+	.b360-adriel__box {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: reverse;
+		-ms-flex-direction: column-reverse;
+		flex-direction: column-reverse;
+	}
+
+	.b360-adriel__media {
+		width: auto;
+		height: 360px;
+		margin: 24px 24px 0;
+	}
+
+	.b360-adriel__content {
+		padding: 40px 24px 48px;
+	}
+}
+
+@media (max-width: 720px) {
+	.b360-topbar {
+		height: auto;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-webkit-box-align: stretch;
+		-ms-flex-align: stretch;
+		align-items: stretch;
+		gap: 16px;
+		padding: 16px;
+	}
+
+	.b360-topbar .b360-btn {
+		width: 100%;
+	}
+
+	.b360-hero__content {
+		padding: 80px 0 56px;
+	}
+
+	.b360-hero__title {
+		font-size: 30px;
+	}
+
+	.b360-pilar {
+		-ms-flex: 1 1 100%;
+		flex: 1 1 100%;
+		padding: 20px;
+		gap: 16px;
+	}
+
+	.b360-pilar__text {
+		font-size: 17px;
+	}
+
+	.b360-footer__row {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		text-align: center;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Template de pagina dedicado
+ * ---------------------------------------------------------------------- */
+
+body.b360-page {
+	margin: 0;
+	padding: 0;
+	background: #111;
+}
