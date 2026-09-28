@@ -3,4 +3,5 @@ elementor/*.zip
 
 # entregáveis gerados (imagens recomprimidas)
 *-otimizados.zip
+*-otimizadas.zip
 *-black360.zip
